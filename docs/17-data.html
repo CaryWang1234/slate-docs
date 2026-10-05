@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>数据、备份与存储 · SLATE 文档</title>
+<meta name="description" content="数据都在本机，学会备份、恢复与清理存储空间">
+<link rel="icon" href="./assets/icon.png">
+<script>
+  try {
+    var saved = localStorage.getItem('slate-docs-theme');
+    if (saved) document.documentElement.setAttribute('data-theme', saved);
+  } catch (e) {}
+</script>
+<link rel="stylesheet" href="./assets/docs.css">
+</head>
+<body data-page="17-data">
+
+<a class="skip-link" href="#main">跳到正文</a>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <button class="icon-btn menu-btn" type="button" data-menu aria-label="打开导航" aria-expanded="false">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 5h14M3 10h14M3 15h14"/></svg>
+    </button>
+
+    <a class="brand" href="./index.html">
+      <img class="brand-logo" src="./assets/icon.png" alt="">
+      <span class="brand-name">SLATE</span>
+      <span class="brand-sub">文档</span>
+    </a>
+
+    <button class="search-trigger" type="button" data-search-open>
+      <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="5.5"/><path d="M13.2 13.2 17 17"/></svg>
+      <span>搜索文档</span>
+      <kbd>Ctrl K</kbd>
+    </button>
+
+    <nav class="topbar-links">
+      <a href="https://slate-ai.site/" target="_blank" rel="noopener">官网</a>
+      <a href="https://slate-ai.site/guide.html" target="_blank" rel="noopener">使用教程</a>
+      <a href="https://github.com/CaryWang1234/SLATE" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+
+    <button class="icon-btn theme-btn" type="button" data-theme-toggle aria-label="切换明暗主题">
+      <svg class="ico-moon" viewBox="0 0 20 20" aria-hidden="true"><path d="M16 12.3A6.6 6.6 0 0 1 7.7 4a6.8 6.8 0 1 0 8.3 8.3Z"/></svg>
+      <svg class="ico-sun" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="3.6"/><path d="M10 2v2.2M10 15.8V18M2 10h2.2M15.8 10H18M4.3 4.3l1.6 1.6M14.1 14.1l1.6 1.6M15.7 4.3l-1.6 1.6M5.9 14.1l-1.6 1.6"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="shell">
+  <div class="scrim" data-scrim hidden></div>
+
+  <aside class="sidebar" data-sidebar aria-label="文档导航">
+    <nav class="sidebar-nav"><div class="nav-group"><div class="nav-group-title">开始使用</div><ul class="nav-list"><li><a class="nav-link" href="./01-what-is-slate.html">认识 SLATE</a></li><li><a class="nav-link" href="./02-install.html">安装与启动</a></li><li><a class="nav-link" href="./03-interface.html">界面总览：页签与三栏工作区</a></li><li><a class="nav-link" href="./04-models.html">模型接入与 API Key</a></li></ul></div><div class="nav-group"><div class="nav-group-title">对话与自动化</div><ul class="nav-list"><li><a class="nav-link" href="./05-chat.html">对话与消息</a></li><li><a class="nav-link" href="./06-autopilot.html">Agent Autopilot 与目标模式</a></li><li><a class="nav-link" href="./07-grind.html">磨墨模式</a></li><li><a class="nav-link" href="./08-tools-skills.html">内置工具与技能</a></li><li><a class="nav-link" href="./09-actions.html">Actions 流程说明书</a></li><li><a class="nav-link" href="./10-experts.html">专家包</a></li></ul></div><div class="nav-group"><div class="nav-group-title">协作与推演</div><ul class="nav-list"><li><a class="nav-link" href="./11-team.html">AI 团队与工作流</a></li><li><a class="nav-link" href="./12-whiteboard.html">白板式逻辑链</a></li><li><a class="nav-link" href="./13-memory-knowledge.html">记忆、画像与知识库</a></li></ul></div><div class="nav-group"><div class="nav-group-title">项目与数据</div><ul class="nav-list"><li><a class="nav-link" href="./14-projects.html">项目、工作区与分项目配置</a></li><li><a class="nav-link" href="./15-prompt-factory.html">提示词工厂</a></li><li><a class="nav-link" href="./16-schedule.html">任务清单与定时任务</a></li><li><a class="nav-link active" href="./17-data.html">数据、备份与存储</a></li></ul></div><div class="nav-group"><div class="nav-group-title">移动与安全</div><ul class="nav-list"><li><a class="nav-link" href="./18-mobile.html">移动端遥控与局域网访问</a></li><li><a class="nav-link" href="./19-settings.html">设置与安全审批</a></li></ul></div><div class="nav-group"><div class="nav-group-title">常见问题</div><ul class="nav-list"><li><a class="nav-link" href="./20-faq.html">常见问题</a></li></ul></div></nav>
+  </aside>
+
+  <main class="main" id="main">
+    <div class="main-inner">
+      <nav class="breadcrumbs" aria-label="面包屑"><a href="./index.html">文档</a><span class="sep">/</span><span>项目与数据</span><span class="sep">/</span><span class="current">数据、备份与存储</span></nav>
+      <article class="prose"><h1 class="doc-title" id="top">数据、备份与存储</h1>
+<p>这一页解决三个问题：你的数据存在哪里、怎么备份与恢复、存储变大了该动哪一项。SLATE 是本地优先的工具，对话、记忆与设置都留在你自己这台机器上，API Key 也只在调用模型时使用。</p>
+<h2 id="你的数据都在自己机器上"><a class="anchor" href="#你的数据都在自己机器上" aria-hidden="true">#</a>你的数据都在自己机器上</h2>
+<p>数据分两层：一层在数据库里，一层在数据目录的文件与文件夹里。你只需要记住「本机数据目录」这个粒度，删除或拷贝时整个目录一起处理。</p>
+<div class="table-wrap"><table><thead><tr><th>存的是什么</th><th>存在哪一层</th><th>说明</th></tr></thead><tbody><tr><td>会话与消息</td><td>本机数据目录 · 数据库</td><td>标题、消息正文、所用模型、Token 用量</td></tr><tr><td>长期记忆与用户画像</td><td>本机数据目录 · 数据库</td><td>自动沉淀的记忆条目，跨会话召回</td></tr><tr><td>提示词素材</td><td>本机数据目录 · 数据库</td><td>提示词工厂沉淀下来的片段</td></tr><tr><td>知识库文档</td><td>本机数据目录 · 数据库</td><td>知识片段与「灵光」归档</td></tr><tr><td>流程说明书 / 专家包 / 自定义技能</td><td>本机数据目录 · 文件与文件夹</td><td>流程说明书是单个文件，专家包与技能各自一个目录</td></tr><tr><td>偏好设置</td><td>本机数据目录 · 配置文件</td><td>主题、模型与密钥、审批模式、各项开关</td></tr><tr><td>备份文件</td><td>本机数据目录 · 备份文件夹</td><td>每次「下载备份」都会再留一份在本机</td></tr></tbody></table></div>
+<div class="callout callout-tip"><div class="callout-head"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.2"/><path d="M10 13.4V9M10 6.6v.6"/><path d="M7.6 12.4h4.8"/></svg><span>想整体搬走</span></div><div class="callout-body"><p>本机数据目录就是你的全部家当。要么用「下载备份」导出一份 JSON，要么直接把整个数据目录拷到新机器上。</p></div></div>
+<h2 id="历史会话管理"><a class="anchor" href="#历史会话管理" aria-hidden="true">#</a>历史会话管理</h2>
+<p>侧栏「任务」列表里，每一条会话都带着自己的信息与操作：</p>
+<ul><li><strong>搜索框</strong>：输入即过滤标题；输入 2 个字符以上还会做内容全文检索，命中后以「内容命中 · N 条」列出会话标题与上下文摘录，点一下直接跳到那场会话。</li><li><strong>悬停按钮</strong>：鼠标移到会话上，右侧出现三个按钮——重命名、导出 Markdown（按钮上标着 <code>MD</code>）、删除（<code>×</code>）。导出会生成一份包含全部问答的 Markdown 文件，文件名带会话标题与日期。</li><li><strong>归档</strong>：会话行的操作里有一颗「归档」，按下去这一场就从「任务」栏离场，消息一条不动。正在生成的那场不能归档（先停下来再收）。归档的会话在「设置 → 会话归档」里逐条恢复或删除——恢复后它重新出现在任务栏，删除会连同消息一起清掉、找不回来。</li><li><strong>排序下拉</strong>：在侧栏头部，可切换最近更新 / 按项目 / 按状态 / 创建时间 / 按用量。</li><li><strong>管理</strong>：侧栏头部的「管理」按钮打开「管理历史会话」弹窗，逐条勾选后可「删除选中」，也可以直接「清空全部」；顶部「全部」勾选框一次选中当前所有会话。</li></ul>
+<p>删除会话、删除消息、清空全部都无法撤销。删除前建议先在「数据备份」里导出一份。</p>
+<h2 id="消息级操作"><a class="anchor" href="#消息级操作" aria-hidden="true">#</a>消息级操作</h2>
+<p>在消息区，每条消息右上角都有一排小按钮：</p>
+<div class="table-wrap"><table><thead><tr><th>按钮</th><th>作用</th><th>适用范围</th></tr></thead><tbody><tr><td>复制</td><td>复制这条消息的正文</td><td>所有消息</td></tr><tr><td>编辑内容</td><td>就地改成输入框，保存后写回并重新渲染</td><td>用户消息</td></tr><tr><td>删除此消息</td><td>从这场会话里移除这一条</td><td>用户消息</td></tr><tr><td>重新生成</td><td>以这条之前的历史重新请求一次回答</td><td>最后一条助手消息</td></tr></tbody></table></div>
+<p>编辑或删除消息只影响这一条，不会动到其他会话。想了解对话本身的用法，见 <a href="./05-chat.html">对话与消息</a>。</p>
+<h2 id="一键备份与恢复"><a class="anchor" href="#一键备份与恢复" aria-hidden="true">#</a>一键备份与恢复</h2>
+<p>一次导出，把「对话、记忆、素材与设置」全部收进一个 JSON 文件。</p>
+<p><strong>备份包含什么</strong></p>
+<ul><li>全部会话与消息、长期记忆、提示词素材，以及用量记录。</li><li>本机偏好设置：模型与 API Key、自定义模型、主题、审批模式、AI 辅助功能开关等。</li><li>所以备份文件里含你的 API Key，不要随手发给别人。</li></ul>
+<p><strong>什么时候该备份</strong></p>
+<ul><li>卸载、重装或换电脑之前。</li><li>准备执行「清空对话」这类不可逆操作之前。</li><li>在做大批量整理、删除会话之前。</li></ul>
+<p><strong>导入会发生什么</strong></p>
+<ul><li>会话、消息、记忆与素材按 ID 合并：已存在的数据会跳过，不会覆盖你现有的内容。</li><li>本机偏好会被备份里那一份替换，导入完成后页面会自动重载以应用设置。</li><li>导入前会弹一次确认，确认后才会开始。</li></ul>
+<div class="callout callout-warning"><div class="callout-head"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 3.4 17.4 16.6H2.6Z"/><path d="M10 8.2v3.4M10 14v.1"/></svg><span>导入前先确认</span></div><div class="callout-body"><p>备份是「合并进当前数据」，不是「清空再恢复」。你当前这台机器上的偏好设置会被备份里的那份覆盖；如果两边都存了你想保留的模型密钥，导入后可能不符合预期。拿不准就先导出一份当前的备份，再导入旧的。</p></div></div>
+<h2 id="存储空间管理"><a class="anchor" href="#存储空间管理" aria-hidden="true">#</a>存储空间管理</h2>
+<p>在「设置 → 数据备份」区域下方是「存储空间」，先显示总占用，再按分项列出各自的大小。</p>
+<div class="table-wrap"><table><thead><tr><th>分项</th><th>里面是什么</th><th>可以做什么</th><th>什么时候该用</th></tr></thead><tbody><tr><td>对话历史数据库</td><td>会话与消息、长期记忆、提示词素材、用量</td><td>压缩、清空对话</td><td>删掉很多会话后想回收空间；或历史太杂想从头开始</td></tr><tr><td>内置浏览器缓存</td><td>内置浏览器运行产生的缓存文件</td><td>清理缓存</td><td>页面显示异常，或这一项明显变大</td></tr><tr><td>自定义技能</td><td>你导入或新建的技能文档</td><td>不可清理</td><td>建议保留</td></tr><tr><td>配置文件</td><td>主题、模型与密钥、各项开关</td><td>不可清理</td><td>建议保留</td></tr><tr><td>其他</td><td>知识库、日志、流程说明书、专家包等</td><td>不可清理</td><td>建议保留</td></tr></tbody></table></div>
+<p>三个操作的区别：</p>
+<ul><li><strong>压缩</strong>：把数据库里已删除数据占用的空间真正还给磁盘，不动任何现有内容。适合「刚删了很多会话」之后。</li><li><strong>清空对话</strong>：删除全部会话与消息，长期记忆、知识库与偏好设置不受影响。不可恢复，操作前会有一次确认。</li><li><strong>清理缓存</strong>：清掉内置浏览器的缓存文件。运行中被占用的文件会在下次启动后彻底释放。</li></ul>
+<h2 id="跨设备同步与本机偏好"><a class="anchor" href="#跨设备同步与本机偏好" aria-hidden="true">#</a>跨设备同步与本机偏好</h2>
+<p>如果你用手机遥控同一个 SLATE，一部分偏好会跟着你走，另一部分刻意只留在这台机器上。</p>
+<div class="table-wrap"><table><thead><tr><th>偏好</th><th>是否跨设备</th></tr></thead><tbody><tr><td>侧栏任务列表排序</td><td>跨设备同步</td></tr><tr><td>主题与明暗、通用 UI 模式</td><td>跨设备同步</td></tr><tr><td>模型与 API Key、自定义模型、当前模型</td><td>跨设备同步</td></tr><tr><td>审批模式、推理强度、AI 辅助功能开关</td><td>跨设备同步</td></tr><tr><td>通知开关、联网搜索、图片与视频生成配置</td><td>跨设备同步</td></tr><tr><td>阅读进度与未读标志（需要操作 / 出错 / 进行中 / 已完成未查看）</td><td>只留本机</td></tr><tr><td>任务清单栏的折叠状态</td><td>只留本机</td></tr><tr><td>Continue Autopilot 与多任务并行相关开关</td><td>只留本机</td></tr></tbody></table></div>
+<p>阅读进度只在本机，是因为「我有没有看过这一场」是这台设备的感受：在另一台设备上看过，不应该让这边也变成已读。</p>
+<h2 id="卸载或换电脑迁移三步"><a class="anchor" href="#卸载或换电脑迁移三步" aria-hidden="true">#</a>卸载或换电脑：迁移三步</h2>
+<ol><li>在旧机器上打开「设置 → 数据备份」，点「下载备份」，确认拿到 <code>SLATE-backup-日期.json</code>。</li><li>在新机器上装好 SLATE 并启动，进入「设置 → 数据备份」。</li><li>点「导入备份」，选择刚才那个 JSON，确认后等待页面自动重载。</li></ol>
+<p>迁移后如发现知识库文档、流程说明书、专家包或自定义技能没有跟过来，可以把旧机器上的本机数据目录整个拷到新机器对应位置——它们不在那份 JSON 里，而是以文件与文件夹的形式保存。模型与 API Key 若未随备份导入，在新机器的模型配置里重新填一次即可。</p>
+<div class="callout callout-note"><div class="callout-head"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.2"/><path d="M10 9v4.6M10 6.6v.1"/></svg><span>别把备份当同步盘</span></div><div class="callout-body"><p>备份是某一时刻的快照。反复在同一份旧备份上叠加导入，并不会合并出「最新状态」，还会让新旧记录混杂。要持续同步，直接用局域网遥控访问同一台机器，见 <a href="./18-mobile.html">移动端遥控与局域网访问</a>。</p></div></div></article>
+      <nav class="pager" aria-label="翻页"><a class="prev" href="./16-schedule.html"><span class="dir">上一篇</span><span class="ttl">任务清单与定时任务</span></a><a class="next" href="./18-mobile.html"><span class="dir">下一篇</span><span class="ttl">移动端遥控与局域网访问</span></a></nav>
+      <footer class="site-footer">
+        <span>SLATE（砚）· 本地 AI 协作调度台</span>
+        <span>
+          <a href="https://slate-ai.site/" target="_blank" rel="noopener">官网</a> ·
+          <a href="https://slate-ai.site/guide.html" target="_blank" rel="noopener">使用教程</a> ·
+          <a href="https://github.com/CaryWang1234/SLATE" target="_blank" rel="noopener">GitHub</a>
+        </span>
+        <span>MIT License · 文档随产品演进</span>
+      </footer>
+    </div>
+  </main>
+
+  <aside class="toc" data-toc aria-label="本页目录"><div class="toc-title">本页目录</div><ul class="toc-list"><li class="lv2"><a href="#你的数据都在自己机器上">你的数据都在自己机器上</a></li><li class="lv2"><a href="#历史会话管理">历史会话管理</a></li><li class="lv2"><a href="#消息级操作">消息级操作</a></li><li class="lv2"><a href="#一键备份与恢复">一键备份与恢复</a></li><li class="lv2"><a href="#存储空间管理">存储空间管理</a></li><li class="lv2"><a href="#跨设备同步与本机偏好">跨设备同步与本机偏好</a></li><li class="lv2"><a href="#卸载或换电脑迁移三步">卸载或换电脑：迁移三步</a></li></ul></aside>
+</div>
+
+<div class="search-overlay" data-search-overlay hidden>
+  <div class="search-panel" role="dialog" aria-modal="true" aria-label="搜索文档">
+    <div class="search-field">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="5.5"/><path d="M13.2 13.2 17 17"/></svg>
+      <input type="search" placeholder="搜索文档…" data-search-input autocomplete="off" spellcheck="false">
+      <kbd>Esc</kbd>
+    </div>
+    <div class="search-results" data-search-results></div>
+    <div class="search-hint"><span>↑ ↓ 选择</span><span>Enter 打开</span><span>Esc 关闭</span></div>
+  </div>
+</div>
+
+<script src="./assets/search-index.js"></script>
+<script src="./assets/docs.js"></script>
+</body>
+</html>

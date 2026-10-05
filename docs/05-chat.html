@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>对话与消息 · SLATE 文档</title>
+<meta name="description" content="开对话、发消息、传附件、@ 提及与上下文用量的日常操作。">
+<link rel="icon" href="./assets/icon.png">
+<script>
+  try {
+    var saved = localStorage.getItem('slate-docs-theme');
+    if (saved) document.documentElement.setAttribute('data-theme', saved);
+  } catch (e) {}
+</script>
+<link rel="stylesheet" href="./assets/docs.css">
+</head>
+<body data-page="05-chat">
+
+<a class="skip-link" href="#main">跳到正文</a>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <button class="icon-btn menu-btn" type="button" data-menu aria-label="打开导航" aria-expanded="false">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 5h14M3 10h14M3 15h14"/></svg>
+    </button>
+
+    <a class="brand" href="./index.html">
+      <img class="brand-logo" src="./assets/icon.png" alt="">
+      <span class="brand-name">SLATE</span>
+      <span class="brand-sub">文档</span>
+    </a>
+
+    <button class="search-trigger" type="button" data-search-open>
+      <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="5.5"/><path d="M13.2 13.2 17 17"/></svg>
+      <span>搜索文档</span>
+      <kbd>Ctrl K</kbd>
+    </button>
+
+    <nav class="topbar-links">
+      <a href="https://slate-ai.site/" target="_blank" rel="noopener">官网</a>
+      <a href="https://slate-ai.site/guide.html" target="_blank" rel="noopener">使用教程</a>
+      <a href="https://github.com/CaryWang1234/SLATE" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+
+    <button class="icon-btn theme-btn" type="button" data-theme-toggle aria-label="切换明暗主题">
+      <svg class="ico-moon" viewBox="0 0 20 20" aria-hidden="true"><path d="M16 12.3A6.6 6.6 0 0 1 7.7 4a6.8 6.8 0 1 0 8.3 8.3Z"/></svg>
+      <svg class="ico-sun" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="3.6"/><path d="M10 2v2.2M10 15.8V18M2 10h2.2M15.8 10H18M4.3 4.3l1.6 1.6M14.1 14.1l1.6 1.6M15.7 4.3l-1.6 1.6M5.9 14.1l-1.6 1.6"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="shell">
+  <div class="scrim" data-scrim hidden></div>
+
+  <aside class="sidebar" data-sidebar aria-label="文档导航">
+    <nav class="sidebar-nav"><div class="nav-group"><div class="nav-group-title">开始使用</div><ul class="nav-list"><li><a class="nav-link" href="./01-what-is-slate.html">认识 SLATE</a></li><li><a class="nav-link" href="./02-install.html">安装与启动</a></li><li><a class="nav-link" href="./03-interface.html">界面总览：页签与三栏工作区</a></li><li><a class="nav-link" href="./04-models.html">模型接入与 API Key</a></li></ul></div><div class="nav-group"><div class="nav-group-title">对话与自动化</div><ul class="nav-list"><li><a class="nav-link active" href="./05-chat.html">对话与消息</a></li><li><a class="nav-link" href="./06-autopilot.html">Agent Autopilot 与目标模式</a></li><li><a class="nav-link" href="./07-grind.html">磨墨模式</a></li><li><a class="nav-link" href="./08-tools-skills.html">内置工具与技能</a></li><li><a class="nav-link" href="./09-actions.html">Actions 流程说明书</a></li><li><a class="nav-link" href="./10-experts.html">专家包</a></li></ul></div><div class="nav-group"><div class="nav-group-title">协作与推演</div><ul class="nav-list"><li><a class="nav-link" href="./11-team.html">AI 团队与工作流</a></li><li><a class="nav-link" href="./12-whiteboard.html">白板式逻辑链</a></li><li><a class="nav-link" href="./13-memory-knowledge.html">记忆、画像与知识库</a></li></ul></div><div class="nav-group"><div class="nav-group-title">项目与数据</div><ul class="nav-list"><li><a class="nav-link" href="./14-projects.html">项目、工作区与分项目配置</a></li><li><a class="nav-link" href="./15-prompt-factory.html">提示词工厂</a></li><li><a class="nav-link" href="./16-schedule.html">任务清单与定时任务</a></li><li><a class="nav-link" href="./17-data.html">数据、备份与存储</a></li></ul></div><div class="nav-group"><div class="nav-group-title">移动与安全</div><ul class="nav-list"><li><a class="nav-link" href="./18-mobile.html">移动端遥控与局域网访问</a></li><li><a class="nav-link" href="./19-settings.html">设置与安全审批</a></li></ul></div><div class="nav-group"><div class="nav-group-title">常见问题</div><ul class="nav-list"><li><a class="nav-link" href="./20-faq.html">常见问题</a></li></ul></div></nav>
+  </aside>
+
+  <main class="main" id="main">
+    <div class="main-inner">
+      <nav class="breadcrumbs" aria-label="面包屑"><a href="./index.html">文档</a><span class="sep">/</span><span>对话与自动化</span><span class="sep">/</span><span class="current">对话与消息</span></nav>
+      <article class="prose"><h1 class="doc-title" id="top">对话与消息</h1>
+<p>这一页讲你在对话框里最常用到的操作：怎么开一场对话、怎么把消息发出去、怎么把文件与技能塞进这一条消息，以及 Token 都花在了哪里。</p>
+<h2 id="开一场对话"><a class="anchor" href="#开一场对话" aria-hidden="true">#</a>开一场对话</h2>
+<ul><li>侧栏「任务」页签顶部点「＋ 新建对话」，或按 <code>Ctrl + N</code>。</li><li>点侧栏里任意一条会话即切换过去，当前会话的完整历史重新铺开。</li><li>排序下拉可切换：最近更新 / 按项目 / 按状态 / 创建时间 / 按用量。排序偏好跨设备同步。</li><li>每条会话带一个状态标志：<strong>需要操作</strong>（上一场还有下一步或被停过）、<strong>出错</strong>、<strong>进行中</strong>（呼吸动画）、<strong>已完成未查看</strong>。点进会话即视为看过。</li></ul>
+<p>发送时 <code>Enter</code> 发送，<code>Shift + Enter</code> 换行。</p>
+<p>标志记的是"上一场怎么结束的"：如果你后来在手机端或另一条会话里继续过它，旧标志会自动作废。</p>
+<h2 id="消息基本操作"><a class="anchor" href="#消息基本操作" aria-hidden="true">#</a>消息基本操作</h2>
+<ul><li><strong>流式输出</strong>：回复逐字落下，不必等整段结束就能开始读。</li><li><strong>停止</strong>：生成期间发送按钮变成「停止」。点它是真取消——模型流与工具调用的流式通道一起关闭，后端也随之终止正在跑的子进程与任务，不会出现"界面停了、活还在干"。</li><li><strong>重新生成</strong>：每条助手回复下方都有「重新生成」。它会以这条回复之前的历史重新请求，并重写这条回复之后的内容。</li><li><strong>代码块一键复制</strong>：代码块右上角有「复制」按钮。</li><li><strong>智能滚动跟随</strong>：滚动条在底部时输出自动跟着走；你往上翻看历史时不会被强行拉回底部。</li></ul>
+<h2 id="编辑与删除消息"><a class="anchor" href="#编辑与删除消息" aria-hidden="true">#</a>编辑与删除消息</h2>
+<p>鼠标移到消息上会浮出操作按钮：</p>
+<ul><li>「复制」把这条消息的内容放进剪贴板。</li><li>「重新生成」只出现在助手消息上。</li><li>「编辑内容」让正文就地变成输入框，保存后写回这条消息。</li><li>「删除此消息」会先问一次，删除后不可恢复。</li></ul>
+<h2 id="四种输入方式对比"><a class="anchor" href="#四种输入方式对比" aria-hidden="true">#</a>四种输入方式对比</h2>
+<div class="table-wrap"><table><thead><tr><th>输入方式</th><th>怎么用</th><th>适合什么</th></tr></thead><tbody><tr><td>文字</td><td>直接打字，<code>Enter</code> 发送</td><td>绝大多数需求</td></tr><tr><td>语音</td><td>点输入框右侧的麦克风按钮口述</td><td>不想打字、边说边理思路</td></tr><tr><td>优化提示词</td><td>点语音按钮左边的星形按钮，让模型把草稿改写一遍</td><td>需求写得含糊，想让措辞更明确</td></tr><tr><td>附件</td><td>点回形针按钮选择文件</td><td>让 AI 读一份现成的文件</td></tr><tr><td>@ 提及</td><td>输入 <code>@</code> 选候选，或从 ＋ 菜单进入对应分组</td><td>明确指定用哪个工具、技能或哪份文件</td></tr></tbody></table></div>
+<h2 id="附件与多模态输入"><a class="anchor" href="#附件与多模态输入" aria-hidden="true">#</a>附件与多模态输入</h2>
+<p>点输入框左侧的回形针按钮添加附件，单个文件最大 10MB。</p>
+<ul><li>文本类（<code>.md</code> / <code>.html</code> / <code>.css</code> / <code>.js</code> / <code>.py</code> / <code>.json</code> / <code>.yaml</code> / <code>.log</code> 等）：直接读取正文。</li><li>表格类（<code>.csv</code> / <code>.tsv</code>）：解析成结构化数据，而不是一整块文本。</li><li>图片（<code>.png</code> / <code>.jpg</code> / <code>.jpeg</code> / <code>.gif</code> / <code>.webp</code> / <code>.bmp</code> / <code>.svg</code>）：转成多模态输入交给模型看。</li><li>文档类（<code>.docx</code> / <code>.xlsx</code> / <code>.pdf</code>）：由 SLATE 自己解析出段落、表格与正文后再送入对话。</li></ul>
+<div class="callout callout-tip"><div class="callout-head"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.2"/><path d="M10 13.4V9M10 6.6v.6"/><path d="M7.6 12.4h4.8"/></svg><span>附件是先解析再送</span></div><div class="callout-body"><p>SLATE 在本地把文件解析成正文或结构化数据，而不是把整份原始文件塞进上下文。这一步在本地完成，不额外多花 Token。</p></div></div>
+<h2 id="语音输入"><a class="anchor" href="#语音输入" aria-hidden="true">#</a>语音输入</h2>
+<p>输入框右侧的麦克风按钮点一下开始口述，再点一下停止。</p>
+<ul><li>基于浏览器语音识别，边说边实时转写，转写结果直接落进输入框，不会打断你已有的草稿。</li><li>识别语言跟随界面语言：中文界面按中文识别，English 界面按英文识别。</li><li>需要浏览器与系统支持，Chrome / Edge 可用；首次使用需授权麦克风。</li></ul>
+<div class="callout callout-warning"><div class="callout-head"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 3.4 17.4 16.6H2.6Z"/><path d="M10 8.2v3.4M10 14v.1"/></svg><span>看不到麦克风按钮</span></div><div class="callout-body"><p>按钮只在当前浏览器支持语音识别时才显示。如果它没出现，说明这套环境不支持，请改用打字输入。</p></div></div>
+<h2 id="优化提示词"><a class="anchor" href="#优化提示词" aria-hidden="true">#</a>优化提示词</h2>
+<p>麦克风按钮左边那颗星形按钮，把输入框里已经写好的草稿交给模型改写一遍。它改的是<strong>你这条还没发的话</strong>，不是让模型替你回答。</p>
+<p>流程是：点一下 → 模型改写 → 弹窗里左右并排看原文与改写 → 自己决定。</p>
+<ul><li>点<strong>采用</strong>才写回输入框，然后你照常按 <code>Enter</code> 发送。</li><li>点<strong>保留原文</strong>、按 <code>Esc</code>、点弹窗外面，都算不采用，输入框一个字都不会变。</li><li>等结果的那几秒输入框还能继续打字。如果你（或语音听写）改了草稿，这次改写结果会被放弃，不会盖掉你新写的内容。</li><li>模型用代码块包住结果时，取的是里面的正文，回填进来的不会有那对反引号围栏。</li><li>用哪个模型在这里单独指定：<a href="./19-settings.html">设置 → AI 辅助功能 → 提示词优化</a>。关掉它，点按钮只会提示一句已关闭，一次请求都不发。</li></ul>
+<div class="callout callout-tip"><div class="callout-head"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.2"/><path d="M10 13.4V9M10 6.6v.6"/><path d="M7.6 12.4h4.8"/></svg><span>它不改你的意思</span></div><div class="callout-body"><p>提示词里写给模型的要求是"保持原意、不要新增你没提到的目标与细节"，并且要求 <code>@</code> 提及、代码、路径、数字原样保留。改写只是把话说清楚，不是把需求换掉。</p></div></div>
+<h2 id="提及"><a class="anchor" href="#提及" aria-hidden="true">#</a>@ 提及</h2>
+<p>在输入框输入 <code>@</code> 会弹出候选；也可以点输入框左侧的 ＋ 菜单，在「提及（@ 前缀）」分组里直接打开某一类：</p>
+<ul><li><strong>技能</strong>：把 <code>SKILL.md</code> 定义的流程注入这一条消息。</li><li><strong>工具</strong>：指定使用哪个内置工具。</li><li><strong>MCP</strong>：使用外部 MCP Server 提供的工具。</li><li><strong>文件</strong>：把项目文件的正文（或目录结构）注入这条消息，打开项目后才可用。</li></ul>
+<p>候选里还会出现流程说明书与专家包：<code>@</code> 一个流程 id 会注入整份流程，<code>@</code> 一个专家包名会注入它的人格、规则与知识文件。</p>
+<p>完整的工具与技能清单见 <a href="./08-tools-skills.html">内置工具与技能</a>。</p>
+<h2 id="上下文与用量"><a class="anchor" href="#上下文与用量" aria-hidden="true">#</a>上下文与用量</h2>
+<p>对话区顶部有一条用量信息栏，鼠标悬停可以看到上下文被谁占走了：</p>
+<div class="table-wrap"><table><thead><tr><th>分桶</th><th>装的是什么</th></tr></thead><tbody><tr><td>系统提示词</td><td>角色设定、项目宪法等固定内容</td></tr><tr><td>工具目录</td><td>这一场对话里模型能看到哪些工具</td></tr><tr><td>Skill 注入</td><td>被 <code>@</code> 提及带进来的技能与文件内容</td></tr><tr><td>工具调用与结果</td><td>模型调了什么、工具回了什么</td></tr><tr><td>对话消息</td><td>你和模型真正说过的话</td></tr></tbody></table></div>
+<ul><li>上下文条的分母是你为该模型设定的上下文预算，不是模型标称的窗口大小，所以它更像"距离压缩还有多远"的预告。</li><li>占用超过阈值时，SLATE 会自动把较早的对话压成一段历史摘要，最近几轮保持原样。</li><li>系统发给模型的催办与工具结果投喂（见 <a href="./06-autopilot.html">Agent Autopilot 与目标模式</a>）只出现在模型那一侧，不占消息区；压缩之后它们仍在上下文里继续生效，也不会突然变成一条气泡。</li><li>摘要发给模型时仍是完整原文，只在消息区折成一条折叠条：点标题才展开，长历史不会把最近几轮挤出屏幕。</li><li>也可以手动压缩：点工具栏的压缩按钮，选轻度或重度两档后开始。</li></ul>
+<div class="table-wrap"><table><thead><tr><th>档位</th><th>保留什么</th></tr></thead><tbody><tr><td>轻度压缩</td><td>保留关键细节与可能被引用的文件名、数值等事实，约 50% 压缩</td></tr><tr><td>重度压缩</td><td>只留核心结论、关键决策与明确待办，约 80% 压缩</td></tr></tbody></table></div>
+<div class="callout callout-tip"><div class="callout-head"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.2"/><path d="M10 13.4V9M10 6.6v.6"/><path d="M7.6 12.4h4.8"/></svg><span>什么时候该手动压缩</span></div><div class="callout-body"><p>自动压缩只在超出阈值时发生。如果这一场的前半段夹着大量"读文件、试错、来回确认"的中间过程，而你接下来要谈的是另一件事，提前手动压一次比等它自动触发更划算：轻度档能保住文件名与数值，重度档只留结论、细节会丢。</p></div></div>
+<h2 id="记忆与画像的自动注入"><a class="anchor" href="#记忆与画像的自动注入" aria-hidden="true">#</a>记忆与画像的自动注入</h2>
+<p>长期记忆与用户画像由 SLATE 在后台挑选相关条目注入对话，不需要你手动粘贴。查看、增删与从当前对话提取记忆，见 <a href="./13-memory-knowledge.html">记忆、画像与知识库</a>。</p>
+<h2 id="历史会话"><a class="anchor" href="#历史会话" aria-hidden="true">#</a>历史会话</h2>
+<p>侧栏「任务」页签上方有「搜索历史会话」，输入关键词即全文搜索，命中会显示上下文摘录，点一下直达那条会话。新建的会话先拿首条消息的前 30 字当占位标题，跑完首轮由模型补一个短名字——只替换这种占位标题，你自己改过的名字不动（这一项可以在「设置 → AI 辅助功能」里关掉）。右侧「管理」按钮进入批量管理，可重命名、导出为 Markdown、批量删除。每一行的操作里还有一颗「归档」：它只让这一场从任务栏离场，消息一条不动，要拿回来去「设置 → 会话归档」。数据备份与导出细节见 <a href="./17-data.html">数据、备份与存储</a>。</p>
+<h2 id="定时任务产出的会话"><a class="anchor" href="#定时任务产出的会话" aria-hidden="true">#</a>定时任务产出的会话</h2>
+<p>定时与事件任务执行完会自动落成一条独立会话，标题带 <code>[定时]</code> 或 <code>[事件]</code> 前缀，方便你在侧栏里直接认出它们。任务怎么创建见 <a href="./16-schedule.html">任务清单与定时任务</a>。</p>
+<p>需要 AI 自己动手改文件、跑命令时，可以看 <a href="./06-autopilot.html">Agent Autopilot 与目标模式</a> 与 <a href="./07-grind.html">磨墨模式</a>。</p></article>
+      <nav class="pager" aria-label="翻页"><a class="prev" href="./04-models.html"><span class="dir">上一篇</span><span class="ttl">模型接入与 API Key</span></a><a class="next" href="./06-autopilot.html"><span class="dir">下一篇</span><span class="ttl">Agent Autopilot 与目标模式</span></a></nav>
+      <footer class="site-footer">
+        <span>SLATE（砚）· 本地 AI 协作调度台</span>
+        <span>
+          <a href="https://slate-ai.site/" target="_blank" rel="noopener">官网</a> ·
+          <a href="https://slate-ai.site/guide.html" target="_blank" rel="noopener">使用教程</a> ·
+          <a href="https://github.com/CaryWang1234/SLATE" target="_blank" rel="noopener">GitHub</a>
+        </span>
+        <span>MIT License · 文档随产品演进</span>
+      </footer>
+    </div>
+  </main>
+
+  <aside class="toc" data-toc aria-label="本页目录"><div class="toc-title">本页目录</div><ul class="toc-list"><li class="lv2"><a href="#开一场对话">开一场对话</a></li><li class="lv2"><a href="#消息基本操作">消息基本操作</a></li><li class="lv2"><a href="#编辑与删除消息">编辑与删除消息</a></li><li class="lv2"><a href="#四种输入方式对比">四种输入方式对比</a></li><li class="lv2"><a href="#附件与多模态输入">附件与多模态输入</a></li><li class="lv2"><a href="#语音输入">语音输入</a></li><li class="lv2"><a href="#优化提示词">优化提示词</a></li><li class="lv2"><a href="#提及">@ 提及</a></li><li class="lv2"><a href="#上下文与用量">上下文与用量</a></li><li class="lv2"><a href="#记忆与画像的自动注入">记忆与画像的自动注入</a></li><li class="lv2"><a href="#历史会话">历史会话</a></li><li class="lv2"><a href="#定时任务产出的会话">定时任务产出的会话</a></li></ul></aside>
+</div>
+
+<div class="search-overlay" data-search-overlay hidden>
+  <div class="search-panel" role="dialog" aria-modal="true" aria-label="搜索文档">
+    <div class="search-field">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="5.5"/><path d="M13.2 13.2 17 17"/></svg>
+      <input type="search" placeholder="搜索文档…" data-search-input autocomplete="off" spellcheck="false">
+      <kbd>Esc</kbd>
+    </div>
+    <div class="search-results" data-search-results></div>
+    <div class="search-hint"><span>↑ ↓ 选择</span><span>Enter 打开</span><span>Esc 关闭</span></div>
+  </div>
+</div>
+
+<script src="./assets/search-index.js"></script>
+<script src="./assets/docs.js"></script>
+</body>
+</html>

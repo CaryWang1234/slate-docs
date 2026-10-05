@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>磨墨模式 · SLATE 文档</title>
+<meta name="description" content="用有节奏的追问，把粗糙想法研磨成一份可执行的任务书。">
+<link rel="icon" href="./assets/icon.png">
+<script>
+  try {
+    var saved = localStorage.getItem('slate-docs-theme');
+    if (saved) document.documentElement.setAttribute('data-theme', saved);
+  } catch (e) {}
+</script>
+<link rel="stylesheet" href="./assets/docs.css">
+</head>
+<body data-page="07-grind">
+
+<a class="skip-link" href="#main">跳到正文</a>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <button class="icon-btn menu-btn" type="button" data-menu aria-label="打开导航" aria-expanded="false">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 5h14M3 10h14M3 15h14"/></svg>
+    </button>
+
+    <a class="brand" href="./index.html">
+      <img class="brand-logo" src="./assets/icon.png" alt="">
+      <span class="brand-name">SLATE</span>
+      <span class="brand-sub">文档</span>
+    </a>
+
+    <button class="search-trigger" type="button" data-search-open>
+      <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="5.5"/><path d="M13.2 13.2 17 17"/></svg>
+      <span>搜索文档</span>
+      <kbd>Ctrl K</kbd>
+    </button>
+
+    <nav class="topbar-links">
+      <a href="https://slate-ai.site/" target="_blank" rel="noopener">官网</a>
+      <a href="https://slate-ai.site/guide.html" target="_blank" rel="noopener">使用教程</a>
+      <a href="https://github.com/CaryWang1234/SLATE" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+
+    <button class="icon-btn theme-btn" type="button" data-theme-toggle aria-label="切换明暗主题">
+      <svg class="ico-moon" viewBox="0 0 20 20" aria-hidden="true"><path d="M16 12.3A6.6 6.6 0 0 1 7.7 4a6.8 6.8 0 1 0 8.3 8.3Z"/></svg>
+      <svg class="ico-sun" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="3.6"/><path d="M10 2v2.2M10 15.8V18M2 10h2.2M15.8 10H18M4.3 4.3l1.6 1.6M14.1 14.1l1.6 1.6M15.7 4.3l-1.6 1.6M5.9 14.1l-1.6 1.6"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="shell">
+  <div class="scrim" data-scrim hidden></div>
+
+  <aside class="sidebar" data-sidebar aria-label="文档导航">
+    <nav class="sidebar-nav"><div class="nav-group"><div class="nav-group-title">开始使用</div><ul class="nav-list"><li><a class="nav-link" href="./01-what-is-slate.html">认识 SLATE</a></li><li><a class="nav-link" href="./02-install.html">安装与启动</a></li><li><a class="nav-link" href="./03-interface.html">界面总览：页签与三栏工作区</a></li><li><a class="nav-link" href="./04-models.html">模型接入与 API Key</a></li></ul></div><div class="nav-group"><div class="nav-group-title">对话与自动化</div><ul class="nav-list"><li><a class="nav-link" href="./05-chat.html">对话与消息</a></li><li><a class="nav-link" href="./06-autopilot.html">Agent Autopilot 与目标模式</a></li><li><a class="nav-link active" href="./07-grind.html">磨墨模式</a></li><li><a class="nav-link" href="./08-tools-skills.html">内置工具与技能</a></li><li><a class="nav-link" href="./09-actions.html">Actions 流程说明书</a></li><li><a class="nav-link" href="./10-experts.html">专家包</a></li></ul></div><div class="nav-group"><div class="nav-group-title">协作与推演</div><ul class="nav-list"><li><a class="nav-link" href="./11-team.html">AI 团队与工作流</a></li><li><a class="nav-link" href="./12-whiteboard.html">白板式逻辑链</a></li><li><a class="nav-link" href="./13-memory-knowledge.html">记忆、画像与知识库</a></li></ul></div><div class="nav-group"><div class="nav-group-title">项目与数据</div><ul class="nav-list"><li><a class="nav-link" href="./14-projects.html">项目、工作区与分项目配置</a></li><li><a class="nav-link" href="./15-prompt-factory.html">提示词工厂</a></li><li><a class="nav-link" href="./16-schedule.html">任务清单与定时任务</a></li><li><a class="nav-link" href="./17-data.html">数据、备份与存储</a></li></ul></div><div class="nav-group"><div class="nav-group-title">移动与安全</div><ul class="nav-list"><li><a class="nav-link" href="./18-mobile.html">移动端遥控与局域网访问</a></li><li><a class="nav-link" href="./19-settings.html">设置与安全审批</a></li></ul></div><div class="nav-group"><div class="nav-group-title">常见问题</div><ul class="nav-list"><li><a class="nav-link" href="./20-faq.html">常见问题</a></li></ul></div></nav>
+  </aside>
+
+  <main class="main" id="main">
+    <div class="main-inner">
+      <nav class="breadcrumbs" aria-label="面包屑"><a href="./index.html">文档</a><span class="sep">/</span><span>对话与自动化</span><span class="sep">/</span><span class="current">磨墨模式</span></nav>
+      <article class="prose"><h1 class="doc-title" id="top">磨墨模式</h1>
+<p>磨墨模式解决的是"我知道要做点什么，但说不清"的时刻：你扔进一句粗糙想法，AI 一轮问一个关键问题，最后交付一份结构化的任务书（墨稿），可以直接送去执行。</p>
+<h2 id="磨墨是什么"><a class="anchor" href="#磨墨是什么" aria-hidden="true">#</a>磨墨是什么</h2>
+<p>普通对话里，需求不清的代价由你自己承担——说不清楚，AI 就只能猜。磨墨把"想清楚"这件事交给追问来完成。</p>
+<ul><li>你不必一开始就写规格，说个大概就行。</li><li>AI 一次只问一个问题，能出选项就给选项，不让你写小作文。</li><li>追问有轮数上限，不会无限聊下去；信息够了会提前收墨。</li><li>收墨得到的是任务书：目标、交付物、验收标准都写明白，可以直接开跑。</li></ul>
+<h2 id="怎么启动"><a class="anchor" href="#怎么启动" aria-hidden="true">#</a>怎么启动</h2>
+<p>三种进入方式：</p>
+<ol><li>在输入框输入 <code>/grind 你的想法</code>，例如 <code>/grind 给团队做一个周报生成器</code>。</li><li>点输入框左侧的 ＋ 按钮，在「模式与功能」里选「磨墨模式」。此时会开一场新的磨墨会话；如果还没想好内容，输入框会自动填好 <code>/grind </code> 等你补完。</li><li>什么都没做，直接输入一个抽象任务——比如"制作一个网站"。在还没有对话内容的新会话里，SLATE 会弹出「磨墨建议」，你可以选「进入磨墨」先细化，或选「直接发送」照常发送。</li></ol>
+<div class="callout callout-warning"><div class="callout-head"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 3.4 17.4 16.6H2.6Z"/><path d="M10 8.2v3.4M10 14v.1"/></svg><span>启动磨墨会开一场新会话</span></div><div class="callout-body"><p>不管用哪种方式进入磨墨，SLATE 都会清空当前对话视图、另起一场磨墨会话，屏幕上正在生成的那一场会被中断。它只停当前这一场，别的项目里跑着的任务不受影响。</p></div></div>
+<h2 id="三段式追问"><a class="anchor" href="#三段式追问" aria-hidden="true">#</a>三段式追问</h2>
+<p>磨墨按固定的三段式推进，全程不超过 10 轮：</p>
+<div class="table-wrap"><table><thead><tr><th>阶段</th><th>AI 会做什么</th></tr></thead><tbody><tr><td>接墨</td><td>用一两句话复述你的想法核心，列出 3–5 个需要厘清的缺口，然后只问第一个</td></tr><tr><td>磨墨</td><td>逐轮追问下一个最重要的缺口，一次一问，能出选项就给选项，不寒暄也不重复已确认的内容</td></tr><tr><td>收墨</td><td>停止追问，先用一两句话总结共识，再给出完整的结构化墨稿</td></tr></tbody></table></div>
+<p>进入收墨有三种情况：</p>
+<ul><li>你直接回复「收墨」「够了」「就这样」「可以了」这类话。</li><li>信息已经足够，AI 认为不必再问，主动收墨。</li><li>追问轮数达到上限，本轮直接收墨。</li></ul>
+<div class="callout callout-tip"><div class="callout-head"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.2"/><path d="M10 13.4V9M10 6.6v.6"/><path d="M7.6 12.4h4.8"/></svg><span>追问质量取决于你的回答</span></div><div class="callout-body"><p>磨墨的追问链是按你的上一句答案往下走的。回答里给具体信息（谁用、什么时候要、什么样的结果算通过），后续问题就会越来越准；只回"都行""你看着办"，AI 只能停在原地打转。</p></div></div>
+<h2 id="墨迹面板"><a class="anchor" href="#墨迹面板" aria-hidden="true">#</a>墨迹面板</h2>
+<p>侧栏的墨迹面板把这场研磨的成果实时摊开：</p>
+<ul><li>面板就在消息区右侧，与任务清单同一列。</li><li>✔ 标记已经定下来的项，✘ 标记还没着落的未知项。</li><li>顶部给出统计：已定 N 项 · 待定 M 项，一眼看出离成稿还有多远。</li><li>面板随对话推进自动更新，不需要你点刷新。</li><li>追问进行中会标出当前轮次（第几轮 / 共 10 轮）；进入收墨阶段则提示可以回复「收墨」直接出稿。</li><li>拿到墨稿后，面板保留成稿的汇总视图，事后回看不会丢。</li><li>输入框左侧 ＋ 菜单里的「磨墨模式」一行也会跟着变，切回来扫一眼就知道这场研磨到哪一步了。</li></ul>
+<h2 id="墨稿包含什么"><a class="anchor" href="#墨稿包含什么" aria-hidden="true">#</a>墨稿包含什么</h2>
+<p>收墨后给出的墨稿由七个要素组成，每个要素回答一个具体问题：</p>
+<div class="table-wrap"><table><thead><tr><th>要素</th><th>回答什么问题</th></tr></thead><tbody><tr><td>目标</td><td>这件事做成之后，世界有什么不同</td></tr><tr><td>受众</td><td>谁会用、谁在看这份成果</td></tr><tr><td>交付物</td><td>最后要交出哪些东西，几个、什么形态</td></tr><tr><td>验收标准</td><td>满足哪些条件才算合格</td></tr><tr><td>边界与限制</td><td>哪些不做、有哪些硬约束（时间、技术、合规）</td></tr><tr><td>建议路径</td><td>建议按什么顺序推进</td></tr><tr><td>遗留问题</td><td>还没定下来的事，留给执行阶段合理假设并注明</td></tr></tbody></table></div>
+<p>没聊清楚的项会如实列进「遗留问题」，不会凭空替你填。</p>
+<h2 id="墨稿之后三个去处"><a class="anchor" href="#墨稿之后三个去处" aria-hidden="true">#</a>墨稿之后：三个去处</h2>
+<p>墨稿下方有三个按钮，按你接下来想干什么选：</p>
+<div class="table-wrap"><table><thead><tr><th>按钮</th><th>做什么</th><th>什么时候用</th></tr></thead><tbody><tr><td>送入目标模式</td><td>把墨稿整理成任务描述，直接开一场目标模式自主执行</td><td>想清楚要动手做了</td></tr><tr><td>投到白板</td><td>把墨稿放成一张白板卡片</td><td>还在设计阶段，要画依赖、拆模块或跟人讨论</td></tr><tr><td>存为模板</td><td>存进知识库，作为可复用的任务书模板</td><td>同类需求还会再来一次，下次取出来改改就能用</td></tr></tbody></table></div>
+<p>三个按钮点下去分别会发生什么：</p>
+<ul><li><strong>送入目标模式</strong>：目标模式开关会自动打开，墨稿被整理成任务描述发出去，模型随即开始执行。墨稿里没定的项会交给模型自行合理假设，并要求它注明假设。</li><li><strong>投到白板</strong>：生成一张标题为「墨稿 · 你的标题」的卡片，正文是墨稿目标，可以直接接着画连线。</li><li><strong>存为模板</strong>：存成一份知识文档，在知识中心可见，随时能翻出来复用。</li></ul>
+<p>送到目标模式之后怎么跑，见 <a href="./06-autopilot.html">Agent Autopilot 与目标模式</a>；白板上的卡片怎么连，见 <a href="./12-whiteboard.html">白板式逻辑链</a>；模板存放的位置见 <a href="./13-memory-knowledge.html">记忆、画像与知识库</a>。</p>
+<h2 id="会话持久化"><a class="anchor" href="#会话持久化" aria-hidden="true">#</a>会话持久化</h2>
+<p>磨墨状态跟着会话走，不跟着屏幕走：</p>
+<ul><li>刷新页面、切换会话再切回来，墨迹面板与追问进度自动恢复。</li><li>同一场会话不会因为重开而从头再问一遍。</li><li>收墨成稿后重新打开这一场，三个按钮仍在墨稿下方。</li></ul>
+<h2 id="常见问题"><a class="anchor" href="#常见问题" aria-hidden="true">#</a>常见问题</h2>
+<p><strong>追问到一半就想直接开跑，可以吗？</strong> 可以。回复「收墨」立刻出稿，墨稿下方的按钮随即出现，点「送入目标模式」就开始执行。</p>
+<p><strong>磨墨会动我的文件吗？</strong> 不会。磨墨只产出一份文字任务书，不碰文件、不跑命令；真正动手发生在你点了「送入目标模式」之后。</p>
+<p><strong>能同时进行多场磨墨吗？</strong> 每场会话各自保存自己的磨墨状态，互不干扰；在另一场会话里开磨墨不会影响前一场的进度。</p>
+<h2 id="什么时候不适合用磨墨"><a class="anchor" href="#什么时候不适合用磨墨" aria-hidden="true">#</a>什么时候不适合用磨墨</h2>
+<p>磨墨是给"还没想清楚"的想法准备的。下面这些情况直接跳过它：</p>
+<ul><li>需求已经很明确，甚至能自己写出验收标准——直接开目标模式执行。</li><li>只是一次性的问答或小改动——当作普通对话说清楚就行。</li><li>你手上已有一份现成规格文档——把文档作为附件发进来更省事。</li></ul>
+<div class="callout callout-note"><div class="callout-head"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.2"/><path d="M10 9v4.6M10 6.6v.1"/></svg><span>磨墨产出的是任务书，不是执行</span></div><div class="callout-body"><p>磨墨本身不动你的文件、不跑命令，它只把想法研磨成文字。要真正动手，收墨后点「送入目标模式」。</p></div></div></article>
+      <nav class="pager" aria-label="翻页"><a class="prev" href="./06-autopilot.html"><span class="dir">上一篇</span><span class="ttl">Agent Autopilot 与目标模式</span></a><a class="next" href="./08-tools-skills.html"><span class="dir">下一篇</span><span class="ttl">内置工具与技能</span></a></nav>
+      <footer class="site-footer">
+        <span>SLATE（砚）· 本地 AI 协作调度台</span>
+        <span>
+          <a href="https://slate-ai.site/" target="_blank" rel="noopener">官网</a> ·
+          <a href="https://slate-ai.site/guide.html" target="_blank" rel="noopener">使用教程</a> ·
+          <a href="https://github.com/CaryWang1234/SLATE" target="_blank" rel="noopener">GitHub</a>
+        </span>
+        <span>MIT License · 文档随产品演进</span>
+      </footer>
+    </div>
+  </main>
+
+  <aside class="toc" data-toc aria-label="本页目录"><div class="toc-title">本页目录</div><ul class="toc-list"><li class="lv2"><a href="#磨墨是什么">磨墨是什么</a></li><li class="lv2"><a href="#怎么启动">怎么启动</a></li><li class="lv2"><a href="#三段式追问">三段式追问</a></li><li class="lv2"><a href="#墨迹面板">墨迹面板</a></li><li class="lv2"><a href="#墨稿包含什么">墨稿包含什么</a></li><li class="lv2"><a href="#墨稿之后三个去处">墨稿之后：三个去处</a></li><li class="lv2"><a href="#会话持久化">会话持久化</a></li><li class="lv2"><a href="#常见问题">常见问题</a></li><li class="lv2"><a href="#什么时候不适合用磨墨">什么时候不适合用磨墨</a></li></ul></aside>
+</div>
+
+<div class="search-overlay" data-search-overlay hidden>
+  <div class="search-panel" role="dialog" aria-modal="true" aria-label="搜索文档">
+    <div class="search-field">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="5.5"/><path d="M13.2 13.2 17 17"/></svg>
+      <input type="search" placeholder="搜索文档…" data-search-input autocomplete="off" spellcheck="false">
+      <kbd>Esc</kbd>
+    </div>
+    <div class="search-results" data-search-results></div>
+    <div class="search-hint"><span>↑ ↓ 选择</span><span>Enter 打开</span><span>Esc 关闭</span></div>
+  </div>
+</div>
+
+<script src="./assets/search-index.js"></script>
+<script src="./assets/docs.js"></script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SLATE 文档 · 本地 AI 协作调度台</title>
+<meta name="description" content="SLATE（砚）面向使用者的完整文档：安装、对话、Agent Autopilot、目标模式、磨墨、工具与技能、团队与工作流、项目与数据、移动端遥控与设置。">
+<link rel="icon" href="./assets/icon.png">
+<script>
+  try {
+    var saved = localStorage.getItem('slate-docs-theme');
+    if (saved) document.documentElement.setAttribute('data-theme', saved);
+  } catch (e) {}
+</script>
+<link rel="stylesheet" href="./assets/docs.css">
+</head>
+<body data-layout="home">
+
+<a class="skip-link" href="#main">跳到正文</a>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <button class="icon-btn menu-btn" type="button" data-menu aria-label="打开导航" aria-expanded="false">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 5h14M3 10h14M3 15h14"/></svg>
+    </button>
+
+    <a class="brand" href="./index.html">
+      <img class="brand-logo" src="./assets/icon.png" alt="">
+      <span class="brand-name">SLATE</span>
+      <span class="brand-sub">文档</span>
+    </a>
+
+    <button class="search-trigger" type="button" data-search-open>
+      <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="5.5"/><path d="M13.2 13.2 17 17"/></svg>
+      <span>搜索文档</span>
+      <kbd>Ctrl K</kbd>
+    </button>
+
+    <nav class="topbar-links">
+      <a href="https://slate-ai.site/" target="_blank" rel="noopener">官网</a>
+      <a href="https://slate-ai.site/guide.html" target="_blank" rel="noopener">使用教程</a>
+      <a href="https://github.com/CaryWang1234/SLATE" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+
+    <button class="icon-btn theme-btn" type="button" data-theme-toggle aria-label="切换明暗主题">
+      <svg class="ico-moon" viewBox="0 0 20 20" aria-hidden="true"><path d="M16 12.3A6.6 6.6 0 0 1 7.7 4a6.8 6.8 0 1 0 8.3 8.3Z"/></svg>
+      <svg class="ico-sun" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="3.6"/><path d="M10 2v2.2M10 15.8V18M2 10h2.2M15.8 10H18M4.3 4.3l1.6 1.6M14.1 14.1l1.6 1.6M15.7 4.3l-1.6 1.6M5.9 14.1l-1.6 1.6"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="shell">
+  <div class="scrim" data-scrim hidden></div>
+
+  <aside class="sidebar" data-sidebar aria-label="文档导航">
+    <nav class="sidebar-nav"><div class="nav-group"><div class="nav-group-title">开始使用</div><ul class="nav-list"><li><a class="nav-link" href="./01-what-is-slate.html">认识 SLATE</a></li><li><a class="nav-link" href="./02-install.html">安装与启动</a></li><li><a class="nav-link" href="./03-interface.html">界面总览：页签与三栏工作区</a></li><li><a class="nav-link" href="./04-models.html">模型接入与 API Key</a></li></ul></div><div class="nav-group"><div class="nav-group-title">对话与自动化</div><ul class="nav-list"><li><a class="nav-link" href="./05-chat.html">对话与消息</a></li><li><a class="nav-link" href="./06-autopilot.html">Agent Autopilot 与目标模式</a></li><li><a class="nav-link" href="./07-grind.html">磨墨模式</a></li><li><a class="nav-link" href="./08-tools-skills.html">内置工具与技能</a></li><li><a class="nav-link" href="./09-actions.html">Actions 流程说明书</a></li><li><a class="nav-link" href="./10-experts.html">专家包</a></li></ul></div><div class="nav-group"><div class="nav-group-title">协作与推演</div><ul class="nav-list"><li><a class="nav-link" href="./11-team.html">AI 团队与工作流</a></li><li><a class="nav-link" href="./12-whiteboard.html">白板式逻辑链</a></li><li><a class="nav-link" href="./13-memory-knowledge.html">记忆、画像与知识库</a></li></ul></div><div class="nav-group"><div class="nav-group-title">项目与数据</div><ul class="nav-list"><li><a class="nav-link" href="./14-projects.html">项目、工作区与分项目配置</a></li><li><a class="nav-link" href="./15-prompt-factory.html">提示词工厂</a></li><li><a class="nav-link" href="./16-schedule.html">任务清单与定时任务</a></li><li><a class="nav-link" href="./17-data.html">数据、备份与存储</a></li></ul></div><div class="nav-group"><div class="nav-group-title">移动与安全</div><ul class="nav-list"><li><a class="nav-link" href="./18-mobile.html">移动端遥控与局域网访问</a></li><li><a class="nav-link" href="./19-settings.html">设置与安全审批</a></li></ul></div><div class="nav-group"><div class="nav-group-title">常见问题</div><ul class="nav-list"><li><a class="nav-link" href="./20-faq.html">常见问题</a></li></ul></div></nav>
+  </aside>
+
+  <main class="main" id="main">
+    <div class="main-inner">
+      <nav class="breadcrumbs" aria-label="面包屑"></nav>
+      <article class="prose"><div class="home">
+  <div class="home-hero">
+    <span class="home-badge">SLATE 文档 · 共 20 篇</span>
+    <h1>把灵感研磨成<br>结构化方案</h1>
+    <p class="lede">
+      SLATE（砚）是跑在你自己机器上的 AI 协作调度台：多模型对话、Agent 自动执行、
+      工具调用、团队辩论、白板逻辑链，把零散想法整理成可以直接交付的方案与提示词。
+    </p>
+    <div class="home-actions">
+      <a class="btn btn-primary" href="./01-what-is-slate.html">从认识 SLATE 开始</a>
+      <a class="btn" href="./02-install.html">安装与启动</a>
+      <a class="btn" href="./20-faq.html">常见问题</a>
+    </div>
+  </div>
+  <section class="home-section"><h2>开始使用</h2><div class="card-grid"><a class="card" href="./01-what-is-slate.html"><span class="c-index">01</span><span class="c-title">认识 SLATE</span><span class="c-desc">SLATE 是什么、能做什么，以及它适合谁</span></a><a class="card" href="./02-install.html"><span class="c-index">02</span><span class="c-title">安装与启动</span><span class="c-desc">两种安装方式、首次启动流程与数据位置</span></a><a class="card" href="./03-interface.html"><span class="c-index">03</span><span class="c-title">界面总览：页签与三栏工作区</span><span class="c-desc">顶栏、五个工作区页签、对话区与输入区逐处说明</span></a><a class="card" href="./04-models.html"><span class="c-index">04</span><span class="c-title">模型接入与 API Key</span><span class="c-desc">配置预设模型、自定义端点与本地模型</span></a></div></section><section class="home-section"><h2>对话与自动化</h2><div class="card-grid"><a class="card" href="./05-chat.html"><span class="c-index">05</span><span class="c-title">对话与消息</span><span class="c-desc">开对话、发消息、传附件、@ 提及与上下文用量的日常操作。</span></a><a class="card" href="./06-autopilot.html"><span class="c-index">06</span><span class="c-title">Agent Autopilot 与目标模式</span><span class="c-desc">AI 自主看文件、改代码、跑命令的执行层与 80 轮强闭环模式。</span></a><a class="card" href="./07-grind.html"><span class="c-index">07</span><span class="c-title">磨墨模式</span><span class="c-desc">用有节奏的追问，把粗糙想法研磨成一份可执行的任务书。</span></a><a class="card" href="./08-tools-skills.html"><span class="c-index">08</span><span class="c-title">内置工具与技能</span><span class="c-desc">SLATE 自带的全部工具清单、调用方式与扩展方法。</span></a><a class="card" href="./09-actions.html"><span class="c-index">09</span><span class="c-title">Actions 流程说明书</span><span class="c-desc">把重复流程写成说明书，让模型照着推进</span></a><a class="card" href="./10-experts.html"><span class="c-index">10</span><span class="c-title">专家包</span><span class="c-desc">把人格、规则、知识与技能打包成一位专家</span></a></div></section><section class="home-section"><h2>协作与推演</h2><div class="card-grid"><a class="card" href="./11-team.html"><span class="c-index">11</span><span class="c-title">AI 团队与工作流</span><span class="c-desc">多角色互相挑刺，再用 DAG 流水线跑大任务</span></a><a class="card" href="./12-whiteboard.html"><span class="c-index">12</span><span class="c-title">白板式逻辑链</span><span class="c-desc">卡片加连线，把思路、依赖与运行现场摆在一屏</span></a><a class="card" href="./13-memory-knowledge.html"><span class="c-index">13</span><span class="c-title">记忆、画像与知识库</span><span class="c-desc">让 SLATE 记住你的偏好、背景与项目知识</span></a></div></section><section class="home-section"><h2>项目与数据</h2><div class="card-grid"><a class="card" href="./14-projects.html"><span class="c-index">14</span><span class="c-title">项目、工作区与分项目配置</span><span class="c-desc">打开项目、多文件夹工作区与分项目覆盖</span></a><a class="card" href="./15-prompt-factory.html"><span class="c-index">15</span><span class="c-title">提示词工厂</span><span class="c-desc">把零散想法组织成可交付的 Prompt</span></a><a class="card" href="./16-schedule.html"><span class="c-index">16</span><span class="c-title">任务清单与定时任务</span><span class="c-desc">清单进度、定时任务与事件触发</span></a><a class="card" href="./17-data.html"><span class="c-index">17</span><span class="c-title">数据、备份与存储</span><span class="c-desc">数据都在本机，学会备份、恢复与清理存储空间</span></a></div></section><section class="home-section"><h2>移动与安全</h2><div class="card-grid"><a class="card" href="./18-mobile.html"><span class="c-index">18</span><span class="c-title">移动端遥控与局域网访问</span><span class="c-desc">用手机在同一个局域网里遥控桌面上的 SLATE</span></a><a class="card" href="./19-settings.html"><span class="c-index">19</span><span class="c-title">设置与安全审批</span><span class="c-desc">设置页各分区的用途与安全审批规则</span></a></div></section><section class="home-section"><h2>常见问题</h2><div class="card-grid"><a class="card" href="./20-faq.html"><span class="c-index">20</span><span class="c-title">常见问题</span><span class="c-desc">使用中最常遇到的十几类问题与排查方向</span></a></div></section>
+</div>
+</article>
+      <nav class="pager" aria-label="翻页"></nav>
+      <footer class="site-footer">
+        <span>SLATE（砚）· 本地 AI 协作调度台</span>
+        <span>
+          <a href="https://slate-ai.site/" target="_blank" rel="noopener">官网</a> ·
+          <a href="https://slate-ai.site/guide.html" target="_blank" rel="noopener">使用教程</a> ·
+          <a href="https://github.com/CaryWang1234/SLATE" target="_blank" rel="noopener">GitHub</a>
+        </span>
+        <span>MIT License · 文档随产品演进</span>
+      </footer>
+    </div>
+  </main>
+
+  <aside class="toc" data-toc aria-label="本页目录"></aside>
+</div>
+
+<div class="search-overlay" data-search-overlay hidden>
+  <div class="search-panel" role="dialog" aria-modal="true" aria-label="搜索文档">
+    <div class="search-field">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="5.5"/><path d="M13.2 13.2 17 17"/></svg>
+      <input type="search" placeholder="搜索文档…" data-search-input autocomplete="off" spellcheck="false">
+      <kbd>Esc</kbd>
+    </div>
+    <div class="search-results" data-search-results></div>
+    <div class="search-hint"><span>↑ ↓ 选择</span><span>Enter 打开</span><span>Esc 关闭</span></div>
+  </div>
+</div>
+
+<script src="./assets/search-index.js"></script>
+<script src="./assets/docs.js"></script>
+</body>
+</html>

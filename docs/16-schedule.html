@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>任务清单与定时任务 · SLATE 文档</title>
+<meta name="description" content="清单进度、定时任务与事件触发">
+<link rel="icon" href="./assets/icon.png">
+<script>
+  try {
+    var saved = localStorage.getItem('slate-docs-theme');
+    if (saved) document.documentElement.setAttribute('data-theme', saved);
+  } catch (e) {}
+</script>
+<link rel="stylesheet" href="./assets/docs.css">
+</head>
+<body data-page="16-schedule">
+
+<a class="skip-link" href="#main">跳到正文</a>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <button class="icon-btn menu-btn" type="button" data-menu aria-label="打开导航" aria-expanded="false">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 5h14M3 10h14M3 15h14"/></svg>
+    </button>
+
+    <a class="brand" href="./index.html">
+      <img class="brand-logo" src="./assets/icon.png" alt="">
+      <span class="brand-name">SLATE</span>
+      <span class="brand-sub">文档</span>
+    </a>
+
+    <button class="search-trigger" type="button" data-search-open>
+      <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="5.5"/><path d="M13.2 13.2 17 17"/></svg>
+      <span>搜索文档</span>
+      <kbd>Ctrl K</kbd>
+    </button>
+
+    <nav class="topbar-links">
+      <a href="https://slate-ai.site/" target="_blank" rel="noopener">官网</a>
+      <a href="https://slate-ai.site/guide.html" target="_blank" rel="noopener">使用教程</a>
+      <a href="https://github.com/CaryWang1234/SLATE" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+
+    <button class="icon-btn theme-btn" type="button" data-theme-toggle aria-label="切换明暗主题">
+      <svg class="ico-moon" viewBox="0 0 20 20" aria-hidden="true"><path d="M16 12.3A6.6 6.6 0 0 1 7.7 4a6.8 6.8 0 1 0 8.3 8.3Z"/></svg>
+      <svg class="ico-sun" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="3.6"/><path d="M10 2v2.2M10 15.8V18M2 10h2.2M15.8 10H18M4.3 4.3l1.6 1.6M14.1 14.1l1.6 1.6M15.7 4.3l-1.6 1.6M5.9 14.1l-1.6 1.6"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="shell">
+  <div class="scrim" data-scrim hidden></div>
+
+  <aside class="sidebar" data-sidebar aria-label="文档导航">
+    <nav class="sidebar-nav"><div class="nav-group"><div class="nav-group-title">开始使用</div><ul class="nav-list"><li><a class="nav-link" href="./01-what-is-slate.html">认识 SLATE</a></li><li><a class="nav-link" href="./02-install.html">安装与启动</a></li><li><a class="nav-link" href="./03-interface.html">界面总览：页签与三栏工作区</a></li><li><a class="nav-link" href="./04-models.html">模型接入与 API Key</a></li></ul></div><div class="nav-group"><div class="nav-group-title">对话与自动化</div><ul class="nav-list"><li><a class="nav-link" href="./05-chat.html">对话与消息</a></li><li><a class="nav-link" href="./06-autopilot.html">Agent Autopilot 与目标模式</a></li><li><a class="nav-link" href="./07-grind.html">磨墨模式</a></li><li><a class="nav-link" href="./08-tools-skills.html">内置工具与技能</a></li><li><a class="nav-link" href="./09-actions.html">Actions 流程说明书</a></li><li><a class="nav-link" href="./10-experts.html">专家包</a></li></ul></div><div class="nav-group"><div class="nav-group-title">协作与推演</div><ul class="nav-list"><li><a class="nav-link" href="./11-team.html">AI 团队与工作流</a></li><li><a class="nav-link" href="./12-whiteboard.html">白板式逻辑链</a></li><li><a class="nav-link" href="./13-memory-knowledge.html">记忆、画像与知识库</a></li></ul></div><div class="nav-group"><div class="nav-group-title">项目与数据</div><ul class="nav-list"><li><a class="nav-link" href="./14-projects.html">项目、工作区与分项目配置</a></li><li><a class="nav-link" href="./15-prompt-factory.html">提示词工厂</a></li><li><a class="nav-link active" href="./16-schedule.html">任务清单与定时任务</a></li><li><a class="nav-link" href="./17-data.html">数据、备份与存储</a></li></ul></div><div class="nav-group"><div class="nav-group-title">移动与安全</div><ul class="nav-list"><li><a class="nav-link" href="./18-mobile.html">移动端遥控与局域网访问</a></li><li><a class="nav-link" href="./19-settings.html">设置与安全审批</a></li></ul></div><div class="nav-group"><div class="nav-group-title">常见问题</div><ul class="nav-list"><li><a class="nav-link" href="./20-faq.html">常见问题</a></li></ul></div></nav>
+  </aside>
+
+  <main class="main" id="main">
+    <div class="main-inner">
+      <nav class="breadcrumbs" aria-label="面包屑"><a href="./index.html">文档</a><span class="sep">/</span><span>项目与数据</span><span class="sep">/</span><span class="current">任务清单与定时任务</span></nav>
+      <article class="prose"><h1 class="doc-title" id="top">任务清单与定时任务</h1>
+<h2 id="任务清单是什么"><a class="anchor" href="#任务清单是什么" aria-hidden="true">#</a>任务清单是什么</h2>
+<p>目标模式跑多步骤任务时，模型会先建一份 TODOLIST，把大任务拆成可核对的小项，再逐项推进。这份清单不是装饰：未全部了结之前，模型不被允许宣称完成。</p>
+<p>清单按对话隔离——每条会话各有一份，互不干扰，重开这条会话时还在。</p>
+<h2 id="清单面板怎么看"><a class="anchor" href="#清单面板怎么看" aria-hidden="true">#</a>清单面板怎么看</h2>
+<p>清单实时显示在消息区右侧栏：</p>
+<ul><li>头部报 <code>任务清单 {done}/{total}</code>，旁边补上「受阻 n」与「进行中 n」，并有一条进度条。</li><li>每一项带状态标记：待办、进行中、已完成、受阻。</li><li>每完成一项或一批，模型会立即同步状态，进度不必等收尾才更新。</li></ul>
+<p>顶栏的「任务清单」按钮可以整栏收起，把宽度还给消息区，再点一下展开。折叠之后进度不至于彻底隐身——按钮悬停会报 <code>{done}/{total}</code>。这一场没有清单时按钮置灰。折叠状态记在你本机：刷新、重启都保持，清单继续往下跑也不会擅自把栏撑回来。</p>
+<h2 id="清单由谁建状态怎么变"><a class="anchor" href="#清单由谁建状态怎么变" aria-hidden="true">#</a>清单由谁建、状态怎么变</h2>
+<p>清单不是你手动维护的东西。目标模式下遇到多文件、多步骤、排查或实现类任务时，模型会先建清单再动手；简单的单步任务会跳过清单直接做，所以看不到清单也是正常的。</p>
+<p>每一项的状态随执行推进变化：</p>
+<div class="table-wrap"><table><thead><tr><th>状态</th><th>含义</th></tr></thead><tbody><tr><td>待办</td><td>还没轮到</td></tr><tr><td>进行中</td><td>正在做这一项</td></tr><tr><td>已完成</td><td>做完了，并且验证过</td></tr><tr><td>受阻</td><td>被外部条件挡住（缺依赖、等确认、环境不具备），模型会在正文里说明原因</td></tr></tbody></table></div>
+<p>全部条目了结之前，模型不被允许写收尾汇报；系统会把剩下的条目念回给它，催它继续推进。</p>
+<h2 id="待办与移动端"><a class="anchor" href="#待办与移动端" aria-hidden="true">#</a>待办与移动端</h2>
+<p>手机端底部有「待办」Tab（面板标题「待办 / 定时」），可以查看、新建、立即运行、删除定时任务；在电脑上建的任务，手机打开就是同一份列表。详见 <a href="./18-mobile.html">移动端遥控与局域网访问</a>。</p>
+<h2 id="定时任务是干什么的"><a class="anchor" href="#定时任务是干什么的" aria-hidden="true">#</a>定时任务是干什么的</h2>
+<p>定时任务 = 一条预设提示词 + 一个触发时机。到点后由 SLATE 本地执行，把提示词交给指定模型跑一遍，结果落成一条独立会话——不需要你守在旁边，也不占用你正在用的那场对话。</p>
+<p>新建一条任务需要四样东西：名称、提示词（到点后发给模型的那段话）、模型、模式。</p>
+<h2 id="新建一条定时任务"><a class="anchor" href="#新建一条定时任务" aria-hidden="true">#</a>新建一条定时任务</h2>
+<p>入口在聊天输入框左侧的 ＋ 菜单里（选「定时任务」），面板标题是「定时 / 事件任务」；手机端在底部「待办」Tab 点「＋ 新建」。</p>
+<ol><li>填<strong>任务名称</strong>，它会出现在那次执行生成的会话标题里，写成能一眼认出的名字。</li><li>写<strong>提示词</strong>：到点发给模型的那段话，写清要它产出什么。</li><li>选<strong>模型</strong>：下拉里按国产 / 国际 / 本地 / 自定义分组，默认是你当前用的模型。</li><li>选<strong>模式</strong>：每天 / 单次 / 间隔，再填时间点或间隔分钟数。</li><li>点「+ 添加任务」，任务出现在下方列表里，随时可以停用或删除。</li></ol>
+<h2 id="无人值守的提示词怎么写"><a class="anchor" href="#无人值守的提示词怎么写" aria-hidden="true">#</a>无人值守的提示词怎么写</h2>
+<p>定时任务每次都是新会话，没有前文可以依赖；执行时的系统提示也要求模型直接、完整地执行指令并输出结果，不要反问。所以提示词要自包含：</p>
+<ul><li><strong>写清产出格式</strong>：例如"用 Markdown 列出三块：昨天完成的事项、未完成的事项、今天的建议顺序"。</li><li><strong>写清信息从哪来</strong>：例如"读工作目录下的 TODO.md 与最近的 Git 提交记录"，而不是"接着上次说的继续"。</li><li><strong>不要写需要你回答才能往下走的分支</strong>——到点时没人回应它。</li><li><strong>长度与结构写死在提示词里</strong>，否则输出长短全凭模型当天的状态。</li></ul>
+<h2 id="三种调度方式"><a class="anchor" href="#三种调度方式" aria-hidden="true">#</a>三种调度方式</h2>
+<div class="table-wrap"><table><thead><tr><th>调度方式</th><th>怎么算时间</th><th>适合什么</th></tr></thead><tbody><tr><td>单次</td><td>指定一个时间点，只执行一次</td><td>一次性的提醒或一次性汇总；跑完任务自动停用</td></tr><tr><td>每天</td><td>指定一个时间点，每天执行；今天这个点还没到就等，到了且今天没跑过就跑</td><td>每日汇总、每天收工前的例行检查</td></tr><tr><td>固定间隔</td><td>每 N 分钟执行一次（默认 60 分钟，最小 1 分钟）</td><td>需要反复盯着的短动作，比如隔一段时间看一眼构建状态</td></tr></tbody></table></div>
+<h2 id="事件驱动触发"><a class="anchor" href="#事件驱动触发" aria-hidden="true">#</a>事件驱动触发</h2>
+<p>除了看时钟，任务还可以被事件推着走：事件发生时自动执行，结果同样归档成独立会话。三种事件来源：</p>
+<div class="table-wrap"><table><thead><tr><th>事件</th><th>触发条件</th><th>可配置项</th></tr></thead><tbody><tr><td>文件变更</td><td>监听路径下有文件被新建或修改</td><td>监听的文件 / 目录路径（每行一个，不填按任务所属项目的根目录）；冷却时间</td></tr><tr><td>Git push 检测</td><td>指定仓库的 HEAD 发生变化</td><td>仓库路径；冷却时间</td></tr><tr><td>Webhook 接收</td><td>外部系统向该任务的回调地址发起请求</td><td>密钥（用于校验来源，可选；请求正文会作为上下文注入提示词）</td></tr></tbody></table></div>
+<p>冷却时间是最小触发间隔（默认 60 秒，最小 10 秒），目的是防止一次批量改动把任务反复刷起来。事件任务的提示词里会自动附上触发上下文——变更的文件、最新提交、Webhook 内容——所以模型知道"这次是被什么叫起来的"。</p>
+<div class="callout callout-note"><div class="callout-head"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.2"/><path d="M10 9v4.6M10 6.6v.1"/></svg><span>事件任务是"配置一次、长期挂着"</span></div><div class="callout-body"><p>事件类型与监听路径随任务一起保存，改完即生效。文件变更与 Git 检测在 SLATE 启动时会先记一份当前快照，所以刚启动不会把之前的历史改动当成新事件误触发。</p></div></div>
+<h2 id="结果去哪了"><a class="anchor" href="#结果去哪了" aria-hidden="true">#</a>结果去哪了</h2>
+<p>每次执行都会新建一条独立会话，标题带前缀与时间：</p>
+<div class="code-block"><div class="code-head"><span class="code-lang">text</span><button class="code-copy" type="button" data-copy>复制</button></div><pre><code class="language-text">[定时] 每日汇总 · 09-25 09:00
+[事件] 构建看门 · 09-25 14:32</code></pre></div>
+<p>会话落在任务所属的项目名下——任务是在哪个项目里建的，结果就挂在哪个项目，切到别的项目后按项目筛选也不会错认。点进会话就是完整的提示词与模型回复。</p>
+<h2 id="怎么管理"><a class="anchor" href="#怎么管理" aria-hidden="true">#</a>怎么管理</h2>
+<p>任务列表里每一行都能看到：调度方式 · 所用模型 · 上次运行结果（跑过会写运行时间，失败会直接写原因，没跑过显示"尚未运行"）。</p>
+<ul><li>勾选框启用 / 停用，随时挂起而不必删除。</li><li>▶ 立即运行，不等下一次到点；已经在执行的任务不会被重复触发。</li><li>× 删除任务。</li></ul>
+<h2 id="什么时候不会执行"><a class="anchor" href="#什么时候不会执行" aria-hidden="true">#</a>什么时候不会执行</h2>
+<p>定时任务由本地调度器执行，所以有几个边界值得先知道：</p>
+<ul><li>只有 SLATE 在运行时才会到点执行。应用关闭期间不会执行；重新打开后，当天时间点已过且今天还没跑过的任务会补跑一次。</li><li>所用模型必须已经配置好 API Key，并且必须是 OpenAI 兼容的模型。拿不到 Key 或模型不兼容时，原因会写进任务状态，不会静默失败。</li><li>如果「设置 → AI 辅助功能」里关掉了「定时与事件任务」，任务不再执行；触发记录仍保留，状态里会写明是被这一项关掉的。详见 <a href="./19-settings.html">设置与安全审批</a>。</li></ul>
+<div class="callout callout-tip"><div class="callout-head"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.2"/><path d="M10 13.4V9M10 6.6v.6"/><path d="M7.6 12.4h4.8"/></svg><span>定时任务适合什么，不适合什么</span></div><div class="callout-body"><p><strong>适合</strong>：不需要你中途拍板的固定动作。汇总昨天的进展、定时检查仓库状态、隔一段时间看一眼构建结果、有文件变更就提醒——这类任务模型一次答复就能收尾。</p>
+<p><strong>不适合</strong>：需要你上来做选择的长任务。定时任务不会中途停下来问你，也不会等你确认再继续。把需要决策的部分写成"列出选项、说明各自代价"，把决定权留给自己，比让它替你拍板稳妥。</p></div></div></article>
+      <nav class="pager" aria-label="翻页"><a class="prev" href="./15-prompt-factory.html"><span class="dir">上一篇</span><span class="ttl">提示词工厂</span></a><a class="next" href="./17-data.html"><span class="dir">下一篇</span><span class="ttl">数据、备份与存储</span></a></nav>
+      <footer class="site-footer">
+        <span>SLATE（砚）· 本地 AI 协作调度台</span>
+        <span>
+          <a href="https://slate-ai.site/" target="_blank" rel="noopener">官网</a> ·
+          <a href="https://slate-ai.site/guide.html" target="_blank" rel="noopener">使用教程</a> ·
+          <a href="https://github.com/CaryWang1234/SLATE" target="_blank" rel="noopener">GitHub</a>
+        </span>
+        <span>MIT License · 文档随产品演进</span>
+      </footer>
+    </div>
+  </main>
+
+  <aside class="toc" data-toc aria-label="本页目录"><div class="toc-title">本页目录</div><ul class="toc-list"><li class="lv2"><a href="#任务清单是什么">任务清单是什么</a></li><li class="lv2"><a href="#清单面板怎么看">清单面板怎么看</a></li><li class="lv2"><a href="#清单由谁建状态怎么变">清单由谁建、状态怎么变</a></li><li class="lv2"><a href="#待办与移动端">待办与移动端</a></li><li class="lv2"><a href="#定时任务是干什么的">定时任务是干什么的</a></li><li class="lv2"><a href="#新建一条定时任务">新建一条定时任务</a></li><li class="lv2"><a href="#无人值守的提示词怎么写">无人值守的提示词怎么写</a></li><li class="lv2"><a href="#三种调度方式">三种调度方式</a></li><li class="lv2"><a href="#事件驱动触发">事件驱动触发</a></li><li class="lv2"><a href="#结果去哪了">结果去哪了</a></li><li class="lv2"><a href="#怎么管理">怎么管理</a></li><li class="lv2"><a href="#什么时候不会执行">什么时候不会执行</a></li></ul></aside>
+</div>
+
+<div class="search-overlay" data-search-overlay hidden>
+  <div class="search-panel" role="dialog" aria-modal="true" aria-label="搜索文档">
+    <div class="search-field">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="5.5"/><path d="M13.2 13.2 17 17"/></svg>
+      <input type="search" placeholder="搜索文档…" data-search-input autocomplete="off" spellcheck="false">
+      <kbd>Esc</kbd>
+    </div>
+    <div class="search-results" data-search-results></div>
+    <div class="search-hint"><span>↑ ↓ 选择</span><span>Enter 打开</span><span>Esc 关闭</span></div>
+  </div>
+</div>
+
+<script src="./assets/search-index.js"></script>
+<script src="./assets/docs.js"></script>
+</body>
+</html>

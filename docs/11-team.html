@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 团队与工作流 · SLATE 文档</title>
+<meta name="description" content="多角色互相挑刺，再用 DAG 流水线跑大任务">
+<link rel="icon" href="./assets/icon.png">
+<script>
+  try {
+    var saved = localStorage.getItem('slate-docs-theme');
+    if (saved) document.documentElement.setAttribute('data-theme', saved);
+  } catch (e) {}
+</script>
+<link rel="stylesheet" href="./assets/docs.css">
+</head>
+<body data-page="11-team">
+
+<a class="skip-link" href="#main">跳到正文</a>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <button class="icon-btn menu-btn" type="button" data-menu aria-label="打开导航" aria-expanded="false">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 5h14M3 10h14M3 15h14"/></svg>
+    </button>
+
+    <a class="brand" href="./index.html">
+      <img class="brand-logo" src="./assets/icon.png" alt="">
+      <span class="brand-name">SLATE</span>
+      <span class="brand-sub">文档</span>
+    </a>
+
+    <button class="search-trigger" type="button" data-search-open>
+      <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="5.5"/><path d="M13.2 13.2 17 17"/></svg>
+      <span>搜索文档</span>
+      <kbd>Ctrl K</kbd>
+    </button>
+
+    <nav class="topbar-links">
+      <a href="https://slate-ai.site/" target="_blank" rel="noopener">官网</a>
+      <a href="https://slate-ai.site/guide.html" target="_blank" rel="noopener">使用教程</a>
+      <a href="https://github.com/CaryWang1234/SLATE" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+
+    <button class="icon-btn theme-btn" type="button" data-theme-toggle aria-label="切换明暗主题">
+      <svg class="ico-moon" viewBox="0 0 20 20" aria-hidden="true"><path d="M16 12.3A6.6 6.6 0 0 1 7.7 4a6.8 6.8 0 1 0 8.3 8.3Z"/></svg>
+      <svg class="ico-sun" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="3.6"/><path d="M10 2v2.2M10 15.8V18M2 10h2.2M15.8 10H18M4.3 4.3l1.6 1.6M14.1 14.1l1.6 1.6M15.7 4.3l-1.6 1.6M5.9 14.1l-1.6 1.6"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="shell">
+  <div class="scrim" data-scrim hidden></div>
+
+  <aside class="sidebar" data-sidebar aria-label="文档导航">
+    <nav class="sidebar-nav"><div class="nav-group"><div class="nav-group-title">开始使用</div><ul class="nav-list"><li><a class="nav-link" href="./01-what-is-slate.html">认识 SLATE</a></li><li><a class="nav-link" href="./02-install.html">安装与启动</a></li><li><a class="nav-link" href="./03-interface.html">界面总览：页签与三栏工作区</a></li><li><a class="nav-link" href="./04-models.html">模型接入与 API Key</a></li></ul></div><div class="nav-group"><div class="nav-group-title">对话与自动化</div><ul class="nav-list"><li><a class="nav-link" href="./05-chat.html">对话与消息</a></li><li><a class="nav-link" href="./06-autopilot.html">Agent Autopilot 与目标模式</a></li><li><a class="nav-link" href="./07-grind.html">磨墨模式</a></li><li><a class="nav-link" href="./08-tools-skills.html">内置工具与技能</a></li><li><a class="nav-link" href="./09-actions.html">Actions 流程说明书</a></li><li><a class="nav-link" href="./10-experts.html">专家包</a></li></ul></div><div class="nav-group"><div class="nav-group-title">协作与推演</div><ul class="nav-list"><li><a class="nav-link active" href="./11-team.html">AI 团队与工作流</a></li><li><a class="nav-link" href="./12-whiteboard.html">白板式逻辑链</a></li><li><a class="nav-link" href="./13-memory-knowledge.html">记忆、画像与知识库</a></li></ul></div><div class="nav-group"><div class="nav-group-title">项目与数据</div><ul class="nav-list"><li><a class="nav-link" href="./14-projects.html">项目、工作区与分项目配置</a></li><li><a class="nav-link" href="./15-prompt-factory.html">提示词工厂</a></li><li><a class="nav-link" href="./16-schedule.html">任务清单与定时任务</a></li><li><a class="nav-link" href="./17-data.html">数据、备份与存储</a></li></ul></div><div class="nav-group"><div class="nav-group-title">移动与安全</div><ul class="nav-list"><li><a class="nav-link" href="./18-mobile.html">移动端遥控与局域网访问</a></li><li><a class="nav-link" href="./19-settings.html">设置与安全审批</a></li></ul></div><div class="nav-group"><div class="nav-group-title">常见问题</div><ul class="nav-list"><li><a class="nav-link" href="./20-faq.html">常见问题</a></li></ul></div></nav>
+  </aside>
+
+  <main class="main" id="main">
+    <div class="main-inner">
+      <nav class="breadcrumbs" aria-label="面包屑"><a href="./index.html">文档</a><span class="sep">/</span><span>协作与推演</span><span class="sep">/</span><span class="current">AI 团队与工作流</span></nav>
+      <article class="prose"><h1 class="doc-title" id="top">AI 团队与工作流</h1>
+<p>一个人（哪怕是一个模型）想不到的地方，往往要靠另一个立场的角色来挑。团队模式让多个角色围绕同一议题多轮辩论，最后交出一份带拍板结论的摘要；工作流模式则把长任务拆成有依赖关系的节点，能并行的并行跑完。</p>
+<h2 id="ai-团队解决什么"><a class="anchor" href="#ai-团队解决什么" aria-hidden="true">#</a>AI 团队解决什么</h2>
+<p>它的价值不在「多几个声音」，而在<strong>对抗</strong>：让一个角色负责务实、一个负责创新、一个负责拍板，观点互相顶一下，你拿到的不再是第一反应的答案，而是被质疑过一轮的答案。</p>
+<p>适合的议题：方案取舍、技术选型、风险排查、产品方向、需要正反两面都看到的决定。</p>
+<h2 id="辩论怎么进行"><a class="anchor" href="#辩论怎么进行" aria-hidden="true">#</a>辩论怎么进行</h2>
+<p>在「对话」工作区标题栏左侧把模式从「对话」切到「团队」，就进入团队讨论视图：</p>
+<ol><li>选一套团队预设，或自己配成员。</li><li>在议题输入框写下要讨论的问题。</li><li>选辩论轮数（默认 5 轮，可切 3 / 5 / 8 / 10 轮）。</li><li>点「开始讨论」，各成员按顺序发言。</li></ol>
+<p>第一轮每位成员各自提案。之后每一轮，成员可以看到全部已有发言，选择提案、支持、反对、反驳或补充，也可以点名回给某位成员。整个过程按轮次逐条铺开，你随时能看到谁说了什么。</p>
+<h2 id="发言的六种动作"><a class="anchor" href="#发言的六种动作" aria-hidden="true">#</a>发言的六种动作</h2>
+<p>每一句发言都以一个动作开头，系统据此分类，摘要里的发言统计也来自这里：</p>
+<div class="table-wrap"><table><thead><tr><th>动作</th><th>含义</th></tr></thead><tbody><tr><td>【提案】</td><td>提出新想法或新方案</td></tr><tr><td>【支持】</td><td>认同并强化某个已有观点</td></tr><tr><td>【反对】</td><td>明确不认同某一观点</td></tr><tr><td>【反驳】</td><td>针对某个观点的论证过程给出反驳</td></tr><tr><td>【补充】</td><td>在同一方向上补上被漏掉的部分</td></tr><tr><td>【决策】</td><td>给出最终方案，讨论就此结束</td></tr></tbody></table></div>
+<p>要定向回应某个人，在动作后写 <code>@成员名</code>，例如 <code>【反驳】@性能专家 这个结论忽略了冷启动成本。</code>系统会把它记成一条指向对方的回应边。</p>
+<p>每次发言都被要求简短（一到三句），既是为了读起来是辩论而不是论文，也是为了省 Token。</p>
+<h2 id="角色与模型分工"><a class="anchor" href="#角色与模型分工" aria-hidden="true">#</a>角色与模型分工</h2>
+<p>默认三位成员对应三种立场：</p>
+<div class="table-wrap"><table><thead><tr><th>角色</th><th>立场</th><th>职责</th></tr></thead><tbody><tr><td>分析师</td><td>务实</td><td>关注可行性与成本</td></tr><tr><td>创意者</td><td>创新</td><td>关注可能性与用户体验</td></tr><tr><td>决策者</td><td>综合</td><td>汇总各方观点，给出最终方案与理由</td></tr></tbody></table></div>
+<p>只有决策者能拍板：其他成员即使写了【决策】也会被当成普通提案。决策者可以在任意一轮直接给【决策】收口结束讨论；如果轮次用尽仍无共识，会由决策者再补一轮最终决策。</p>
+<p>模型分工是刻意设计的：<strong>讨论位用轻量模型，决策位用重型模型</strong>。讨论阶段发言次数多但每句都短，用轻量模型足够；最终方案只出一次，值得用更强的模型。</p>
+<div class="callout callout-warning"><div class="callout-head"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 3.4 17.4 16.6H2.6Z"/><path d="M10 8.2v3.4M10 14v.1"/></svg><span>轮次越多越费 Token</span></div><div class="callout-body"><p>每一轮里每位成员都要把已有的全部发言读一遍。轮数乘以人数，成本是相乘的。三到五轮通常就能看出分歧在哪，把角色数量控制在真的需要的范围。</p></div></div>
+<h2 id="内置团队预设"><a class="anchor" href="#内置团队预设" aria-hidden="true">#</a>内置团队预设</h2>
+<p>SLATE 自带 9 套预设，选中即替换当前成员名单（成员之后仍可单独调整）：</p>
+<div class="table-wrap"><table><thead><tr><th>预设</th><th>成员构成</th></tr></thead><tbody><tr><td>经典三人组</td><td>分析师 + 创意者 + 决策者</td></tr><tr><td>代码审查组</td><td>安全专家 + 性能专家 + 架构师</td></tr><tr><td>产品头脑风暴</td><td>产品经理 + 设计师 + 用户代言 + 技术负责人</td></tr><tr><td>技术选型</td><td>前端专家 + 后端专家 + 基础设施专家 + 技术总监</td></tr><tr><td>红蓝对抗</td><td>正方辩手 + 反方辩手 + 裁判</td></tr><tr><td>全栈评审</td><td>前端评审 + 后端评审 + 数据库评审 + 运维评审 + 技术总监</td></tr><tr><td>写作工坊</td><td>内容策划 + 文案写手 + 编辑</td></tr><tr><td>创业顾问团</td><td>市场顾问 + 技术顾问 + 财务顾问 + 运营顾问 + CEO</td></tr><tr><td>学术研讨</td><td>方法论专家 + 实证研究者 + 批判者 + 主持人</td></tr></tbody></table></div>
+<h2 id="自定义团队"><a class="anchor" href="#自定义团队" aria-hidden="true">#</a>自定义团队</h2>
+<p>把预设当起点，逐张成员卡改就行：</p>
+<ul><li><strong>名称</strong>：直接改卡片上的名字，辩论记录里就用这个名字（<code>@</code> 回应也认它）。</li><li><strong>模型</strong>：每张卡上选模型，可按「国外 / 国内 / 本地 / 自定义」分组挑。没配 Key 的模型会标注提示。</li><li><strong>人设</strong>：卡上的角色设定文本就是这位成员的立场与风格，改它等于重新定义这个角色。</li><li><strong>专家包</strong>：每张卡可选一个专家包，把人格与规则绑到这个角色上，见 <a href="./10-experts.html">专家包</a>。</li><li><strong>增删</strong>：顶部「＋」添加成员，卡片右上角「×」移除。自己加进来的成员默认是普通成员，不参与拍板。</li></ul>
+<p>想让某位成员负责拍板，用预设里的决策者位，或把成员改成决策者位再调整人选。</p>
+<h2 id="决策等你拍板"><a class="anchor" href="#决策等你拍板" aria-hidden="true">#</a>决策等你拍板</h2>
+<p>「决策需我拍板」默认开着：决策者给出【决策】之后，这场讨论不自己收口，而是停下来等你签字。</p>
+<ul><li><strong>采纳拍板</strong>：以那条决策结束，摘要照常生成。</li><li><strong>继续讨论</strong>，或者不选直接关掉弹窗：算「没签」，讨论带着「未拍板」往下再辩一轮，下一位的提示词里会写明这条决策还没被签字。</li><li>重开有次数上限，用尽后讨论自行收口——每一轮重开是全员再发言一次，不给它无限烧下去的口子。</li></ul>
+<p>拍板那一行是讨论里的一笔独立记录：它进下一位的上下文、进后端记录，但不算任何一位成员的发言，星图也不会把它数成谁的观点。</p>
+<p>夜间模式（全托管）下不弹窗打断，决策直接采纳，但那一行照样画出来并写明是自动采纳——不会读成你点过头。不想被拦就在团队面板取消那个勾选，回到「决策即结束」。</p>
+<h2 id="讨论摘要与收尾"><a class="anchor" href="#讨论摘要与收尾" aria-hidden="true">#</a>讨论摘要与收尾</h2>
+<p>讨论结束时会自动生成一份「辩论摘要」，包含：</p>
+<ul><li>议题与参与成员名单。</li><li>发言统计：共几条，以及提案 / 支持 / 反对 / 反驳 / 补充 / 决策各多少条。</li><li>最终方案与提出者；如果始终没有形成决策，则明确写「未达成明确决策」。</li></ul>
+<p>摘要之外，整场辩论的逐条发言也留在讨论区里，可以往下翻看。</p>
+<h2 id="中途停止"><a class="anchor" href="#中途停止" aria-hidden="true">#</a>中途停止</h2>
+<p>点「停止讨论」即可中断。<strong>已完成的发言原样保留</strong>，不会因为停止而丢掉已经辩出来的成果。</p>
+<p>被手动停止的这一场不生成摘要——没有结论就不编一个结论；但它照旧进团队历史，那一行标着「已中断」，点开看得见已经辩完的那几段。</p>
+<h2 id="失败与缺席不算发言"><a class="anchor" href="#失败与缺席不算发言" aria-hidden="true">#</a>失败与缺席不算发言</h2>
+<p>某位成员这一轮请求失败，或他绑的模型没配 API Key，那一格会明确标「失败」/「未参与」：</p>
+<ul><li>这句报错不会进下一位的上下文——否则模型会把一条报错当成某人的主张接着反驳。</li><li>它不计入发言统计，星图里那位成员的发言数就是 0。</li><li>后端仍留一行 error / skipped，事后能追溯谁在哪一轮没说话；这两种状态也只能由系统标出，模型写【失败】是解析不出来的。</li></ul>
+<h2 id="切走了也找得回来"><a class="anchor" href="#切走了也找得回来" aria-hidden="true">#</a>切走了也找得回来</h2>
+<p>辩论在你切到「对话」面板的这段时间继续跑。等你签字与这场收口，都会进右侧的任务中心，与后台终端任务、子代理批次排在同一张表里：那一行写着议题，等签字时标「等你拍板」，点行上的团队按钮跳回这一场重看，点停止中断的也正是这一场。</p>
+<h2 id="讨论记录去哪了"><a class="anchor" href="#讨论记录去哪了" aria-hidden="true">#</a>讨论记录去哪了</h2>
+<p>每次发言会同时落两个地方：</p>
+<ul><li><strong>本机历史</strong>：左侧「团队历史」列表，保留最近 50 场，列出时间、发言条数与大致 Token 用量，点一条即可回看。</li><li><strong>后端团队会话</strong>：一场讨论对应一份会话记录、一份成员名册，以及每位成员各自一次事件账本记录。</li></ul>
+<p>后端那份是黑板 · 工作流视图里「团队星图」的数据源：按角色摆出最近一次讨论，谁回应了谁、谁动过哪些工具、谁派生了子代理，全部取自真实记录。如果写入后端失败，本机历史仍在，那条列表会标上「仅本机记录」；这场对话完全没有团队记录时，星图会直说，不会画一张装饰性的图。星图的读法见 <a href="./12-whiteboard.html">白板式逻辑链</a>。</p>
+<h2 id="团队工作流把流水线交给-dag"><a class="anchor" href="#团队工作流把流水线交给-dag" aria-hidden="true">#</a>团队工作流：把流水线交给 DAG</h2>
+<p>辩论是「一起想」，工作流是「分头干」。切到团队面板的「工作流」页签：</p>
+<ol><li>选一套工作流模板。</li><li>在下面填任务需求，它会作为 <code>$input</code> 传给各个节点。</li><li>点「运行工作流」。</li></ol>
+<p>节点之间靠依赖边串起来：上游产出可以作为下游的输入（<code>$node_id</code> 形式引用），<strong>没有依赖关系的节点会同时执行</strong>。每个节点跑起来后状态实时回显——等待、运行中、成功、失败、跳过；某一个节点失败或被跳过，依赖它的下游会自动跳过，而不是带着空输入硬跑。运行中可以随时点停止，未开始的节点会标为跳过。</p>
+<p>节点的模型绑定按这个优先级取：绑定团队成员的角色（沿用它的模型与人设）→ 节点自己指定的模型 → 「设置 → AI 辅助功能」里「工作流」那一档指定的模型 → 当前模型。</p>
+<p>整条流水线跑完，产物会自动归档进知识库，标题形如「工作流产物 · 模板名」，可在记忆面板里查看。</p>
+<h2 id="内置工作流模板"><a class="anchor" href="#内置工作流模板" aria-hidden="true">#</a>内置工作流模板</h2>
+<p>SLATE 自带 8 套模板：</p>
+<div class="table-wrap"><table><thead><tr><th>模板</th><th>节点流水线</th></tr></thead><tbody><tr><td>标准开发流程</td><td>需求分析 → 任务拆解 → 编码实现 → 代码审查 → 总结交付</td></tr><tr><td>并行研究分析</td><td>需求分析 → 技术调研 / 风险评估 / 资源评估 → 汇总决策</td></tr><tr><td>代码审查流程</td><td>变更扫描 → 质量审查 / 安全审查 / 性能审查 → 汇总报告</td></tr><tr><td>文档生成流程</td><td>大纲规划 → 正文撰写 → 摘要提炼 → 交付整合</td></tr><tr><td>数据分析流程</td><td>数据理解 → 趋势分析 / 异常检测 → 统计摘要 → 决策建议</td></tr><tr><td>研究报告流程</td><td>课题定义 → 背景调研 → 方案对比 / 可行性分析 → 报告生成</td></tr><tr><td>产品需求流程</td><td>想法梳理 → 用户故事 → 功能拆解 → 优先级排序 → 需求文档</td></tr><tr><td>Bug 排查流程</td><td>Bug 描述 → 日志分析 / 代码分析 / 环境分析 → 根因定位</td></tr></tbody></table></div>
+<h2 id="工作流的导入导出与删除"><a class="anchor" href="#工作流的导入导出与删除" aria-hidden="true">#</a>工作流的导入、导出与删除</h2>
+<p>工作流模板以 JSON 定义文件形式提供，含节点、依赖边与每个节点的提示词。其中「标准开发流程」与「并行研究分析」是内置模板，不可删除；其余自定义模板可以导入、导出与删除。删除只在模板层面生效，已经跑出来的产物仍留在知识库里。</p></article>
+      <nav class="pager" aria-label="翻页"><a class="prev" href="./10-experts.html"><span class="dir">上一篇</span><span class="ttl">专家包</span></a><a class="next" href="./12-whiteboard.html"><span class="dir">下一篇</span><span class="ttl">白板式逻辑链</span></a></nav>
+      <footer class="site-footer">
+        <span>SLATE（砚）· 本地 AI 协作调度台</span>
+        <span>
+          <a href="https://slate-ai.site/" target="_blank" rel="noopener">官网</a> ·
+          <a href="https://slate-ai.site/guide.html" target="_blank" rel="noopener">使用教程</a> ·
+          <a href="https://github.com/CaryWang1234/SLATE" target="_blank" rel="noopener">GitHub</a>
+        </span>
+        <span>MIT License · 文档随产品演进</span>
+      </footer>
+    </div>
+  </main>
+
+  <aside class="toc" data-toc aria-label="本页目录"><div class="toc-title">本页目录</div><ul class="toc-list"><li class="lv2"><a href="#ai-团队解决什么">AI 团队解决什么</a></li><li class="lv2"><a href="#辩论怎么进行">辩论怎么进行</a></li><li class="lv2"><a href="#发言的六种动作">发言的六种动作</a></li><li class="lv2"><a href="#角色与模型分工">角色与模型分工</a></li><li class="lv2"><a href="#内置团队预设">内置团队预设</a></li><li class="lv2"><a href="#自定义团队">自定义团队</a></li><li class="lv2"><a href="#决策等你拍板">决策等你拍板</a></li><li class="lv2"><a href="#讨论摘要与收尾">讨论摘要与收尾</a></li><li class="lv2"><a href="#中途停止">中途停止</a></li><li class="lv2"><a href="#失败与缺席不算发言">失败与缺席不算发言</a></li><li class="lv2"><a href="#切走了也找得回来">切走了也找得回来</a></li><li class="lv2"><a href="#讨论记录去哪了">讨论记录去哪了</a></li><li class="lv2"><a href="#团队工作流把流水线交给-dag">团队工作流：把流水线交给 DAG</a></li><li class="lv2"><a href="#内置工作流模板">内置工作流模板</a></li><li class="lv2"><a href="#工作流的导入导出与删除">工作流的导入、导出与删除</a></li></ul></aside>
+</div>
+
+<div class="search-overlay" data-search-overlay hidden>
+  <div class="search-panel" role="dialog" aria-modal="true" aria-label="搜索文档">
+    <div class="search-field">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="5.5"/><path d="M13.2 13.2 17 17"/></svg>
+      <input type="search" placeholder="搜索文档…" data-search-input autocomplete="off" spellcheck="false">
+      <kbd>Esc</kbd>
+    </div>
+    <div class="search-results" data-search-results></div>
+    <div class="search-hint"><span>↑ ↓ 选择</span><span>Enter 打开</span><span>Esc 关闭</span></div>
+  </div>
+</div>
+
+<script src="./assets/search-index.js"></script>
+<script src="./assets/docs.js"></script>
+</body>
+</html>

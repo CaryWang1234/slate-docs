@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>设置与安全审批 · SLATE 文档</title>
+<meta name="description" content="设置页各分区的用途与安全审批规则">
+<link rel="icon" href="./assets/icon.png">
+<script>
+  try {
+    var saved = localStorage.getItem('slate-docs-theme');
+    if (saved) document.documentElement.setAttribute('data-theme', saved);
+  } catch (e) {}
+</script>
+<link rel="stylesheet" href="./assets/docs.css">
+</head>
+<body data-page="19-settings">
+
+<a class="skip-link" href="#main">跳到正文</a>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <button class="icon-btn menu-btn" type="button" data-menu aria-label="打开导航" aria-expanded="false">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 5h14M3 10h14M3 15h14"/></svg>
+    </button>
+
+    <a class="brand" href="./index.html">
+      <img class="brand-logo" src="./assets/icon.png" alt="">
+      <span class="brand-name">SLATE</span>
+      <span class="brand-sub">文档</span>
+    </a>
+
+    <button class="search-trigger" type="button" data-search-open>
+      <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="5.5"/><path d="M13.2 13.2 17 17"/></svg>
+      <span>搜索文档</span>
+      <kbd>Ctrl K</kbd>
+    </button>
+
+    <nav class="topbar-links">
+      <a href="https://slate-ai.site/" target="_blank" rel="noopener">官网</a>
+      <a href="https://slate-ai.site/guide.html" target="_blank" rel="noopener">使用教程</a>
+      <a href="https://github.com/CaryWang1234/SLATE" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+
+    <button class="icon-btn theme-btn" type="button" data-theme-toggle aria-label="切换明暗主题">
+      <svg class="ico-moon" viewBox="0 0 20 20" aria-hidden="true"><path d="M16 12.3A6.6 6.6 0 0 1 7.7 4a6.8 6.8 0 1 0 8.3 8.3Z"/></svg>
+      <svg class="ico-sun" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="3.6"/><path d="M10 2v2.2M10 15.8V18M2 10h2.2M15.8 10H18M4.3 4.3l1.6 1.6M14.1 14.1l1.6 1.6M15.7 4.3l-1.6 1.6M5.9 14.1l-1.6 1.6"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="shell">
+  <div class="scrim" data-scrim hidden></div>
+
+  <aside class="sidebar" data-sidebar aria-label="文档导航">
+    <nav class="sidebar-nav"><div class="nav-group"><div class="nav-group-title">开始使用</div><ul class="nav-list"><li><a class="nav-link" href="./01-what-is-slate.html">认识 SLATE</a></li><li><a class="nav-link" href="./02-install.html">安装与启动</a></li><li><a class="nav-link" href="./03-interface.html">界面总览：页签与三栏工作区</a></li><li><a class="nav-link" href="./04-models.html">模型接入与 API Key</a></li></ul></div><div class="nav-group"><div class="nav-group-title">对话与自动化</div><ul class="nav-list"><li><a class="nav-link" href="./05-chat.html">对话与消息</a></li><li><a class="nav-link" href="./06-autopilot.html">Agent Autopilot 与目标模式</a></li><li><a class="nav-link" href="./07-grind.html">磨墨模式</a></li><li><a class="nav-link" href="./08-tools-skills.html">内置工具与技能</a></li><li><a class="nav-link" href="./09-actions.html">Actions 流程说明书</a></li><li><a class="nav-link" href="./10-experts.html">专家包</a></li></ul></div><div class="nav-group"><div class="nav-group-title">协作与推演</div><ul class="nav-list"><li><a class="nav-link" href="./11-team.html">AI 团队与工作流</a></li><li><a class="nav-link" href="./12-whiteboard.html">白板式逻辑链</a></li><li><a class="nav-link" href="./13-memory-knowledge.html">记忆、画像与知识库</a></li></ul></div><div class="nav-group"><div class="nav-group-title">项目与数据</div><ul class="nav-list"><li><a class="nav-link" href="./14-projects.html">项目、工作区与分项目配置</a></li><li><a class="nav-link" href="./15-prompt-factory.html">提示词工厂</a></li><li><a class="nav-link" href="./16-schedule.html">任务清单与定时任务</a></li><li><a class="nav-link" href="./17-data.html">数据、备份与存储</a></li></ul></div><div class="nav-group"><div class="nav-group-title">移动与安全</div><ul class="nav-list"><li><a class="nav-link" href="./18-mobile.html">移动端遥控与局域网访问</a></li><li><a class="nav-link active" href="./19-settings.html">设置与安全审批</a></li></ul></div><div class="nav-group"><div class="nav-group-title">常见问题</div><ul class="nav-list"><li><a class="nav-link" href="./20-faq.html">常见问题</a></li></ul></div></nav>
+  </aside>
+
+  <main class="main" id="main">
+    <div class="main-inner">
+      <nav class="breadcrumbs" aria-label="面包屑"><a href="./index.html">文档</a><span class="sep">/</span><span>移动与安全</span><span class="sep">/</span><span class="current">设置与安全审批</span></nav>
+      <article class="prose"><h1 class="doc-title" id="top">设置与安全审批</h1>
+<p>这一页说明设置页里各分区分别管什么，以及 SLATE 动手之前会怎么征求你的同意。设置页从顶栏「设置」进入，左栏导航由页面上的区块现场生成、与区块标题一一对应，顶部还有一格搜索：输入关键词只留下含这个词的区块并把命中的那一行描出来，回车或点击直接跳过去，清除后原样回来。</p>
+<h2 id="设置页分区总览"><a class="anchor" href="#设置页分区总览" aria-hidden="true">#</a>设置页分区总览</h2>
+<div class="table-wrap"><table><thead><tr><th>分区</th><th>管什么</th></tr></thead><tbody><tr><td>模型配置</td><td>添加自定义模型与内置模型密钥、配置 Base URL、每个模型一行「最大上下文」（滑杆 + 精确数字框 + 探测窗口）、可选启用 Responses API 模式</td></tr><tr><td>API 测试</td><td>用一条最短请求验证某个模型的密钥与端点是否可用</td></tr><tr><td>用量统计</td><td>全部对话的累计 Token 用量，随对话自动更新</td></tr><tr><td>上下文与项目</td><td>上下文 Token 上限、单次输出上限、文件写入是否自动确认、项目宪法</td></tr><tr><td>自动推进</td><td>回复疑似停顿时的补调策略，以及 Continue Autopilot</td></tr><tr><td>AI 辅助功能</td><td>对话以外的耗 Token 功能逐项开关与单独选模型</td></tr><tr><td>通知</td><td>大任务结束时的提示音与系统通知</td></tr><tr><td>后台任务</td><td>长耗时命令走独立通道后的唤醒开关：任务有消息时自动叫醒模型、每个对话最多自动续跑几次</td></tr><tr><td>多任务与项目</td><td>切走会话时是否让它后台继续跑、同时最多跑几场</td></tr><tr><td>通用 UI</td><td>极简 Codex 风格布局开关（实验性）</td></tr><tr><td>自定义主题</td><td>配色（四个源色推导整套）、字体（系统字体族 + 导入自己的字体文件）、板块透明度、背景图与遮罩浓度，可从 Wallpaper Engine 取当前壁纸；10 套基础预设，开启时明暗切换锁定</td></tr><tr><td>联网搜索</td><td>默认搜索引擎、网页 JS 渲染策略</td></tr><tr><td>图片生成</td><td>生成类工具的模型与 API Key</td></tr><tr><td>视频生成</td><td>生成类工具的模型与 API Key</td></tr><tr><td>审批模式</td><td>每个对话默认的审批档位</td></tr><tr><td>数据备份与恢复</td><td>备份导出与导入</td></tr><tr><td>会话归档</td><td>从「任务」栏归档起来的会话，在这里逐条恢复或删除</td></tr><tr><td>存储空间</td><td>存储占用与管理</td></tr><tr><td>局域网遥控</td><td>遥控地址与二维码</td></tr><tr><td>打字小游戏</td><td>顺手测手速，题库可自定义</td></tr><tr><td>关于 SLATE</td><td>版本、检查更新、新手引导、官网与 GitHub</td></tr></tbody></table></div>
+<div class="callout callout-note"><div class="callout-head"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.2"/><path d="M10 9v4.6M10 6.6v.1"/></svg><span>技能与 MCP 不在这一页</span></div><div class="callout-body"><p>「模型能用什么」——技能、内置工具、回复模式、新功能（工具工厂自己生产的工具）、MCP、专家包、Actions——全在顶栏「扩展」那一页管理，设置页不再兼做能力清单。详见 <a href="./08-tools-skills.html">内置工具与技能</a>。</p></div></div>
+<h2 id="ai-辅助功能"><a class="anchor" href="#ai-辅助功能" aria-hidden="true">#</a>AI 辅助功能</h2>
+<p>除对话、团队对话与提示词工厂之外，每一处会自己去找模型要结果的功能都在这里挂号，共 15 项。每一项都能单独关掉，也能单独指定模型；不指定时跟随当前主模型。</p>
+<div class="table-wrap"><table><thead><tr><th>功能</th><th>触发方式</th><th>关掉后</th></tr></thead><tbody><tr><td>上下文压缩摘要</td><td>自动</td><td>不再自动压缩，手动点「压缩」也不发请求</td></tr><tr><td>记忆自动蒸馏</td><td>自动</td><td>不再自动沉淀长期记忆</td></tr><tr><td>记忆手动提取</td><td>手动</td><td>记忆面板的「从当前对话提取」不再发请求</td></tr><tr><td>对话洞察捕获</td><td>自动</td><td>不再自动生成灵光卡片</td></tr><tr><td>自动会话标题</td><td>自动（首轮跑完）</td><td>新会话保持「首条消息前 30 字」的占位标题，不再起名</td></tr><tr><td>代码理解文档</td><td>手动</td><td>扫描项目后不再生成导览与规则手册</td></tr><tr><td>代码审查</td><td>手动</td><td>只取 diff，不再做四维度审查</td></tr><tr><td>黑板 AI 整理</td><td>手动</td><td>黑板内容不再交给模型重排</td></tr><tr><td>提示词优化</td><td>手动</td><td>输入框那颗按钮照常点，但不再发请求，只提示一句「已关闭」</td></tr><tr><td>子代理并行</td><td>模型调用</td><td>工具从工具目录消失，模型看不到也就不会调</td></tr><tr><td>高危命令目的说明</td><td>自动</td><td>审批弹窗照常拦，只是不再生成那句命令目的</td></tr><tr><td>团队工作流执行</td><td>手动</td><td>工作流不再逐节点请求模型</td></tr><tr><td>定时与事件任务</td><td>自动</td><td>任务不再执行，触发记录仍保留</td></tr><tr><td>AI 图片生成</td><td>模型调用</td><td>工具从工具目录消失</td></tr><tr><td>AI 视频生成</td><td>模型调用</td><td>工具从工具目录消失</td></tr></tbody></table></div>
+<p>列表上方会实时汇总「共 15 项，已关闭 N 项」。关掉即一次模型请求都不发，这是最直接、也最可控的节流手段。</p>
+<div class="callout callout-tip"><div class="callout-head"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.2"/><path d="M10 13.4V9M10 6.6v.6"/><path d="M7.6 12.4h4.8"/></svg><span>省 Token 的第一手段</span></div><div class="callout-body"><p>逐项关掉你根本用不上的功能，比事后压缩上下文更省。日常只做对话与工具执行的话，压缩、蒸馏、洞察、图片、视频这些都可以先关掉，需要时再打开。</p></div></div>
+<h2 id="continue-autopilot"><a class="anchor" href="#continue-autopilot" aria-hidden="true">#</a>Continue Autopilot</h2>
+<p>在「自动推进」区块里，默认开启。它的作用是：Autopilot 或目标模式的轮数用完了，并不等于活干完了。如果末轮还在执行工具，就把上限往后推 8 轮（最多推 3 次）让手上的活做完；如果末轮空手停笔，就把清单里剩下的项念回给模型，催它继续推进或明确写下任务完成。</p>
+<p>散场之后还有一层：这一场不是因为「完成」退出的、而是因为轮数用尽停下的，只要它不在手动审批档（自动审批 / 完全访问 / 夜间模式），SLATE 就替你按下那颗「继续跑完」——等这一场彻底空下来（压缩、蒸馏这些收尾还要占几秒）再发，一场最多自动续两次，界面 toast 会写明「轮数用尽 · 已自动续跑（第 1/2 次）」。手动审批档不在此列：那一档的语义就是每一步都要人点头，所以它照旧只把「继续跑完」条挂出来等你。额度用尽、或续跑没接上时，那颗手动按钮仍然在原地。</p>
+<p>关掉它就回到旧行为：轮数用完即停，需要你自己说一声继续。这个开关只留在本机，不随局域网遥控同步。相关机制见 <a href="./06-autopilot.html">Agent Autopilot 与目标模式</a>。</p>
+<h2 id="任务完成通知"><a class="anchor" href="#任务完成通知" aria-hidden="true">#</a>任务完成通知</h2>
+<p>大任务结束时（目标模式、团队讨论、工作流跑完）可以给你一个提醒，两个开关互相独立：</p>
+<div class="table-wrap"><table><thead><tr><th>开关</th><th>默认</th><th>说明</th></tr></thead><tbody><tr><td>任务完成时播放提示音效</td><td>开启</td><td>短促提示音，无需任何授权</td></tr><tr><td>任务完成时发送系统通知</td><td>关闭</td><td>需要浏览器授予通知权限，未授权时区块下方会给出提示</td></tr></tbody></table></div>
+<p>两个都关掉也不影响任务本身，只是不再提醒。适合把长任务挂后台、你去做别的事的场景，开着能在收工时立刻回到屏幕前。</p>
+<h2 id="主题与语言"><a class="anchor" href="#主题与语言" aria-hidden="true">#</a>主题与语言</h2>
+<ul><li><strong>明暗主题</strong>：用顶栏的「明暗」按钮一键切换，移动端在顶部状态条右侧也有同一个按钮。选择会跨设备同步，手机上切了，电脑上刷新即一致。</li><li><strong>自定义主题</strong>：这一区块只填四个源色——底色、面板色、正文色、强调色——其余三十几个颜色令牌由它们推导出来。为什么不逐个开放：令牌逐个改，很容易改出一版正文读不清的四不像，而源色只有四个，推导时按亮度分深浅两套、按对比度兜底，配色就必然成套。代码块在任何配色下都保持深底亮字，危险 / 完成 / 需要操作三种状态色整组跟随底色亮度切换，不跟着你的强调色走，否则红绿含义就认不出来了。模型品牌 mark 也不参与这套推导：有彩色原件的按品牌原色画，没有的固定一枚中性灰，你挑的墨色染不到它们。</li><li><strong>10 套基础预设</strong>：纸墨、夜金、雾蓝、深海、松墨、苔绿、陶土、暮紫、石墨、铅字。点预设等于把四个源色一次填好，之后你照样可以只改其中一格；一改色板，这一套就不再是那个预设，高亮会自动清掉。</li><li><strong>字体</strong>：正文与代码各一个下拉，候选先列系统里已有的字体族（含「跟随系统」）；下拉下面那颗「导入字体」把自己手上的 .woff2 / .woff / .ttf / .otf（单个文件、16MB 以内）导进来，导入后它和系统字体一样出现在两个下拉里，清单逐条报出大小并可单独移除。字体文件只存在本机 <code>data/theme/fonts/</code>，不进对话记录、也不复制到另一台设备；只导入一个字重时，粗体与斜体由浏览器模拟。字体栈末尾带通用族兜底，换一台没装也没导入这字体的机器不会糊成默认衬线。</li><li><strong>板块透明度</strong>：一个「板块不透明度」滑杆（55%–100%，默认 100%），管的是面板、卡片、输入框与助手气泡这一层底色的不透明度。100% 就是实色，行为与旧版逐像素相同；调低会透出页面底色，铺了背景图时也能透出图。你自己的气泡和代码块始终保持实色，正文不会因此读不清。它和遮罩浓度各管一层：板块取两者里更低的那一档，不会两层各降一次把面板洗没。</li><li><strong>背景图</strong>：挑一张本机的 PNG / JPG / GIF / WebP（不超过 4MB），只有这一张存在本机的数据目录里，不随局域网遥控上传，也不进备份。铺上之后界面会变为半透明骑在图上，「遮罩浓度」滑杆调的就是底色的不透明度（40%–95%，默认 72%）：低于 40% 正文就直接骑在图上，高于 95% 等于没有图。填图与摘图都走顶栏那个「移除」按钮，摘掉后底色回到实色。</li><li><strong>Wallpaper Engine</strong>：装过 Wallpaper Engine 的机器上，这里多一颗「取当前壁纸」——把它正在用的那张壁纸的预览图取过来当上面的背景图，旁边「重新检测」用来在它被关掉或换过目录后重新认一次。这一步是只读的：SLATE 只看 Wallpaper Engine 写在自己目录里的配置和 preview 图，不启动它、也不改它的任何设置。它换了壁纸这里不会跟着换，要再点一次；视频与场景壁纸取到的是那张静态预览图，只有动态预览时才取 gif（那张会在界面后面一直动）。状态那一行只报壁纸名、文件大小和来源屏号，不报本机的绝对路径。</li><li><strong>开启自定义主题时不能切明暗</strong>：整套令牌是从那四个源色推导的，再切一次明暗底版只会两套色互相矛盾。这时明暗按钮会变淡并写明「锁定」，点它不会换色，而是弹一句提示告诉你去哪关掉自定义主题；移动端同样。把自定义主题关掉，一切痕迹（注入样式、颜色、字体、背景图）当场摘干净，明暗切换随即复活。</li><li><strong>界面语言</strong>：安装时选择简体中文或 English，应用运行中不提供切换入口。English 界面翻的是界面文案本身——按钮、区块标题、输入框里的灰字提示（placeholder）与悬浮提示都算；模型生成的内容与你自己输入的文字、以及你贴进对话的代码始终原样呈现，不会被翻译。品牌字标「砚」也保持原样。</li><li>想换语言，重新运行安装程序并选择另一种语言即可；如果只是想让某台设备换个语言，同样以安装时选定为准。</li></ul>
+<div class="callout callout-note"><div class="callout-head"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.2"/><path d="M10 9v4.6M10 6.6v.1"/></svg><span>背景图与导入的字体只在本机</span></div><div class="callout-body"><p>背景图和 <code>data/theme/fonts/</code> 里那些字体文件都只存在这台机器的数据目录里，不写进备份、也不跟着同步。换一台设备或重装后，同一个开关会显示「本机还没有背景图」「本机还没有导入的字体」，重新挑一份即可——配色、透明度与字体选择不受影响，照常生效。</p></div></div>
+<h2 id="关于区块"><a class="anchor" href="#关于区块" aria-hidden="true">#</a>关于区块</h2>
+<p>「关于」把版本与更新相关的操作集中在一处：</p>
+<ul><li><strong>当前版本</strong>：显示你现在运行的是哪一版。</li><li><strong>检查更新</strong>：启动时也会自动检查一次。发现新版本会显示当前版本与最新版本、更新说明摘要，以及「下载更新」「更新说明」两个按钮，都会用系统浏览器打开。</li><li><strong>新手引导</strong>：忘了三栏工作台怎么用，点这里重看一遍。</li><li><strong>项目链接</strong>：官网与 GitHub 仓库，同样用系统浏览器打开。</li></ul>
+<h2 id="安全与审批"><a class="anchor" href="#安全与审批" aria-hidden="true">#</a>安全与审批</h2>
+<p>SLATE 遵循「零自主修改」准则：你说改，它就真去改；你不说，它绝不擅自碰。为了让这条准则落地，动手前会经过几道门。</p>
+<p><strong>审批模式</strong>（「设置 → 审批模式」可设默认档，单个对话还可在输入框的审批模式选择器里随时改，改过的那一场就不再跟着默认档变）：</p>
+<div class="table-wrap"><table><thead><tr><th>模式</th><th>语义</th></tr></thead><tbody><tr><td>手动审批</td><td>执行命令与访问网络都先问过你</td></tr><tr><td>自动审批</td><td>只有命中高危规则的才问，其余直接放行</td></tr><tr><td>完全访问</td><td>命令与联网都不问了；但模型缺条件时仍会弹选择题问你一句。灾难级命令照样由后端拦死，这一档在选择器上标红</td></tr><tr><td>夜间模式</td><td>全托管：命令、联网都不问，连模型「缺条件时想问你一句」也不问——它自己选定方案继续。适合挂着跑完再看</td></tr></tbody></table></div>
+<p>夜间模式这一档对用户的承诺是「没有任何东西在等人」：审批弹窗不会等你批准，选择题也不会等你回来选。因此灾难级命令仍然在任何模式下被后端强制拦死——那一道不是「问」，是「不许」。</p>
+<p><strong>高危命令</strong>采用写死规则判定，前后端双层拦截：前端拦一次，后端再独立拦一次，绕过界面也拦得住。命中后弹窗会写清命令原文与触发的规则，并附一句由模型生成的命令目的说明，由你决定批准还是拒绝；被拒绝时，模型会收到明确的拒绝理由，并被要求不要重试。灾难级命令（如清空根目录、格式化磁盘）在任何模式下都无条件禁止。</p>
+<p><strong>文件编辑</strong>走差异预览：改动以差异卡片呈现，接受才落盘，拒绝则不写入。设置里有一个「自动确认文件创建/修改」开关，默认开启——也就是常规写入无需你每次点接受；想每一笔都亲自过目，把它关掉即可恢复逐笔确认。</p>
+<div class="table-wrap"><table><thead><tr><th>操作</th><th>需要审批</th><th>自动放行</th></tr></thead><tbody><tr><td>执行终端命令</td><td>手动审批与自动审批下按规则确认</td><td>完全访问与夜间模式</td></tr><tr><td>启动后台任务</td><td>同上</td><td>完全访问与夜间模式</td></tr><tr><td>联网搜索、抓取网页、浏览器自动化</td><td>手动审批下逐条确认</td><td>自动审批、完全访问与夜间模式</td></tr><tr><td>模型缺条件时向你提问（选择题弹窗）</td><td>手动、自动审批与完全访问下等你选完再继续</td><td>夜间模式（改为让模型自行拍板）</td></tr><tr><td>读取文件、浏览目录、搜索代码等只读操作</td><td>不经审批</td><td>任何模式</td></tr><tr><td>创建与编辑文件</td><td>取决于「自动确认文件创建/修改」开关</td><td>该开关开启时</td></tr><tr><td>灾难级命令</td><td>任何模式都无条件禁止</td><td>无</td></tr><tr><td>访问凭据文件（如密钥、证书、环境变量文件）</td><td>任何模式都禁止</td><td>无</td></tr></tbody></table></div>
+<p><strong>透明防护</strong>：路径穿越会被拦截，系统敏感目录不可读写；凭据类文件禁止访问；工具输出超过上限会自动截断，单文件操作也有大小上限；上传的文件名会被消毒。这些都在后台默默生效，不需要你配置。</p>
+<div class="callout callout-note"><div class="callout-head"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.2"/><path d="M10 9v4.6M10 6.6v.1"/></svg><span>审批模式的取舍</span></div><div class="callout-body"><p>自动审批适合你已经熟悉模型会做什么、盯着屏幕的场景；完全访问再往前一步，连高危确认也不弹——它只留下「模型缺条件时要问你一句」，适合你认可它大范围动手、但还得由你定方向；夜间模式适合你离开屏幕、让它自己跑完再看结果的场景——正因为它不会回头问你，任务描述里把目标与验收标准写清楚更重要，方向选偏了它会自己接着往下走。拿不准就用手动审批，多一两次点击，换来的是每一笔环境改动都经过你的许可。</p></div></div>
+<p>想了解工具有哪些、流程说明书怎么写，见 <a href="./08-tools-skills.html">内置工具与技能</a>；想了解备份和存储清理，见 <a href="./17-data.html">数据、备份与存储</a>。</p></article>
+      <nav class="pager" aria-label="翻页"><a class="prev" href="./18-mobile.html"><span class="dir">上一篇</span><span class="ttl">移动端遥控与局域网访问</span></a><a class="next" href="./20-faq.html"><span class="dir">下一篇</span><span class="ttl">常见问题</span></a></nav>
+      <footer class="site-footer">
+        <span>SLATE（砚）· 本地 AI 协作调度台</span>
+        <span>
+          <a href="https://slate-ai.site/" target="_blank" rel="noopener">官网</a> ·
+          <a href="https://slate-ai.site/guide.html" target="_blank" rel="noopener">使用教程</a> ·
+          <a href="https://github.com/CaryWang1234/SLATE" target="_blank" rel="noopener">GitHub</a>
+        </span>
+        <span>MIT License · 文档随产品演进</span>
+      </footer>
+    </div>
+  </main>
+
+  <aside class="toc" data-toc aria-label="本页目录"><div class="toc-title">本页目录</div><ul class="toc-list"><li class="lv2"><a href="#设置页分区总览">设置页分区总览</a></li><li class="lv2"><a href="#ai-辅助功能">AI 辅助功能</a></li><li class="lv2"><a href="#continue-autopilot">Continue Autopilot</a></li><li class="lv2"><a href="#任务完成通知">任务完成通知</a></li><li class="lv2"><a href="#主题与语言">主题与语言</a></li><li class="lv2"><a href="#关于区块">关于区块</a></li><li class="lv2"><a href="#安全与审批">安全与审批</a></li></ul></aside>
+</div>
+
+<div class="search-overlay" data-search-overlay hidden>
+  <div class="search-panel" role="dialog" aria-modal="true" aria-label="搜索文档">
+    <div class="search-field">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="5.5"/><path d="M13.2 13.2 17 17"/></svg>
+      <input type="search" placeholder="搜索文档…" data-search-input autocomplete="off" spellcheck="false">
+      <kbd>Esc</kbd>
+    </div>
+    <div class="search-results" data-search-results></div>
+    <div class="search-hint"><span>↑ ↓ 选择</span><span>Enter 打开</span><span>Esc 关闭</span></div>
+  </div>
+</div>
+
+<script src="./assets/search-index.js"></script>
+<script src="./assets/docs.js"></script>
+</body>
+</html>

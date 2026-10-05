@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>安装与启动 · SLATE 文档</title>
+<meta name="description" content="两种安装方式、首次启动流程与数据位置">
+<link rel="icon" href="./assets/icon.png">
+<script>
+  try {
+    var saved = localStorage.getItem('slate-docs-theme');
+    if (saved) document.documentElement.setAttribute('data-theme', saved);
+  } catch (e) {}
+</script>
+<link rel="stylesheet" href="./assets/docs.css">
+</head>
+<body data-page="02-install">
+
+<a class="skip-link" href="#main">跳到正文</a>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <button class="icon-btn menu-btn" type="button" data-menu aria-label="打开导航" aria-expanded="false">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 5h14M3 10h14M3 15h14"/></svg>
+    </button>
+
+    <a class="brand" href="./index.html">
+      <img class="brand-logo" src="./assets/icon.png" alt="">
+      <span class="brand-name">SLATE</span>
+      <span class="brand-sub">文档</span>
+    </a>
+
+    <button class="search-trigger" type="button" data-search-open>
+      <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="5.5"/><path d="M13.2 13.2 17 17"/></svg>
+      <span>搜索文档</span>
+      <kbd>Ctrl K</kbd>
+    </button>
+
+    <nav class="topbar-links">
+      <a href="https://slate-ai.site/" target="_blank" rel="noopener">官网</a>
+      <a href="https://slate-ai.site/guide.html" target="_blank" rel="noopener">使用教程</a>
+      <a href="https://github.com/CaryWang1234/SLATE" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+
+    <button class="icon-btn theme-btn" type="button" data-theme-toggle aria-label="切换明暗主题">
+      <svg class="ico-moon" viewBox="0 0 20 20" aria-hidden="true"><path d="M16 12.3A6.6 6.6 0 0 1 7.7 4a6.8 6.8 0 1 0 8.3 8.3Z"/></svg>
+      <svg class="ico-sun" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="3.6"/><path d="M10 2v2.2M10 15.8V18M2 10h2.2M15.8 10H18M4.3 4.3l1.6 1.6M14.1 14.1l1.6 1.6M15.7 4.3l-1.6 1.6M5.9 14.1l-1.6 1.6"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="shell">
+  <div class="scrim" data-scrim hidden></div>
+
+  <aside class="sidebar" data-sidebar aria-label="文档导航">
+    <nav class="sidebar-nav"><div class="nav-group"><div class="nav-group-title">开始使用</div><ul class="nav-list"><li><a class="nav-link" href="./01-what-is-slate.html">认识 SLATE</a></li><li><a class="nav-link active" href="./02-install.html">安装与启动</a></li><li><a class="nav-link" href="./03-interface.html">界面总览：页签与三栏工作区</a></li><li><a class="nav-link" href="./04-models.html">模型接入与 API Key</a></li></ul></div><div class="nav-group"><div class="nav-group-title">对话与自动化</div><ul class="nav-list"><li><a class="nav-link" href="./05-chat.html">对话与消息</a></li><li><a class="nav-link" href="./06-autopilot.html">Agent Autopilot 与目标模式</a></li><li><a class="nav-link" href="./07-grind.html">磨墨模式</a></li><li><a class="nav-link" href="./08-tools-skills.html">内置工具与技能</a></li><li><a class="nav-link" href="./09-actions.html">Actions 流程说明书</a></li><li><a class="nav-link" href="./10-experts.html">专家包</a></li></ul></div><div class="nav-group"><div class="nav-group-title">协作与推演</div><ul class="nav-list"><li><a class="nav-link" href="./11-team.html">AI 团队与工作流</a></li><li><a class="nav-link" href="./12-whiteboard.html">白板式逻辑链</a></li><li><a class="nav-link" href="./13-memory-knowledge.html">记忆、画像与知识库</a></li></ul></div><div class="nav-group"><div class="nav-group-title">项目与数据</div><ul class="nav-list"><li><a class="nav-link" href="./14-projects.html">项目、工作区与分项目配置</a></li><li><a class="nav-link" href="./15-prompt-factory.html">提示词工厂</a></li><li><a class="nav-link" href="./16-schedule.html">任务清单与定时任务</a></li><li><a class="nav-link" href="./17-data.html">数据、备份与存储</a></li></ul></div><div class="nav-group"><div class="nav-group-title">移动与安全</div><ul class="nav-list"><li><a class="nav-link" href="./18-mobile.html">移动端遥控与局域网访问</a></li><li><a class="nav-link" href="./19-settings.html">设置与安全审批</a></li></ul></div><div class="nav-group"><div class="nav-group-title">常见问题</div><ul class="nav-list"><li><a class="nav-link" href="./20-faq.html">常见问题</a></li></ul></div></nav>
+  </aside>
+
+  <main class="main" id="main">
+    <div class="main-inner">
+      <nav class="breadcrumbs" aria-label="面包屑"><a href="./index.html">文档</a><span class="sep">/</span><span>开始使用</span><span class="sep">/</span><span class="current">安装与启动</span></nav>
+      <article class="prose"><h1 class="doc-title" id="top">安装与启动</h1>
+<p>这页带你装好 SLATE 并跑起来，同时说明首次启动会发生什么、你的数据放在哪里。</p>
+<h2 id="系统要求"><a class="anchor" href="#系统要求" aria-hidden="true">#</a>系统要求</h2>
+<div class="table-wrap"><table><thead><tr><th>项目</th><th>要求</th></tr></thead><tbody><tr><td>Windows 桌面版</td><td>直接使用安装包，无需额外准备运行环境</td></tr><tr><td>macOS 桌面版</td><td>直接使用 <code>.dmg</code>，无需额外准备运行环境</td></tr><tr><td>源码运行</td><td>Python 3.13 或更高版本</td></tr><tr><td>源码运行平台</td><td>Windows / Linux / macOS 都可以</td></tr><tr><td>网络</td><td>首次启动后需要联网调用你配置的模型</td></tr><tr><td>浏览器</td><td>使用源码方式时，用较新版本的 Chrome / Edge / Firefox 打开本机地址</td></tr></tbody></table></div>
+<h2 id="方式一windows-安装包"><a class="anchor" href="#方式一windows-安装包" aria-hidden="true">#</a>方式一：Windows 安装包</h2>
+<p>适合大多数使用者，装完即用，不需要装 Python。</p>
+<ol><li>前往项目的 GitHub Releases 页面，下载最新版安装包 <code>SLATE-Setup-x.x.x.exe</code>。</li><li>双击运行安装程序。</li><li>安装过程中选择界面语言：<strong>简体中文</strong> 或 <strong>English</strong>。</li><li>安装完成后从开始菜单或桌面快捷方式启动。</li></ol>
+<div class="callout callout-tip"><div class="callout-head"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.2"/><path d="M10 13.4V9M10 6.6v.6"/><path d="M7.6 12.4h4.8"/></svg><span>界面语言在安装时选定</span></div><div class="callout-body"><p>语言在安装那一步就定下来了，之后界面与提示文字全程使用该语言。想换语言，重新运行一次安装程序选择即可。</p></div></div>
+<div class="callout callout-tip"><div class="callout-head"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.2"/><path d="M10 13.4V9M10 6.6v.6"/><path d="M7.6 12.4h4.8"/></svg><span>再双击一次不会多开一个窗口</span></div><div class="callout-body"><p>同一份安装只会跑一个 SLATE。窗口已经开着（或已经缩进系统通知区域）时再启动一次，不会多出一个窗口、也不会多起一份后端：新启动的那个会把正在跑的窗口唤回前台，然后自己退掉。锁随进程消失，崩溃或被任务管理器结束都不会留下"再也打不开"的状态。</p></div></div>
+<h2 id="方式二macos-安装包"><a class="anchor" href="#方式二macos-安装包" aria-hidden="true">#</a>方式二：macOS 安装包</h2>
+<p>苹果电脑用 <code>.dmg</code>，装完即用，同样不需要装 Python。</p>
+<ol><li>前往项目的 GitHub Releases 页面，下载最新版 <code>SLATE-Setup-x.x.x.dmg</code>（同目录有 <code>SLATE-Setup-x.x.x.dmg.sha256</code>，想核对一下再装可以用 <code>shasum -a 256 -c</code>）。</li><li>双击挂载，把「SLATE 砚」拖进「应用程序」文件夹。</li><li><strong>首次启动</strong>：在访达里右键（或长按）SLATE 图标 → 「打开」 → 再点一次「打开」。</li><li>此后就能正常双击启动。</li></ol>
+<div class="callout callout-warning"><div class="callout-head"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 3.4 17.4 16.6H2.6Z"/><path d="M10 8.2v3.4M10 14v.1"/></svg><span>这个包还没有代码签名与公证</span></div><div class="callout-body"><p><code>.dmg</code> 由 CI 直接产出，没有 Apple 开发者证书签名，也没有做公证，所以第一次打开会被 Gatekeeper 拦一句"无法验证开发者"。上面第 3 步的右键 → 打开就是绕过它的正规做法，只需要做一次。想校验下载是否完整，比对同名的 <code>.sha256</code> 文件即可。</p></div></div>
+<div class="callout callout-tip"><div class="callout-head"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.2"/><path d="M10 13.4V9M10 6.6v.6"/><path d="M7.6 12.4h4.8"/></svg><span>Mac 上的数据在哪个目录</span></div><div class="callout-body"><p>装机版把对话历史、API Key、后端日志和 WebView 的个人资料都放在 <code>~/Library/Application Support/SLATE</code>，不在 <code>.app</code> 包里。升级就是整个替换 <code>.app</code>，你的数据不会被一起带走。源码运行仍然把数据放在仓库的 <code>data/</code>。</p></div></div>
+<div class="callout callout-note"><div class="callout-head"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.2"/><path d="M10 9v4.6M10 6.6v.1"/></svg><span>托盘与单实例暂时只有 Windows 有</span></div><div class="callout-body"><p>Mac 上关掉窗口就是退出应用；连续启动两次会开出两份。这两条后续再补。</p></div></div>
+<h2 id="方式三从源码运行"><a class="anchor" href="#方式三从源码运行" aria-hidden="true">#</a>方式三：从源码运行</h2>
+<p>适合想自己改点东西、或使用 Linux 的人（macOS 也能这样跑，只是没必要——有现成的 <code>.dmg</code>）。</p>
+<div class="code-block"><div class="code-head"><span class="code-lang">bash</span><button class="code-copy" type="button" data-copy>复制</button></div><pre><code class="language-bash">git clone https://github.com/CaryWang1234/SLATE.git
+cd SLATE
+pip install -r requirements.txt</code></pre></div>
+<p><strong>Windows：</strong></p>
+<div class="code-block"><div class="code-head"><span class="code-lang">bash</span><button class="code-copy" type="button" data-copy>复制</button></div><pre><code class="language-bash">start.bat</code></pre></div>
+<p><strong>Linux / macOS：</strong></p>
+<div class="code-block"><div class="code-head"><span class="code-lang">bash</span><button class="code-copy" type="button" data-copy>复制</button></div><pre><code class="language-bash">chmod +x start.sh
+./start.sh</code></pre></div>
+<p>启动完成后，在浏览器里打开：</p>
+<div class="code-block"><div class="code-head"><span class="code-lang">text</span><button class="code-copy" type="button" data-copy>复制</button></div><pre><code class="language-text">http://127.0.0.1:8000</code></pre></div>
+<p>也可以直接运行桌面入口 <code>python desktop.py</code>，以桌面窗口的方式打开同一个应用。</p>
+<h2 id="三种方式怎么选"><a class="anchor" href="#三种方式怎么选" aria-hidden="true">#</a>三种方式怎么选</h2>
+<div class="table-wrap"><table><thead><tr><th>对比项</th><th>Windows 安装包</th><th>macOS 安装包</th><th>从源码运行</th></tr></thead><tbody><tr><td>需要 Python</td><td>不需要</td><td>不需要</td><td>需要 Python 3.13+</td></tr><tr><td>适用平台</td><td>Windows</td><td>macOS</td><td>Windows / Linux / macOS</td></tr><tr><td>升级方式</td><td>下载新版安装包覆盖安装</td><td>下载新版 <code>.dmg</code> 拖一次</td><td>拉取最新代码后重启</td></tr><tr><td>改动源码</td><td>不适合</td><td>不适合</td><td>适合，改完重启即生效</td></tr><tr><td>适合谁</td><td>只想起草想法、跑任务的人</td><td>只想起草想法、跑任务的人</td><td>想折腾界面与内部流程的人</td></tr></tbody></table></div>
+<h2 id="首次启动会发生什么"><a class="anchor" href="#首次启动会发生什么" aria-hidden="true">#</a>首次启动会发生什么</h2>
+<ol><li>主窗口打开后，会先弹出一份<strong>新手引导</strong>，用几张卡片带你认识多模型对话、目标模式、磨墨模式、内置工具、记忆与知识库、其他面板这几个入口。</li><li>点「开始使用」关闭引导，进入主界面。</li><li>主界面顶栏有五个页签：<strong>对话 / 黑板 / 扩展 / 工厂 / 设置</strong>，每次显示其中一块。默认停在「对话」，这一块内部再分左右两栏：左侧边栏放项目与任务，右侧是对话消息流与输入框，消息区右缘按需滑出任务清单与后台任务面板。技能、工具、模式、MCP、专家包、Actions 这些「模型能用什么」都收在「扩展」那一页。</li></ol>
+<p>新手引导只看一次。之后想重看，去 <strong>设置 → 关于</strong>，点里面的「新手引导」按钮。</p>
+<h2 id="安装后第一件事"><a class="anchor" href="#安装后第一件事" aria-hidden="true">#</a>安装后第一件事</h2>
+<p>SLATE 装好时还没有任何模型可用，先去配置 API Key：</p>
+<ol><li>点顶栏右侧的<strong>密钥</strong>按钮，或直接切到<strong>设置</strong>页签。</li><li>在「模型配置」里找到你要用的模型，填入对应的 API Key 并保存。</li><li>想接入别家端点，点同一区块的「+ 添加模型」，填写模型 ID 与 API 地址。</li><li>回到对话界面，在输入区的模型下拉框里选中刚配置好的模型。</li></ol>
+<p>配置细节与各家模型清单见<a href="./04-models.html">模型接入与 API Key</a>。</p>
+<div class="callout callout-note"><div class="callout-head"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.2"/><path d="M10 9v4.6M10 6.6v.1"/></svg><span>首次启动需要联网</span></div><div class="callout-body"><p>SLATE 本体跑在本机，但它要调用你配置的模型来完成对话与推理。所以第一次使用前，请确认这台电脑能访问你选择的服务端点，并且该 API Key 有可用额度。没有配好模型时，你能看到界面与历史记录，但发出去的消息不会得到回复。</p></div></div>
+<div class="callout callout-warning"><div class="callout-head"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 3.4 17.4 16.6H2.6Z"/><path d="M10 8.2v3.4M10 14v.1"/></svg><span>不要把 API Key 写进会被公开的地方</span></div><div class="callout-body"><p>API Key 保存在本机的应用配置里，不需要你另外记到笔记或项目文件里。请避免把它写进会提交到代码仓库、或会分享给别人的文档中；一旦泄漏，请立刻到服务商后台吊销并重新生成。</p></div></div>
+<h2 id="启动时自动检查更新"><a class="anchor" href="#启动时自动检查更新" aria-hidden="true">#</a>启动时自动检查更新</h2>
+<p>SLATE 每次启动都会检查一次新版本：</p>
+<ul><li>发现新版本时，顶栏下方会出现一条提示横幅，上面给出下载与查看发行说明的入口。</li><li>横幅右上角可以关闭，选择「忽略该版本」后不再为这个版本反复提示。</li><li>也可以随时手动检查：<strong>设置 → 关于</strong>，点「检查更新」，那里同时显示你当前的版本号。</li></ul>
+<p>安装包来源始终是项目的 GitHub Releases，SLATE 不会从别处下载可执行文件。</p>
+<h2 id="卸载与你的数据"><a class="anchor" href="#卸载与你的数据" aria-hidden="true">#</a>卸载与你的数据</h2>
+<p><strong>卸载</strong>：Windows 下用系统的「应用」列表卸载 SLATE 即可，卸载程序负责移除应用本体。</p>
+<p><strong>数据</strong>：对话历史、记忆、知识文档、专家包、动作流程与各项设置都以本机文件形式保存，不上传云端。所以：</p>
+<ul><li>想换电脑，先做一次导出备份，在新机器上导入即可（见<a href="./17-data.html">数据、备份与存储</a>）。</li><li>想彻底清理，也建议先导出一次备份确认无误，再动手删除。</li><li>卸载应用与删除数据是两件事，请按你的需要分别处理。</li></ul>
+<h2 id="启动不上怎么办"><a class="anchor" href="#启动不上怎么办" aria-hidden="true">#</a>启动不上怎么办</h2>
+<ul><li>双击图标后什么都没出现：多半已经有一个 SLATE 在跑（窗口可能正缩在系统通知区域）。再启动一次只会把那个窗口唤回来，不会开出第二个；到通知区域或任务栏里找它。</li><li>源码方式启动失败时，先确认 Python 版本不低于 3.13，依赖已经安装完整，再重新运行一次启动脚本。</li><li>命令行里留意启动过程的报错信息，多数问题在最后几行就能看出原因。</li><li>界面能打开、但消息发出去没有回复，多半是模型密钥或网络问题。去 <strong>设置 → API 测试</strong>，用一条最短请求验证链路是否可用。</li></ul>
+<p>仍然不通时，对照<a href="./20-faq.html">常见问题</a>排查。</p></article>
+      <nav class="pager" aria-label="翻页"><a class="prev" href="./01-what-is-slate.html"><span class="dir">上一篇</span><span class="ttl">认识 SLATE</span></a><a class="next" href="./03-interface.html"><span class="dir">下一篇</span><span class="ttl">界面总览：页签与三栏工作区</span></a></nav>
+      <footer class="site-footer">
+        <span>SLATE（砚）· 本地 AI 协作调度台</span>
+        <span>
+          <a href="https://slate-ai.site/" target="_blank" rel="noopener">官网</a> ·
+          <a href="https://slate-ai.site/guide.html" target="_blank" rel="noopener">使用教程</a> ·
+          <a href="https://github.com/CaryWang1234/SLATE" target="_blank" rel="noopener">GitHub</a>
+        </span>
+        <span>MIT License · 文档随产品演进</span>
+      </footer>
+    </div>
+  </main>
+
+  <aside class="toc" data-toc aria-label="本页目录"><div class="toc-title">本页目录</div><ul class="toc-list"><li class="lv2"><a href="#系统要求">系统要求</a></li><li class="lv2"><a href="#方式一windows-安装包">方式一：Windows 安装包</a></li><li class="lv2"><a href="#方式二macos-安装包">方式二：macOS 安装包</a></li><li class="lv2"><a href="#方式三从源码运行">方式三：从源码运行</a></li><li class="lv2"><a href="#三种方式怎么选">三种方式怎么选</a></li><li class="lv2"><a href="#首次启动会发生什么">首次启动会发生什么</a></li><li class="lv2"><a href="#安装后第一件事">安装后第一件事</a></li><li class="lv2"><a href="#启动时自动检查更新">启动时自动检查更新</a></li><li class="lv2"><a href="#卸载与你的数据">卸载与你的数据</a></li><li class="lv2"><a href="#启动不上怎么办">启动不上怎么办</a></li></ul></aside>
+</div>
+
+<div class="search-overlay" data-search-overlay hidden>
+  <div class="search-panel" role="dialog" aria-modal="true" aria-label="搜索文档">
+    <div class="search-field">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="5.5"/><path d="M13.2 13.2 17 17"/></svg>
+      <input type="search" placeholder="搜索文档…" data-search-input autocomplete="off" spellcheck="false">
+      <kbd>Esc</kbd>
+    </div>
+    <div class="search-results" data-search-results></div>
+    <div class="search-hint"><span>↑ ↓ 选择</span><span>Enter 打开</span><span>Esc 关闭</span></div>
+  </div>
+</div>
+
+<script src="./assets/search-index.js"></script>
+<script src="./assets/docs.js"></script>
+</body>
+</html>

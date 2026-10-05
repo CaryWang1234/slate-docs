@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>移动端遥控与局域网访问 · SLATE 文档</title>
+<meta name="description" content="用手机在同一个局域网里遥控桌面上的 SLATE">
+<link rel="icon" href="./assets/icon.png">
+<script>
+  try {
+    var saved = localStorage.getItem('slate-docs-theme');
+    if (saved) document.documentElement.setAttribute('data-theme', saved);
+  } catch (e) {}
+</script>
+<link rel="stylesheet" href="./assets/docs.css">
+</head>
+<body data-page="18-mobile">
+
+<a class="skip-link" href="#main">跳到正文</a>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <button class="icon-btn menu-btn" type="button" data-menu aria-label="打开导航" aria-expanded="false">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 5h14M3 10h14M3 15h14"/></svg>
+    </button>
+
+    <a class="brand" href="./index.html">
+      <img class="brand-logo" src="./assets/icon.png" alt="">
+      <span class="brand-name">SLATE</span>
+      <span class="brand-sub">文档</span>
+    </a>
+
+    <button class="search-trigger" type="button" data-search-open>
+      <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="5.5"/><path d="M13.2 13.2 17 17"/></svg>
+      <span>搜索文档</span>
+      <kbd>Ctrl K</kbd>
+    </button>
+
+    <nav class="topbar-links">
+      <a href="https://slate-ai.site/" target="_blank" rel="noopener">官网</a>
+      <a href="https://slate-ai.site/guide.html" target="_blank" rel="noopener">使用教程</a>
+      <a href="https://github.com/CaryWang1234/SLATE" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+
+    <button class="icon-btn theme-btn" type="button" data-theme-toggle aria-label="切换明暗主题">
+      <svg class="ico-moon" viewBox="0 0 20 20" aria-hidden="true"><path d="M16 12.3A6.6 6.6 0 0 1 7.7 4a6.8 6.8 0 1 0 8.3 8.3Z"/></svg>
+      <svg class="ico-sun" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="3.6"/><path d="M10 2v2.2M10 15.8V18M2 10h2.2M15.8 10H18M4.3 4.3l1.6 1.6M14.1 14.1l1.6 1.6M15.7 4.3l-1.6 1.6M5.9 14.1l-1.6 1.6"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="shell">
+  <div class="scrim" data-scrim hidden></div>
+
+  <aside class="sidebar" data-sidebar aria-label="文档导航">
+    <nav class="sidebar-nav"><div class="nav-group"><div class="nav-group-title">开始使用</div><ul class="nav-list"><li><a class="nav-link" href="./01-what-is-slate.html">认识 SLATE</a></li><li><a class="nav-link" href="./02-install.html">安装与启动</a></li><li><a class="nav-link" href="./03-interface.html">界面总览：页签与三栏工作区</a></li><li><a class="nav-link" href="./04-models.html">模型接入与 API Key</a></li></ul></div><div class="nav-group"><div class="nav-group-title">对话与自动化</div><ul class="nav-list"><li><a class="nav-link" href="./05-chat.html">对话与消息</a></li><li><a class="nav-link" href="./06-autopilot.html">Agent Autopilot 与目标模式</a></li><li><a class="nav-link" href="./07-grind.html">磨墨模式</a></li><li><a class="nav-link" href="./08-tools-skills.html">内置工具与技能</a></li><li><a class="nav-link" href="./09-actions.html">Actions 流程说明书</a></li><li><a class="nav-link" href="./10-experts.html">专家包</a></li></ul></div><div class="nav-group"><div class="nav-group-title">协作与推演</div><ul class="nav-list"><li><a class="nav-link" href="./11-team.html">AI 团队与工作流</a></li><li><a class="nav-link" href="./12-whiteboard.html">白板式逻辑链</a></li><li><a class="nav-link" href="./13-memory-knowledge.html">记忆、画像与知识库</a></li></ul></div><div class="nav-group"><div class="nav-group-title">项目与数据</div><ul class="nav-list"><li><a class="nav-link" href="./14-projects.html">项目、工作区与分项目配置</a></li><li><a class="nav-link" href="./15-prompt-factory.html">提示词工厂</a></li><li><a class="nav-link" href="./16-schedule.html">任务清单与定时任务</a></li><li><a class="nav-link" href="./17-data.html">数据、备份与存储</a></li></ul></div><div class="nav-group"><div class="nav-group-title">移动与安全</div><ul class="nav-list"><li><a class="nav-link active" href="./18-mobile.html">移动端遥控与局域网访问</a></li><li><a class="nav-link" href="./19-settings.html">设置与安全审批</a></li></ul></div><div class="nav-group"><div class="nav-group-title">常见问题</div><ul class="nav-list"><li><a class="nav-link" href="./20-faq.html">常见问题</a></li></ul></div></nav>
+  </aside>
+
+  <main class="main" id="main">
+    <div class="main-inner">
+      <nav class="breadcrumbs" aria-label="面包屑"><a href="./index.html">文档</a><span class="sep">/</span><span>移动与安全</span><span class="sep">/</span><span class="current">移动端遥控与局域网访问</span></nav>
+      <article class="prose"><h1 class="doc-title" id="top">移动端遥控与局域网访问</h1>
+<p>这一页解决「人离开电脑，但活还没干完」的问题：手机或平板连上同一个局域网，就能用浏览器遥控桌面上的 SLATE，界面会自动切换成专门的移动端样子。SLATE 启动时就已经把局域网访问开好了，不需要额外配置。</p>
+<h2 id="能干什么"><a class="anchor" href="#能干什么" aria-hidden="true">#</a>能干什么</h2>
+<ul><li>查看正在跑的对话与工具调用进度，接着聊下去。</li><li>新建会话、切换会话、重命名与删除。</li><li>增删改长期记忆，查看与管理待办（定时任务）。</li><li>切换模型、填 API Key、切换深色模式。</li><li>高危命令与文件改动会弹底部面板让你确认，和桌面是同一套判断规则。</li></ul>
+<h2 id="怎么连上"><a class="anchor" href="#怎么连上" aria-hidden="true">#</a>怎么连上</h2>
+<ol><li>让手机与电脑连在同一个局域网（同一个 Wi-Fi）。</li><li>在电脑上打开「设置 → 局域网遥控」，会看到一条访问地址与一个二维码。</li><li>手机扫码，或把地址复制到手机浏览器打开，即可进入专属移动端界面。</li></ol>
+<p>地址里的端口默认是 8001；这个端口被占用时 SLATE 会自动向后找一个可用端口，所以以设置页显示的地址为准。顶栏的「遥控」按钮也能直接跳到这一块设置。</p>
+<h2 id="为什么桌面界面没变"><a class="anchor" href="#为什么桌面界面没变" aria-hidden="true">#</a>为什么桌面界面没变</h2>
+<p>移动端界面是独立入口，只有手机与平板这一类设备访问局域网地址时才会进入。你在电脑浏览器里看到的仍然是完整的三栏桌面工作台，功能、布局、快捷键都不受影响，属于零回归。</p>
+<div class="callout callout-tip"><div class="callout-head"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.2"/><path d="M10 13.4V9M10 6.6v.6"/><path d="M7.6 12.4h4.8"/></svg><span>想在手机上强制看桌面界面</span></div><div class="callout-body"><p>在地址后面加上 <code>slate_mobile=0</code> 再打开，就会停留在桌面界面。平板上屏幕够大、又想用完整布局时可以这样进。</p></div></div>
+<h2 id="五个底部-tab"><a class="anchor" href="#五个底部-tab" aria-hidden="true">#</a>五个底部 Tab</h2>
+<div class="table-wrap"><table><thead><tr><th>Tab</th><th>主要用途</th><th>具体能做什么</th></tr></thead><tbody><tr><td>对话</td><td>接着干活</td><td>看流式输出、思考折叠卡与工具卡片，继续追问或停止本轮</td></tr><tr><td>会话</td><td>找历史</td><td>会话列表，新建、切换、重命名、删除</td></tr><tr><td>记忆</td><td>管长期记忆</td><td>增删改查，新建时选择分类</td></tr><tr><td>待办</td><td>管定时任务</td><td>查看下次触发、启用停用、立即运行、删除、新建</td></tr><tr><td>设置</td><td>调整本机偏好</td><td>模型切换、推理强度、密钥、外观、遥控信息</td></tr></tbody></table></div>
+<p><strong>对话</strong>：输入框固定在底部，回车发送、<code>Shift + Enter</code> 换行，输入 <code>@</code> 弹出提及候选。消息按气泡呈现，模型的思考过程收在可折叠卡片里，工具调用显示成带状态的工具卡；生成过程中上翻不会被自动滚动打断。</p>
+<p><strong>会话</strong>：与桌面共用同一份后端数据，手机上改过的标题、新建的会话，回到电脑刷新就能看到；反过来也一样。在手机上继续过的那场会话，桌面上旧的「已完成未查看」之类标志会自动作废，不会留下过时的结论。</p>
+<p><strong>记忆</strong>：一条条列出长期记忆，点进去可编辑内容或改分类，也可以直接删除；新建记忆时填内容并选一个分类，之后在对话里会被自动召回。</p>
+<p><strong>待办</strong>：每个定时任务是一行，可查看它的时间或间隔、临时启用或停用、点「立即运行」立刻执行一次，以及删除。新建时依次填名称、提示词、模型、模式与时间或间隔。</p>
+<p><strong>设置</strong>：一屏之内改完手机上最需要的几件事，改完立即生效。</p>
+<h2 id="遥控时的分工"><a class="anchor" href="#遥控时的分工" aria-hidden="true">#</a>遥控时的分工</h2>
+<p>移动端是「遥控器」，不是第二份数据：</p>
+<ul><li>数据仍是同一份：会话、记忆、待办都存在桌面那台机器的本机数据目录里，手机只是操作它。</li><li>任务仍在电脑上跑：模型请求与工具执行发生在电脑端，手机只是发起与查看。所以关掉电脑上的 SLATE，遥控就结束了。</li><li>运行时请不要让电脑休眠：休眠会中断正在跑的生成与后台任务。</li><li>桌面上的窗口不需要保持在前台，但应用要处于运行状态。</li></ul>
+<h2 id="什么时候用遥控什么时候回到电脑前"><a class="anchor" href="#什么时候用遥控什么时候回到电脑前" aria-hidden="true">#</a>什么时候用遥控、什么时候回到电脑前</h2>
+<div class="table-wrap"><table><thead><tr><th>场景</th><th>建议</th></tr></thead><tbody><tr><td>长任务跑到一半要出门</td><td>用遥控看进度，必要时补一句指令</td></tr><tr><td>只想改个标题、删个会话、看看记忆</td><td>遥控足够</td></tr><tr><td>批量整理历史、往模板里塞大段上下文</td><td>回桌面，屏幕大、操作快</td></tr><tr><td>管理技能、编辑流程说明书、配置 MCP Server</td><td>回桌面，这些区块只在桌面设置页</td></tr><tr><td>多人协作、把界面投给别人看</td><td>不建议，遥控地址等于钥匙</td></tr></tbody></table></div>
+<h2 id="移动端对话的能力"><a class="anchor" href="#移动端对话的能力" aria-hidden="true">#</a>移动端对话的能力</h2>
+<ul><li><strong>流式输出</strong>：逐字出现，和桌面同一套协议；上翻时不会被自动滚动打断，贴底时自动跟随。</li><li><strong>工具循环</strong>：与桌面共用同一条 Agent 循环逻辑，模型能观察、执行、验证、汇报；界面同源，工具卡的标题不会退化成裸英文工具名。</li><li><strong>高危命令确认</strong>：命中写死的高危规则时，弹出底部面板，写明命令与触发规则，并附一句由模型生成的命令目的说明，由你决定批准还是拒绝。</li><li><strong>文件变更确认</strong>：文件编辑与新建会先给你看差异，选择接受才落盘，拒绝则不写入。</li><li><strong>@ 提及</strong>：输入 <code>@</code> 弹出候选浮层，可提及技能、工具与项目文件，支持上下键选择、Tab 或点击插入。</li><li><strong>停止真取消</strong>：点停止会连同工具调用的流式通道一起关闭，后端终止对应的子进程与在跑任务。</li></ul>
+<h2 id="移动端设置能改什么"><a class="anchor" href="#移动端设置能改什么" aria-hidden="true">#</a>移动端设置能改什么</h2>
+<div class="table-wrap"><table><thead><tr><th>设置项</th><th>说明</th></tr></thead><tbody><tr><td>模型选择</td><td>按国产 / 国际 / 本地 / 自定义分组列出，点一下即切换，并显示每个模型的上下文预算</td></tr><tr><td>推理强度</td><td>档位随当前模型能力给出（自动 / 关 / 低 / 中 / 高），与桌面输入框那个选择器是同一份状态</td></tr><tr><td>密钥</td><td>为当前模型填入或清除 API Key</td></tr><tr><td>外观</td><td>深色模式开关；顶部状态条还有一个快捷的主题切换按钮。电脑上开了自定义主题时，这一项会写明「已锁定」，点切换只会说明原因，不会换色</td></tr><tr><td>遥控信息</td><td>显示带授权的访问地址与二维码，可一键复制</td></tr></tbody></table></div>
+<h2 id="鉴权与风险"><a class="anchor" href="#鉴权与风险" aria-hidden="true">#</a>鉴权与风险</h2>
+<p>局域网访问靠地址里自带的授权码放行：只有通过设置页给出的那条地址（或它的二维码）进入的设备才能访问，地址里没有授权码的访问会被拦在一张「需要授权」的页面上。授权码保存在设备上，之后再用同一浏览器访问不必重复扫码。</p>
+<div class="callout callout-danger"><div class="callout-head"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.2"/><path d="M10 6.4v4.2M10 13.4v.2"/></svg><span>别把访问地址发出去</span></div><div class="callout-body"><p>这条带授权码的地址就是钥匙。任何拿到它的设备，只要连进同一个局域网，就能打开并操作你的 SLATE——读文件、跑命令、看全部历史会话。不要在群里、论坛或截图里暴露这条地址。不再需要遥控时，关掉电脑端的 SLATE 即可让地址失效。</p></div></div>
+<p><strong>安全建议</strong>：这是把本机服务开放到局域网，建议只在你自己能信任的网络里使用。在咖啡厅、酒店、机场这类公共 Wi-Fi 下，关闭 SLATE 或不要使用遥控功能。</p>
+<h2 id="连不上怎么排查"><a class="anchor" href="#连不上怎么排查" aria-hidden="true">#</a>连不上怎么排查</h2>
+<ol><li><strong>手机和电脑是否在同一个 Wi-Fi</strong>：手机用的是蜂窝数据、或连了另一个频段的访客网络，都不算同一个局域网。</li><li><strong>电脑防火墙是否拦了端口</strong>：第一次开放局域网访问时，系统可能弹出防火墙询问，需要选择允许；若当时点了拒绝，去防火墙设置里为 SLATE 放行。</li><li><strong>地址是否用了电脑的局域网 IP</strong>：要用设置页显示的那条地址，而不是本机回环地址。</li><li><strong>是否被访客网络隔离</strong>：不少路由器默认开启「AP 隔离」，同一 Wi-Fi 下设备之间也互相看不见，需要在路由器设置里关掉，或换成手机热点。</li></ol>
+<p>按现象对照排查会更快：</p>
+<div class="table-wrap"><table><thead><tr><th>现象</th><th>最可能的原因</th><th>怎么办</th></tr></thead><tbody><tr><td>页面一直转圈打不开</td><td>电脑不在运行，或端口被防火墙拦了</td><td>确认电脑上 SLATE 在运行；为它放行防火墙</td></tr><tr><td>打开后停在「需要授权」页</td><td>地址漏了授权码</td><td>回到设置页复制完整地址，或重新扫码</td></tr><tr><td>平板打开后是桌面界面</td><td>平板被判为桌面设备</td><td>属预期行为，功能不受影响；想用移动端界面请用手机浏览器打开同一条地址</td></tr><tr><td>昨天能连，今天不行</td><td>电脑换了网络，IP 变了</td><td>重新打开设置页，用新显示的地址</td></tr><tr><td>只有一台手机连不上</td><td>访客网络隔离或系统限流</td><td>检查路由器 AP 隔离，或换手机热点试一次</td></tr></tbody></table></div>
+<p>其他还要看的：设置页若提示「遥控服务未启动」，重启应用即可；地址里的端口被别的程序占用时 SLATE 会自动换一个，所以始终以设置页当下显示的地址为准。</p>
+<div class="callout callout-note"><div class="callout-head"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.2"/><path d="M10 9v4.6M10 6.6v.1"/></svg><span>地址会变吗</span></div><div class="callout-body"><p>电脑换了 Wi-Fi、路由器重新分配了地址，访问链接就会跟着变；端口被占用时也会换。所以换网络之后别用旧地址，回到设置页重新看一眼再扫码。</p></div></div></article>
+      <nav class="pager" aria-label="翻页"><a class="prev" href="./17-data.html"><span class="dir">上一篇</span><span class="ttl">数据、备份与存储</span></a><a class="next" href="./19-settings.html"><span class="dir">下一篇</span><span class="ttl">设置与安全审批</span></a></nav>
+      <footer class="site-footer">
+        <span>SLATE（砚）· 本地 AI 协作调度台</span>
+        <span>
+          <a href="https://slate-ai.site/" target="_blank" rel="noopener">官网</a> ·
+          <a href="https://slate-ai.site/guide.html" target="_blank" rel="noopener">使用教程</a> ·
+          <a href="https://github.com/CaryWang1234/SLATE" target="_blank" rel="noopener">GitHub</a>
+        </span>
+        <span>MIT License · 文档随产品演进</span>
+      </footer>
+    </div>
+  </main>
+
+  <aside class="toc" data-toc aria-label="本页目录"><div class="toc-title">本页目录</div><ul class="toc-list"><li class="lv2"><a href="#能干什么">能干什么</a></li><li class="lv2"><a href="#怎么连上">怎么连上</a></li><li class="lv2"><a href="#为什么桌面界面没变">为什么桌面界面没变</a></li><li class="lv2"><a href="#五个底部-tab">五个底部 Tab</a></li><li class="lv2"><a href="#遥控时的分工">遥控时的分工</a></li><li class="lv2"><a href="#什么时候用遥控什么时候回到电脑前">什么时候用遥控、什么时候回到电脑前</a></li><li class="lv2"><a href="#移动端对话的能力">移动端对话的能力</a></li><li class="lv2"><a href="#移动端设置能改什么">移动端设置能改什么</a></li><li class="lv2"><a href="#鉴权与风险">鉴权与风险</a></li><li class="lv2"><a href="#连不上怎么排查">连不上怎么排查</a></li></ul></aside>
+</div>
+
+<div class="search-overlay" data-search-overlay hidden>
+  <div class="search-panel" role="dialog" aria-modal="true" aria-label="搜索文档">
+    <div class="search-field">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="5.5"/><path d="M13.2 13.2 17 17"/></svg>
+      <input type="search" placeholder="搜索文档…" data-search-input autocomplete="off" spellcheck="false">
+      <kbd>Esc</kbd>
+    </div>
+    <div class="search-results" data-search-results></div>
+    <div class="search-hint"><span>↑ ↓ 选择</span><span>Enter 打开</span><span>Esc 关闭</span></div>
+  </div>
+</div>
+
+<script src="./assets/search-index.js"></script>
+<script src="./assets/docs.js"></script>
+</body>
+</html>

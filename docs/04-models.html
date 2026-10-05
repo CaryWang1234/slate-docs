@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>模型接入与 API Key · SLATE 文档</title>
+<meta name="description" content="配置预设模型、自定义端点与本地模型">
+<link rel="icon" href="./assets/icon.png">
+<script>
+  try {
+    var saved = localStorage.getItem('slate-docs-theme');
+    if (saved) document.documentElement.setAttribute('data-theme', saved);
+  } catch (e) {}
+</script>
+<link rel="stylesheet" href="./assets/docs.css">
+</head>
+<body data-page="04-models">
+
+<a class="skip-link" href="#main">跳到正文</a>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <button class="icon-btn menu-btn" type="button" data-menu aria-label="打开导航" aria-expanded="false">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 5h14M3 10h14M3 15h14"/></svg>
+    </button>
+
+    <a class="brand" href="./index.html">
+      <img class="brand-logo" src="./assets/icon.png" alt="">
+      <span class="brand-name">SLATE</span>
+      <span class="brand-sub">文档</span>
+    </a>
+
+    <button class="search-trigger" type="button" data-search-open>
+      <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="5.5"/><path d="M13.2 13.2 17 17"/></svg>
+      <span>搜索文档</span>
+      <kbd>Ctrl K</kbd>
+    </button>
+
+    <nav class="topbar-links">
+      <a href="https://slate-ai.site/" target="_blank" rel="noopener">官网</a>
+      <a href="https://slate-ai.site/guide.html" target="_blank" rel="noopener">使用教程</a>
+      <a href="https://github.com/CaryWang1234/SLATE" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+
+    <button class="icon-btn theme-btn" type="button" data-theme-toggle aria-label="切换明暗主题">
+      <svg class="ico-moon" viewBox="0 0 20 20" aria-hidden="true"><path d="M16 12.3A6.6 6.6 0 0 1 7.7 4a6.8 6.8 0 1 0 8.3 8.3Z"/></svg>
+      <svg class="ico-sun" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="3.6"/><path d="M10 2v2.2M10 15.8V18M2 10h2.2M15.8 10H18M4.3 4.3l1.6 1.6M14.1 14.1l1.6 1.6M15.7 4.3l-1.6 1.6M5.9 14.1l-1.6 1.6"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="shell">
+  <div class="scrim" data-scrim hidden></div>
+
+  <aside class="sidebar" data-sidebar aria-label="文档导航">
+    <nav class="sidebar-nav"><div class="nav-group"><div class="nav-group-title">开始使用</div><ul class="nav-list"><li><a class="nav-link" href="./01-what-is-slate.html">认识 SLATE</a></li><li><a class="nav-link" href="./02-install.html">安装与启动</a></li><li><a class="nav-link" href="./03-interface.html">界面总览：页签与三栏工作区</a></li><li><a class="nav-link active" href="./04-models.html">模型接入与 API Key</a></li></ul></div><div class="nav-group"><div class="nav-group-title">对话与自动化</div><ul class="nav-list"><li><a class="nav-link" href="./05-chat.html">对话与消息</a></li><li><a class="nav-link" href="./06-autopilot.html">Agent Autopilot 与目标模式</a></li><li><a class="nav-link" href="./07-grind.html">磨墨模式</a></li><li><a class="nav-link" href="./08-tools-skills.html">内置工具与技能</a></li><li><a class="nav-link" href="./09-actions.html">Actions 流程说明书</a></li><li><a class="nav-link" href="./10-experts.html">专家包</a></li></ul></div><div class="nav-group"><div class="nav-group-title">协作与推演</div><ul class="nav-list"><li><a class="nav-link" href="./11-team.html">AI 团队与工作流</a></li><li><a class="nav-link" href="./12-whiteboard.html">白板式逻辑链</a></li><li><a class="nav-link" href="./13-memory-knowledge.html">记忆、画像与知识库</a></li></ul></div><div class="nav-group"><div class="nav-group-title">项目与数据</div><ul class="nav-list"><li><a class="nav-link" href="./14-projects.html">项目、工作区与分项目配置</a></li><li><a class="nav-link" href="./15-prompt-factory.html">提示词工厂</a></li><li><a class="nav-link" href="./16-schedule.html">任务清单与定时任务</a></li><li><a class="nav-link" href="./17-data.html">数据、备份与存储</a></li></ul></div><div class="nav-group"><div class="nav-group-title">移动与安全</div><ul class="nav-list"><li><a class="nav-link" href="./18-mobile.html">移动端遥控与局域网访问</a></li><li><a class="nav-link" href="./19-settings.html">设置与安全审批</a></li></ul></div><div class="nav-group"><div class="nav-group-title">常见问题</div><ul class="nav-list"><li><a class="nav-link" href="./20-faq.html">常见问题</a></li></ul></div></nav>
+  </aside>
+
+  <main class="main" id="main">
+    <div class="main-inner">
+      <nav class="breadcrumbs" aria-label="面包屑"><a href="./index.html">文档</a><span class="sep">/</span><span>开始使用</span><span class="sep">/</span><span class="current">模型接入与 API Key</span></nav>
+      <article class="prose"><h1 class="doc-title" id="top">模型接入与 API Key</h1>
+<p>这页教你把模型接进来：预设模型怎么填密钥、自定义端点怎么加、本地模型怎么指过去，以及上下文预算和用量怎么看。</p>
+<h2 id="在哪配置"><a class="anchor" href="#在哪配置" aria-hidden="true">#</a>在哪配置</h2>
+<p>两个入口，通向同一页：</p>
+<ul><li>顶栏右侧的<strong>密钥</strong>按钮；</li><li>顶栏页签<strong>设置</strong>，再在左侧导航里选<strong>模型配置</strong>。</li></ul>
+<p>「模型配置」区块里有三块内容：<strong>自定义模型</strong>列表、<strong>内置模型密钥</strong>列表，以及 Responses API 模式开关。每一行模型后面都跟着一个「最大上下文」（滑杆 + 精确数字框 + 探测窗口按钮，见下文「上下文预算怎么定」）。</p>
+<h2 id="预设模型"><a class="anchor" href="#预设模型" aria-hidden="true">#</a>预设模型</h2>
+<p>SLATE 自带一份模型清单，分四组出现在输入区的模型下拉框里：</p>
+<div class="table-wrap"><table><thead><tr><th>分组</th><th>包含</th></tr></thead><tbody><tr><td>国际模型</td><td>GPT 系列、Claude 系列、Gemini 系列</td></tr><tr><td>国产模型</td><td>DeepSeek、Kimi、Qwen、GLM、Doubao、MiniMax、ERNIE</td></tr><tr><td>本地模型</td><td>内置一条本地模型条目，供 Ollama / LM Studio 使用</td></tr><tr><td>自定义</td><td>你自己添加的端点</td></tr></tbody></table></div>
+<p>下拉里每一条前面的圆点是密钥状态：<strong>已配置</strong>为实心，<strong>未配置</strong>为空。鼠标停在选项上还能看到模型 ID、接口地址与该模型是否支持 Responses API。</p>
+<p>圆点旁边是这一家的品牌 mark。内置模型和你自己添加的模型走同一套判定：按<strong>模型名称</strong>认，名字里认不出品牌时才看<strong>接口地址</strong>——所以 <code>deepseek-r1:1.5b</code> 跑在本机 Ollama 上仍然画 DeepSeek 的标，而不是 Ollama 的。认不出来就什么也不画，宁可留白，也不会拿别家的 logo 顶上去。mark 是随包分发的各家官方图形：47 家有彩色原件的直接按品牌自己的颜色画，另外 11 家（OpenAI、Anthropic、xAI、Ollama、Z.ai 等）包里只有单色版，画一枚中性灰。两支都不跟主题走——「扩展 → 外观」里挑的墨色与强调色染不到品牌色，明暗模式切换下也不会糊成一团黑。GLM（智谱）旁边画的是 <strong>Z.ai</strong> 的标：这家把对外标识换成了 Z.ai，我们跟着新标走，包里它只有单色版。</p>
+<p>具体有哪些型号以你界面里列出的为准。给某个模型配密钥的步骤：</p>
+<ol><li>在「内置模型密钥」里找到它。</li><li>在输入框里粘贴 API Key，点右侧的保存按钮。</li><li>已配置的输入框会提示「已配置」；清空内容再保存即可删除该密钥。</li></ol>
+<h2 id="添加自定义模型"><a class="anchor" href="#添加自定义模型" aria-hidden="true">#</a>添加自定义模型</h2>
+<p>只要你的服务商提供 OpenAI 兼容接口，就能接进来。</p>
+<ol><li>点「模型配置」右上角的 <strong>+ 添加模型</strong>。</li><li>填写这些字段：</li></ol>
+<div class="table-wrap"><table><thead><tr><th>字段</th><th>说明</th></tr></thead><tbody><tr><td>模型名称 / ID</td><td>服务商要求的模型标识，也是下拉框里显示的字</td></tr><tr><td>请求模式</td><td>OpenAI 兼容、Anthropic、或 curl 直连三种</td></tr><tr><td>Base URL</td><td>你的接口地址</td></tr><tr><td>API Key</td><td>可选；本地或免鉴权的端点可以留空</td></tr><tr><td>Context Window</td><td>该模型能容纳的上下文规模</td></tr></tbody></table></div>
+<ol><li>点「添加」保存，它会出现在模型下拉框的「自定义」分组里。</li></ol>
+<div class="callout callout-tip"><div class="callout-head"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.2"/><path d="M10 13.4V9M10 6.6v.6"/><path d="M7.6 12.4h4.8"/></svg><span>先别急着换模型</span></div><div class="callout-body"><p>新加一个端点后，先去 <strong>设置 → API 测试</strong> 打一发最短请求。通了再把它设成常用模型，能省下不少「是模型不行还是配置写错了」的来回猜。</p></div></div>
+<h2 id="使用本地模型"><a class="anchor" href="#使用本地模型" aria-hidden="true">#</a>使用本地模型</h2>
+<p>想让推理完全留在本机，用 Ollama 或 LM Studio 都可以。</p>
+<ul><li>模型清单里已经有一条<strong>本地模型</strong>条目，默认指向本机 Ollama 的兼容地址（默认端口 11434）。</li><li>用 LM Studio 时，把它显示的监听地址填进该条目的 Base URL。</li><li>端口如果你自己改过，请按实际监听的端口填写。</li><li>本地模型不校验 API Key，下拉里会标注为本地模型。</li></ul>
+<div class="callout callout-note"><div class="callout-head"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.2"/><path d="M10 9v4.6M10 6.6v.1"/></svg><span>本机地址指的是什么</span></div><div class="callout-body"><p>本地模型的地址指向你自己的电脑，不需要外网。所以断网也能用它；反过来，模型跑不跑得动、上下文能开多大，取决于你这台机器的显卡与内存。</p></div></div>
+<h2 id="api-key-与数据安全"><a class="anchor" href="#api-key-与数据安全" aria-hidden="true">#</a>API Key 与数据安全</h2>
+<ul><li>API Key 保存在本机（本地加密存储），只用于调用你自己配置的模型。</li><li>密钥不会写进对话记录，也不会随项目文件一起落到你的工作目录里。</li><li>备份导出时可以一并带走，导入到新机器后继续使用。</li></ul>
+<div class="callout callout-warning"><div class="callout-head"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 3.4 17.4 16.6H2.6Z"/><path d="M10 8.2v3.4M10 14v.1"/></svg><span>别把密钥写进会公开的地方</span></div><div class="callout-body"><p>不要把 API Key 抄进项目文件、笔记或截图里。它会随代码仓库、聊天记录一起传播出去；一旦怀疑泄漏，立刻到服务商后台吊销并重新生成一把。</p></div></div>
+<h2 id="上下文预算怎么定"><a class="anchor" href="#上下文预算怎么定" aria-hidden="true">#</a>上下文预算怎么定</h2>
+<p>每个模型都有自己的上下文预算。开得越大，单次请求能带的材料越多，消耗也越高。</p>
+<ul><li>模型配置里每一行的<strong>最大上下文</strong>由三件组成：按这个模型的窗口生成的滑杆、一个精确数字框、一个<strong>探测窗口</strong>按钮。</li><li>选<strong>自动</strong>时按这个模型自己的标称窗口 ×0.8 取值，不再吸附到公共档位。只有 8K 窗口的本地模型因此拿到 6553，而不是凑不满最低一档、把整个窗口占满到没地方写回复。</li><li>数字框保留你填的精确值（131072 就是 131072），只在 1K–4M 区间内夹取；选的值超出这个模型的窗口时会自动封顶，读数上会同时显示你选的值与实际生效的值。</li><li>本地与自定义端点（Ollama / llama.cpp / vLLM / OpenAI 兼容）可以点<strong>探测窗口</strong>，直接问这台服务器它实际能吃多少。探到的值单独存一张覆盖表，参与自动档与封顶，随时可一键清除，回到端点自带的值；探不到时如实说明「这个端点没有暴露上下文窗口」，不会替你编一个数。</li><li>既没填标称窗口、也探测不到的模型，自动档才回落到全局的「上下文 Token 上限」（在 <strong>设置 → 上下文与项目</strong> 里改）。</li></ul>
+<p>自动压缩的触发阈值与界面上那根上下文条，都按同一个数字计算，不会出现「条满了却不压缩」的错位。上下文条可以直接点，点一下跳到对应模型的这一行。</p>
+<h2 id="思考强度怎么选"><a class="anchor" href="#思考强度怎么选" aria-hidden="true">#</a>思考强度怎么选</h2>
+<p>输入框左侧的档位胶囊管的是「这一场让模型想多久」（自动 / 关 / 低 / 中 / 高），每个对话各存一份。刻度不是一张固定表——SLATE 按端点能力分了九类，弹窗里只出这个模型真能接的档：</p>
+<ul><li>强制思考的模型没有「关」这一档，最低就是「低」。</li><li>只能整体开关、不能调档的端点，刻度旁注明「低 / 中 / 高都按开」。</li><li>不支持思考的模型相关刻度直接置灰，并写明原因；切到该模型那一刻弹窗里会提示。</li><li>上游若以 400 点名这个字段，SLATE 会剥掉它重发一次——最坏是这次档位不生效，而不是模型用不了。</li><li>档位下方的小字（随墨 / 清墨 / 淡墨 / 浓墨 / 焦墨）只是浓淡提示；拖动时只预览，松手才生效并落盘。</li></ul>
+<h2 id="responses-api-模式"><a class="anchor" href="#responses-api-模式" aria-hidden="true">#</a>Responses API 模式</h2>
+<p>「模型配置」里有一个开关：<strong>启用 Responses API 模式</strong>。它用新版 API 格式发请求，仅部分模型支持。</p>
+<ul><li>默认关闭，按现有格式发送请求即可正常工作。</li><li>只有当你明确知道自己的端点支持 Responses API、并且需要它的能力时才打开。</li><li>不确定就不开；开错了通常表现为请求被上游拒绝。</li></ul>
+<h2 id="轻量模型与重型模型的分工"><a class="anchor" href="#轻量模型与重型模型的分工" aria-hidden="true">#</a>轻量模型与重型模型的分工</h2>
+<p>不同档位的模型可以各司其职，既省钱又不牺牲结论质量。</p>
+<div class="table-wrap"><table><thead><tr><th>场景</th><th>分工</th></tr></thead><tbody><tr><td>AI 团队辩论</td><td>轻量模型负责讨论与发声，重型模型负责最终决策</td></tr><tr><td>AI 辅助功能</td><td>压缩摘要、记忆蒸馏、代码理解、命令说明等十几项，逐项可关、可单独指定模型</td></tr><tr><td>自动推进审阅</td><td>在「自动推进」区块里单独指定审阅模型</td></tr></tbody></table></div>
+<p>这些开关与指定入口都在设置里，逐项说明见<a href="./19-settings.html">设置与安全审批</a>。</p>
+<h2 id="切换模型与用量显示"><a class="anchor" href="#切换模型与用量显示" aria-hidden="true">#</a>切换模型与用量显示</h2>
+<ul><li><strong>切换</strong>：在输入区的模型下拉框里选，只影响这一场会话；下拉框最后一项是「+ 自定义模型…」，可以就地新增。</li><li><strong>单条用量</strong>：每条回复都会标出所用模型与 Token 用量。</li><li><strong>本场用量</strong>：标题栏下方的用量信息栏反映屏幕上这一场；左栏的<strong>总结</strong>页签给出一场的汇总。</li><li><strong>累计用量</strong>：<strong>设置 → 用量统计</strong>，看全部对话的累计消耗。</li></ul>
+<p>同一时刻可能有多场会话在跑，每场各记各的账，用量条只反映你眼前这一场。</p>
+<h2 id="常见问题"><a class="anchor" href="#常见问题" aria-hidden="true">#</a>常见问题</h2>
+<p><strong>密钥填了但还是报错</strong></p>
+<p>去 <strong>设置 → API 测试</strong>，选中出问题的模型，点「开始测试」。这条请求走的是真实对话的同一条链路，能直接区分「密钥不对」「地址不对」「余额不足」还是「模型名写错了」。</p>
+<p><strong>下拉框里没有我要的模型</strong></p>
+<p>用「+ 添加模型」按自定义端点接入即可，不必等清单更新。</p>
+<p><strong>列表显示「暂无内置模型」</strong></p>
+<p>说明内置清单这次没取到。可以先手动添加自定义模型顶上，再对照<a href="./20-faq.html">常见问题</a>排查。</p></article>
+      <nav class="pager" aria-label="翻页"><a class="prev" href="./03-interface.html"><span class="dir">上一篇</span><span class="ttl">界面总览：页签与三栏工作区</span></a><a class="next" href="./05-chat.html"><span class="dir">下一篇</span><span class="ttl">对话与消息</span></a></nav>
+      <footer class="site-footer">
+        <span>SLATE（砚）· 本地 AI 协作调度台</span>
+        <span>
+          <a href="https://slate-ai.site/" target="_blank" rel="noopener">官网</a> ·
+          <a href="https://slate-ai.site/guide.html" target="_blank" rel="noopener">使用教程</a> ·
+          <a href="https://github.com/CaryWang1234/SLATE" target="_blank" rel="noopener">GitHub</a>
+        </span>
+        <span>MIT License · 文档随产品演进</span>
+      </footer>
+    </div>
+  </main>
+
+  <aside class="toc" data-toc aria-label="本页目录"><div class="toc-title">本页目录</div><ul class="toc-list"><li class="lv2"><a href="#在哪配置">在哪配置</a></li><li class="lv2"><a href="#预设模型">预设模型</a></li><li class="lv2"><a href="#添加自定义模型">添加自定义模型</a></li><li class="lv2"><a href="#使用本地模型">使用本地模型</a></li><li class="lv2"><a href="#api-key-与数据安全">API Key 与数据安全</a></li><li class="lv2"><a href="#上下文预算怎么定">上下文预算怎么定</a></li><li class="lv2"><a href="#思考强度怎么选">思考强度怎么选</a></li><li class="lv2"><a href="#responses-api-模式">Responses API 模式</a></li><li class="lv2"><a href="#轻量模型与重型模型的分工">轻量模型与重型模型的分工</a></li><li class="lv2"><a href="#切换模型与用量显示">切换模型与用量显示</a></li><li class="lv2"><a href="#常见问题">常见问题</a></li></ul></aside>
+</div>
+
+<div class="search-overlay" data-search-overlay hidden>
+  <div class="search-panel" role="dialog" aria-modal="true" aria-label="搜索文档">
+    <div class="search-field">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="5.5"/><path d="M13.2 13.2 17 17"/></svg>
+      <input type="search" placeholder="搜索文档…" data-search-input autocomplete="off" spellcheck="false">
+      <kbd>Esc</kbd>
+    </div>
+    <div class="search-results" data-search-results></div>
+    <div class="search-hint"><span>↑ ↓ 选择</span><span>Enter 打开</span><span>Esc 关闭</span></div>
+  </div>
+</div>
+
+<script src="./assets/search-index.js"></script>
+<script src="./assets/docs.js"></script>
+</body>
+</html>

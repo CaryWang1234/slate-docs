@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>内置工具与技能 · SLATE 文档</title>
+<meta name="description" content="SLATE 自带的全部工具清单、调用方式与扩展方法。">
+<link rel="icon" href="./assets/icon.png">
+<script>
+  try {
+    var saved = localStorage.getItem('slate-docs-theme');
+    if (saved) document.documentElement.setAttribute('data-theme', saved);
+  } catch (e) {}
+</script>
+<link rel="stylesheet" href="./assets/docs.css">
+</head>
+<body data-page="08-tools-skills">
+
+<a class="skip-link" href="#main">跳到正文</a>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <button class="icon-btn menu-btn" type="button" data-menu aria-label="打开导航" aria-expanded="false">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 5h14M3 10h14M3 15h14"/></svg>
+    </button>
+
+    <a class="brand" href="./index.html">
+      <img class="brand-logo" src="./assets/icon.png" alt="">
+      <span class="brand-name">SLATE</span>
+      <span class="brand-sub">文档</span>
+    </a>
+
+    <button class="search-trigger" type="button" data-search-open>
+      <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="5.5"/><path d="M13.2 13.2 17 17"/></svg>
+      <span>搜索文档</span>
+      <kbd>Ctrl K</kbd>
+    </button>
+
+    <nav class="topbar-links">
+      <a href="https://slate-ai.site/" target="_blank" rel="noopener">官网</a>
+      <a href="https://slate-ai.site/guide.html" target="_blank" rel="noopener">使用教程</a>
+      <a href="https://github.com/CaryWang1234/SLATE" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+
+    <button class="icon-btn theme-btn" type="button" data-theme-toggle aria-label="切换明暗主题">
+      <svg class="ico-moon" viewBox="0 0 20 20" aria-hidden="true"><path d="M16 12.3A6.6 6.6 0 0 1 7.7 4a6.8 6.8 0 1 0 8.3 8.3Z"/></svg>
+      <svg class="ico-sun" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="3.6"/><path d="M10 2v2.2M10 15.8V18M2 10h2.2M15.8 10H18M4.3 4.3l1.6 1.6M14.1 14.1l1.6 1.6M15.7 4.3l-1.6 1.6M5.9 14.1l-1.6 1.6"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="shell">
+  <div class="scrim" data-scrim hidden></div>
+
+  <aside class="sidebar" data-sidebar aria-label="文档导航">
+    <nav class="sidebar-nav"><div class="nav-group"><div class="nav-group-title">开始使用</div><ul class="nav-list"><li><a class="nav-link" href="./01-what-is-slate.html">认识 SLATE</a></li><li><a class="nav-link" href="./02-install.html">安装与启动</a></li><li><a class="nav-link" href="./03-interface.html">界面总览：页签与三栏工作区</a></li><li><a class="nav-link" href="./04-models.html">模型接入与 API Key</a></li></ul></div><div class="nav-group"><div class="nav-group-title">对话与自动化</div><ul class="nav-list"><li><a class="nav-link" href="./05-chat.html">对话与消息</a></li><li><a class="nav-link" href="./06-autopilot.html">Agent Autopilot 与目标模式</a></li><li><a class="nav-link" href="./07-grind.html">磨墨模式</a></li><li><a class="nav-link active" href="./08-tools-skills.html">内置工具与技能</a></li><li><a class="nav-link" href="./09-actions.html">Actions 流程说明书</a></li><li><a class="nav-link" href="./10-experts.html">专家包</a></li></ul></div><div class="nav-group"><div class="nav-group-title">协作与推演</div><ul class="nav-list"><li><a class="nav-link" href="./11-team.html">AI 团队与工作流</a></li><li><a class="nav-link" href="./12-whiteboard.html">白板式逻辑链</a></li><li><a class="nav-link" href="./13-memory-knowledge.html">记忆、画像与知识库</a></li></ul></div><div class="nav-group"><div class="nav-group-title">项目与数据</div><ul class="nav-list"><li><a class="nav-link" href="./14-projects.html">项目、工作区与分项目配置</a></li><li><a class="nav-link" href="./15-prompt-factory.html">提示词工厂</a></li><li><a class="nav-link" href="./16-schedule.html">任务清单与定时任务</a></li><li><a class="nav-link" href="./17-data.html">数据、备份与存储</a></li></ul></div><div class="nav-group"><div class="nav-group-title">移动与安全</div><ul class="nav-list"><li><a class="nav-link" href="./18-mobile.html">移动端遥控与局域网访问</a></li><li><a class="nav-link" href="./19-settings.html">设置与安全审批</a></li></ul></div><div class="nav-group"><div class="nav-group-title">常见问题</div><ul class="nav-list"><li><a class="nav-link" href="./20-faq.html">常见问题</a></li></ul></div></nav>
+  </aside>
+
+  <main class="main" id="main">
+    <div class="main-inner">
+      <nav class="breadcrumbs" aria-label="面包屑"><a href="./index.html">文档</a><span class="sep">/</span><span>对话与自动化</span><span class="sep">/</span><span class="current">内置工具与技能</span></nav>
+      <article class="prose"><h1 class="doc-title" id="top">内置工具与技能</h1>
+<p>这一页是能力清单：SLATE 自带哪些工具、模型怎么用它们、哪些能关掉，以及怎么用 <code>SKILL.md</code> 和外部 MCP Server 把能力接得更多。</p>
+<h2 id="两类能力先分清"><a class="anchor" href="#两类能力先分清" aria-hidden="true">#</a>两类能力先分清</h2>
+<ul><li><strong>内置工具</strong>：SLATE 自带的 Python 能力，开箱即用，不需要配置也不用安装。文件读写、跑命令、生成文档、联网搜索都在这一类。</li><li><strong>Skill</strong>：由 <code>SKILL.md</code> 定义的外部知识与流程。你自己写、上传或从本地路径导入，用来告诉模型"这件事该按什么步骤做"。</li></ul>
+<p>内置工具是"手"，Skill 是"做法"。两者都能被模型按需使用，也都能用 <code>@</code> 显式点名。</p>
+<h2 id="在哪管理扩展页"><a class="anchor" href="#在哪管理扩展页" aria-hidden="true">#</a>在哪管理：「扩展」页</h2>
+<p>顶栏「扩展」这一页是全部能力管理的入口，左栏七栏各管一类，数字与列表同源：</p>
+<div class="table-wrap"><table><thead><tr><th>分栏</th><th>管什么</th></tr></thead><tbody><tr><td>技能</td><td><code>SKILL.md</code> 技能的导入、新建、删除，含「GitHub」与「发现插件」两个来源</td></tr><tr><td>工具</td><td>自带工具清单（可查看，不可删除），关掉的功能连目录都不出现</td></tr><tr><td>模式</td><td>回复模式的四档内置（只读）与自定义模式的建 / 改 / 删：追加提示词、工具白名单、推理强度与轮数上限</td></tr><tr><td>新功能</td><td>工具工厂自己生产出来的工具：停用、看代码、查历史版本、回滚、撤销</td></tr><tr><td>MCP</td><td>外部 MCP Server 的连接与它带来的远程工具</td></tr><tr><td>专家包</td><td>角色设定 + 知识库 + 技能的组合，可新建与导入 zip</td></tr><tr><td>Actions</td><td><code>data/actions/*.yml</code> 流程说明书的编辑、校验、回滚</td></tr></tbody></table></div>
+<p>原先这些散在设置页的「工具 / 技能」与「MCP Server」两块，现已整块搬进这一页；设置页只留配置，不再兼做能力管理。</p>
+<h2 id="内置工具总览"><a class="anchor" href="#内置工具总览" aria-hidden="true">#</a>内置工具总览</h2>
+<div class="table-wrap"><table><thead><tr><th>类别</th><th>工具</th><th>用途</th></tr></thead><tbody><tr><td>文件与代码</td><td><code>file_tree</code></td><td>浏览目录：可递归、按通配符过滤、快速扫描</td></tr><tr><td>文件与代码</td><td><code>file_peek</code></td><td>读取文件内容：自动识别多种编码，可按行范围或读取末尾</td></tr><tr><td>文件与代码</td><td><code>file_create</code></td><td>创建新文件</td></tr><tr><td>文件与代码</td><td><code>file_edit</code></td><td>差异预览式编辑：精确替换、按行号替换、插入、删除、复制与粘贴</td></tr><tr><td>文件与代码</td><td><code>file_append</code></td><td>向已有文件末尾追加，用于超长文件分段续写</td></tr><tr><td>文件与代码</td><td><code>code_search</code></td><td>项目内全局代码搜索：文本或正则，可缩小到子目录</td></tr><tr><td>文件与代码</td><td><code>repo_stats</code></td><td>项目文件类型、体积与数量统计</td></tr><tr><td>文件与代码</td><td><code>todo_scan</code></td><td>扫描项目里的 TODO / FIXME 待办标记</td></tr><tr><td>文件与代码</td><td><code>python_api_extract</code></td><td>提取 Python 库的公共 API 文档（签名、类方法、属性）</td></tr><tr><td>终端与后台任务</td><td><code>terminal</code></td><td>受限沙箱命令执行，支持多会话与跨命令状态保持</td></tr><tr><td>终端与后台任务</td><td><code>bg_task</code></td><td>后台终端任务：起了就走，结束时叫醒模型</td></tr><tr><td>办公文档</td><td><code>doc_write</code></td><td>生成 Markdown 技术文档或需求说明</td></tr><tr><td>办公文档</td><td><code>ppt_create</code></td><td>生成 <code>.pptx</code> 演示文稿</td></tr><tr><td>办公文档</td><td><code>word_create</code></td><td>生成 <code>.docx</code> Word 文档</td></tr><tr><td>办公文档</td><td><code>excel_tool</code></td><td>生成 <code>.xlsx</code>、读取表格、csv 与 xlsx 互转</td></tr><tr><td>办公文档</td><td><code>pdf_tool</code></td><td>PDF 元信息、文本与表格提取</td></tr><tr><td>办公文档</td><td><code>html_render</code></td><td>生成 HTML 骨架</td></tr><tr><td>办公文档</td><td><code>html_bundle</code></td><td>把网页的 css / js 内联合并成单个 html，便于分发</td></tr><tr><td>数据与图表</td><td><code>json_tool</code></td><td>JSON 校验、格式化、压缩与按路径读取</td></tr><tr><td>数据与图表</td><td><code>regex_test</code></td><td>正则表达式测试与匹配结果预览</td></tr><tr><td>数据与图表</td><td><code>text_summarize</code></td><td>文本摘要与关键词提取</td></tr><tr><td>数据与图表</td><td><code>chart_create</code></td><td>生成 SVG 图表：柱状 / 条形 / 折线 / 饼图</td></tr><tr><td>数据与图表</td><td><code>qrcode_create</code></td><td>生成 SVG 二维码</td></tr><tr><td>搜索与网页</td><td><code>web_search</code></td><td>联网搜索，免 Key</td></tr><tr><td>搜索与网页</td><td><code>web_fetch</code></td><td>获取网页正文，支持 JS 渲染页面与 PDF</td></tr><tr><td>代码与文档安全</td><td><code>code_scan</code></td><td>代码安全扫描：硬编码密钥、SQL 注入、XSS、弱加密、调试残留</td></tr><tr><td>代码与文档安全</td><td><code>doc_scan</code></td><td>文档安全扫描：PII、凭证、财务数据、机密标记、内网信息</td></tr><tr><td>Git</td><td><code>git_tool</code></td><td>Git 仓库只读信息：分支状态、提交日志、变更统计、分支与远程列表</td></tr><tr><td>系统与环境</td><td><code>system_info</code></td><td>系统元认知：日期时间、硬件配置、电量、网络状态</td></tr><tr><td>系统与环境</td><td><code>css_color</code></td><td>生成 CSS 配色方案</td></tr><tr><td>自动化</td><td><code>browser_automation</code></td><td>浏览器自动化：导航、截图、点击、输入、执行 JS</td></tr><tr><td>自动化</td><td><code>computer_use</code></td><td>桌面自动化：鼠标键盘控制、窗口管理、图像定位</td></tr><tr><td>自动化</td><td><code>screenshot_to_code</code></td><td>截图转代码：分析截图并生成还原视觉的 HTML / CSS</td></tr><tr><td>生成类</td><td><code>image_gen</code></td><td>AI 图片生成，需在设置里配置模型与 API Key</td></tr><tr><td>生成类</td><td><code>video_gen</code></td><td>AI 视频生成，需在设置里配置模型与 API Key</td></tr><tr><td>MCP 工厂</td><td><code>mcp_factory</code></td><td>工具工厂：按描述自动生成新工具，产物落 <code>data/evolved/</code>，在「扩展 → 新功能」可停用 / 回滚 / 撤销</td></tr></tbody></table></div>
+<div class="callout callout-note"><div class="callout-head"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.2"/><path d="M10 9v4.6M10 6.6v.1"/></svg><span>关于工具数量</span></div><div class="callout-body"><p>上表共 36 条，覆盖你在工具面板与 <code>@</code> 提及候选里能看到的全部内置工具。其中 <code>file_append</code> 与 <code>file_create</code> 属于同一族：一个负责建、一个负责续，配合完成超长文件的分段写入。</p></div></div>
+<h2 id="重点工具"><a class="anchor" href="#重点工具" aria-hidden="true">#</a>重点工具</h2>
+<h3 id="file_edit改动先给你看"><a class="anchor" href="#file_edit改动先给你看" aria-hidden="true">#</a>file_edit：改动先给你看</h3>
+<ul><li>改动以 diff 形式呈现：文件名、<code>+N -M</code> 行数统计、红绿增删行，一屏看清动了什么。</li><li>卡片上有「接受」「拒绝」「复制 diff」三个按钮：接受才落盘，拒绝只是关掉这张卡（这一笔不写入，但同一轮里已经写进去的内容不由这张卡回滚）。</li><li>在「设置 → 上下文与项目」里勾选了「自动确认文件创建/修改」（默认勾选）时，预览没有报错的改动会直接写入，卡片显示「已自动应用」，不再给接受与拒绝。部分内容没命中时仍保留手动确认，避免只写进去半套。</li><li>这一轮真正落盘的文件，会在模型说完最后一句话后汇总成一张「本轮改了哪些文件」卡片，可以在那里逐文件看 diff、整轮撤销，见 <a href="./06-autopilot.html">Agent Autopilot 与目标模式</a>。</li><li>编码安全：写入时保留原有的 UTF-8、BOM、GB18030、GBK、UTF-16 等编码，中文与 emoji 不会变成乱码。</li></ul>
+<h3 id="terminal受限沙箱里跑命令"><a class="anchor" href="#terminal受限沙箱里跑命令" aria-hidden="true">#</a>terminal：受限沙箱里跑命令</h3>
+<ul><li>单条命令超时 30 秒，输出超过 5 万字符会被截断，命令长度也有上限。</li><li>支持多个终端会话并存，可以创建、列出、关闭，也可以终止会话里跑着的进程。</li><li>Windows 下每条命令一个独立 PowerShell 进程：多行块（<code>foreach</code> / <code>if</code>）与 <code>&amp;&amp;</code> / <code>||</code> 都可用；<code>cd</code> 与 <code>$env:</code> 这类会话状态跨命令保持。</li><li>交互式命令行（裸跑 <code>python</code> / <code>node</code> 这类等待输入的 REPL）拿不到输入就会退出或拖到超时，不适合在这里用。</li><li>命令窗口不会弹到屏幕上，原生命令的输出捕获支持中文与 emoji。</li></ul>
+<h3 id="bg_task后台终端任务的三层唤醒"><a class="anchor" href="#bg_task后台终端任务的三层唤醒" aria-hidden="true">#</a>bg_task：后台终端任务的三层唤醒</h3>
+<p>编译、训练、起一个实验服务器这类以分钟计的活，交给它，不占住对话：</p>
+<ol><li><strong>主动问</strong>：起完立刻返回任务标识、开头一小段输出与日志路径；之后用状态与日志查询去取新增输出。</li><li><strong>结束时叫醒</strong>：起任务时带 <code>notify=true</code>，任务结束会把结果带着输出尾巴送回对话，模型被叫醒接着干。</li><li><strong>提前叫醒</strong>：再挂一个正则，输出命中就提前唤醒，不必等命令跑完。</li></ol>
+<p>它是"起了就走"的一次性任务，不接受交互式输入；可以给超时让它到点自动终止，也可以随时停掉整棵进程树。任务寿命等于 SLATE 进程寿命——关掉 SLATE 任务就没了，日志留在本机可事后查。</p>
+<div class="callout callout-warning"><div class="callout-head"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 3.4 17.4 16.6H2.6Z"/><path d="M10 8.2v3.4M10 14v.1"/></svg><span>后台不等于免审批</span></div><div class="callout-body"><p>后台任务走的审批档位与终端完全一致，高危命令照样会弹窗问你，灾难级命令直接拒绝。</p></div></div>
+<h3 id="搜索git-与联网"><a class="anchor" href="#搜索git-与联网" aria-hidden="true">#</a>搜索、Git 与联网</h3>
+<ul><li><code>code_search</code>：在项目里做全局代码搜索，支持文本与正则，默认从项目根开始，可以缩小到某个子目录。</li><li><code>git_tool</code>：只读——看分支与工作区状态、最近提交、变更统计、分支与远程列表。它不会替你做提交、推送这类写操作，那些命令由模型在终端里执行，同样受审批约束。</li><li><code>web_search</code>：免 Key 联网搜索，双引擎并发合并去重，取实时信息。</li><li><code>web_fetch</code>：抓取指定网页的标题、描述与正文，支持需要 JS 渲染的页面与 PDF。</li></ul>
+<h2 id="工具怎么被调用"><a class="anchor" href="#工具怎么被调用" aria-hidden="true">#</a>工具怎么被调用</h2>
+<ul><li><strong>模型自主调用</strong>：你直接描述需求（"把这份数据做成图表"），模型自己决定用哪个工具，不需要点名。</li><li><strong>对话里能看到</strong>：每笔调用都会变成一张工具卡，显示工具名、关键参数与执行状态，结果可展开查看。</li><li><strong>高危命令要审批</strong>：命令与联网访问都过审批门。审批档位有手动审批 / 自动审批 / 完全访问 / 夜间模式四档，本场可随时切换；完全访问把命令与联网的门关掉，但 AI 缺条件时照旧弹选择题问你一句；夜间模式再往前一步，全托管——命令、联网与模型的反问都不弹窗口。灾难级命令在任何档位下都无条件拦截。规则见 <a href="./19-settings.html">设置与安全审批</a>。</li><li><strong>没做成会说实话</strong>：某项能力跑不动时（比如运行环境缺了依赖），工具卡显示的是失败，模型收到的也是一句失败说明——它会告诉你缺什么、需要你自己去装，不会把没生成的文件说成已经生成好了。安装依赖这件事由你在终端里做，模型不会代你去装东西。</li><li><strong>后台任务有独立面板</strong>：正在跑的后台终端任务列在右栏任务中心，可以直接查看与停止。</li></ul>
+<h2 id="工具的开关"><a class="anchor" href="#工具的开关" aria-hidden="true">#</a>工具的开关</h2>
+<p>「设置 → AI 辅助功能」是对话以外所有耗 Token 功能的开关。其中三项属于工具类：</p>
+<ul><li>子代理并行（<code>subagent_run</code>）</li><li>AI 图片生成</li><li>AI 视频生成</li></ul>
+<p>关掉这三项中的任何一项，对应工具会<strong>从工具目录里消失</strong>——模型看不到它，也就不会调用它。图片与视频生成还需要在「图片生成」「视频生成」区块单独配置模型与 API Key。</p>
+<h2 id="自定义-skill"><a class="anchor" href="#自定义-skill" aria-hidden="true">#</a>自定义 Skill</h2>
+<p><code>SKILL.md</code> 即插即用。入口是顶栏「扩展」→「技能」栏，这一栏只放技能；内置工具在旁边的「工具」栏，只读不可删除。</p>
+<p>一份 Skill 的写法：</p>
+<ul><li>一个目录里放一个 <code>SKILL.md</code>，目录名就是技能名。</li><li>文件里写清这份技能的用途（<code>description:</code> 一行）与要遵循的步骤、约定、注意事项。</li><li>除了 <code>SKILL.md</code>，同一个目录里可以再放它需要的参考文档。</li></ul>
+<p>添加与删除：</p>
+<ul><li>「新建技能」上传文件创建，「导入技能」从本地路径导入（给包含 <code>SKILL.md</code> 的目录，或单个 <code>.md</code> 文件）。</li><li>「GitHub」从仓库导入，「发现插件」扫描本机已安装的 Codex / Claude 标准插件目录。</li><li>技能可以删除，删除后模型与 <code>@</code> 提及都不再看到它；内置工具不受影响。</li></ul>
+<h2 id="接入外部-mcp-服务器"><a class="anchor" href="#接入外部-mcp-服务器" aria-hidden="true">#</a>接入外部 MCP 服务器</h2>
+<p>在顶栏「扩展」→「MCP」栏里点「＋ 添加 MCP Server」，填名称与地址即可接入外部 MCP 工具。列表会显示连接状态、它提供的工具数量与工具名，并提供连接、断开、删除。</p>
+<p>接入后，它的工具会出现在工具目录与 <code>@</code> 提及候选里，模型可以像用内置工具一样调用。</p>
+<p><strong>项目级覆盖</strong>：打开一个项目后，列表里每台服务器会多出一个项目按钮，可以「在本项目停用」「在本项目单独启用」「摘掉本项目掩码」，也可以只放行其中几个工具。这类覆盖只影响当前项目，别的项目照旧；服务器的地址与密钥始终留在全局配置里，不会写进你的项目目录。详见 <a href="./14-projects.html">项目、工作区与分项目配置</a>。</p>
+<div class="callout callout-tip"><div class="callout-head"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.2"/><path d="M10 13.4V9M10 6.6v.6"/><path d="M7.6 12.4h4.8"/></svg><span>在输入框里点名</span></div><div class="callout-body"><p>想明确指定用哪个工具或技能，直接在输入框输入 <code>@</code> 从候选里挑，发送时会把它的定义注入这一条消息。<code>@</code> 的候选范围与用法见 <a href="./05-chat.html">对话与消息</a>。</p></div></div>
+<h2 id="自进化工具工具工厂"><a class="anchor" href="#自进化工具工具工厂" aria-hidden="true">#</a>自进化工具（工具工厂）</h2>
+<p><code>mcp_factory</code> 让 SLATE 把自己缺的工具写出来给自己用。产物一律落在用户数据区 <code>data/evolved/</code>，一个工具两份文件：<code>&lt;name&gt;.py</code> 是生成的代码，<code>&lt;name&gt;.json</code> 是说明与参数清单。</p>
+<ul><li><strong>为什么不写进 <code>backend/skills/</code></strong>：那是程序自己的源码树——一次升级就把攒下的自产工具整个冲掉，而且程序不该在运行时改自己。<code>data/</code> 升级覆盖不到，重启后清单照读。</li><li><strong>旧产物会自动搬过来</strong>：历史版本写进源码目录的生成物，启动时复制进 <code>data/evolved/</code>（只复制，不删程序自己目录里的文件）。</li><li><strong>管理入口</strong>：顶栏「扩展」→「新功能」栏。每条都写明当前状态：正常 / 已停用 / 代码有问题（带语法错误行号）/ 与内置工具同名（已由内置接管）。</li><li><strong>停用是整条摘掉</strong>，从模型的工具体系里消失，不是「调用时再报错」；随时可以再启用。</li><li><strong>覆盖、撤销、回滚都先留底</strong>到 <code>data/evolved/.history/</code>（每个工具最多 5 版）。条目弹窗里的「历史版本」可查看任一版原文并回滚；回滚本身也是写，编译不过的旧版本不许盖回去。</li><li><strong>语法不过的生成代码根本不落盘</strong>：工厂只做编译自检，绝不替你执行一次；与内置工具同名的创建请求当场拒绝。</li><li><strong>同名冲突时内置优先</strong>：升级若带来了同名内置工具，那份自产代码会被顶掉并在栏里标出来——看得见、随时撤得掉，不必跟新版较劲。</li></ul>
+<div class="callout callout-warning"><div class="callout-head"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 3.4 17.4 16.6H2.6Z"/><path d="M10 8.2v3.4M10 14v.1"/></svg><span>这些工具是你自己长出来的</span></div><div class="callout-body"><p>自产工具由模型编写，能力与副作用不随内置工具的审计走。用之前可以在「新功能」栏里点开看代码；不放心就停用，或者撤销——留底还在，随时回滚。</p></div></div></article>
+      <nav class="pager" aria-label="翻页"><a class="prev" href="./07-grind.html"><span class="dir">上一篇</span><span class="ttl">磨墨模式</span></a><a class="next" href="./09-actions.html"><span class="dir">下一篇</span><span class="ttl">Actions 流程说明书</span></a></nav>
+      <footer class="site-footer">
+        <span>SLATE（砚）· 本地 AI 协作调度台</span>
+        <span>
+          <a href="https://slate-ai.site/" target="_blank" rel="noopener">官网</a> ·
+          <a href="https://slate-ai.site/guide.html" target="_blank" rel="noopener">使用教程</a> ·
+          <a href="https://github.com/CaryWang1234/SLATE" target="_blank" rel="noopener">GitHub</a>
+        </span>
+        <span>MIT License · 文档随产品演进</span>
+      </footer>
+    </div>
+  </main>
+
+  <aside class="toc" data-toc aria-label="本页目录"><div class="toc-title">本页目录</div><ul class="toc-list"><li class="lv2"><a href="#两类能力先分清">两类能力先分清</a></li><li class="lv2"><a href="#在哪管理扩展页">在哪管理：「扩展」页</a></li><li class="lv2"><a href="#内置工具总览">内置工具总览</a></li><li class="lv2"><a href="#重点工具">重点工具</a></li><li class="lv3"><a href="#file_edit改动先给你看">file_edit：改动先给你看</a></li><li class="lv3"><a href="#terminal受限沙箱里跑命令">terminal：受限沙箱里跑命令</a></li><li class="lv3"><a href="#bg_task后台终端任务的三层唤醒">bg_task：后台终端任务的三层唤醒</a></li><li class="lv3"><a href="#搜索git-与联网">搜索、Git 与联网</a></li><li class="lv2"><a href="#工具怎么被调用">工具怎么被调用</a></li><li class="lv2"><a href="#工具的开关">工具的开关</a></li><li class="lv2"><a href="#自定义-skill">自定义 Skill</a></li><li class="lv2"><a href="#接入外部-mcp-服务器">接入外部 MCP 服务器</a></li><li class="lv2"><a href="#自进化工具工具工厂">自进化工具（工具工厂）</a></li></ul></aside>
+</div>
+
+<div class="search-overlay" data-search-overlay hidden>
+  <div class="search-panel" role="dialog" aria-modal="true" aria-label="搜索文档">
+    <div class="search-field">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="5.5"/><path d="M13.2 13.2 17 17"/></svg>
+      <input type="search" placeholder="搜索文档…" data-search-input autocomplete="off" spellcheck="false">
+      <kbd>Esc</kbd>
+    </div>
+    <div class="search-results" data-search-results></div>
+    <div class="search-hint"><span>↑ ↓ 选择</span><span>Enter 打开</span><span>Esc 关闭</span></div>
+  </div>
+</div>
+
+<script src="./assets/search-index.js"></script>
+<script src="./assets/docs.js"></script>
+</body>
+</html>

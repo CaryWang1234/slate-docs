@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>白板式逻辑链 · SLATE 文档</title>
+<meta name="description" content="卡片加连线，把思路、依赖与运行现场摆在一屏">
+<link rel="icon" href="./assets/icon.png">
+<script>
+  try {
+    var saved = localStorage.getItem('slate-docs-theme');
+    if (saved) document.documentElement.setAttribute('data-theme', saved);
+  } catch (e) {}
+</script>
+<link rel="stylesheet" href="./assets/docs.css">
+</head>
+<body data-page="12-whiteboard">
+
+<a class="skip-link" href="#main">跳到正文</a>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <button class="icon-btn menu-btn" type="button" data-menu aria-label="打开导航" aria-expanded="false">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 5h14M3 10h14M3 15h14"/></svg>
+    </button>
+
+    <a class="brand" href="./index.html">
+      <img class="brand-logo" src="./assets/icon.png" alt="">
+      <span class="brand-name">SLATE</span>
+      <span class="brand-sub">文档</span>
+    </a>
+
+    <button class="search-trigger" type="button" data-search-open>
+      <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="5.5"/><path d="M13.2 13.2 17 17"/></svg>
+      <span>搜索文档</span>
+      <kbd>Ctrl K</kbd>
+    </button>
+
+    <nav class="topbar-links">
+      <a href="https://slate-ai.site/" target="_blank" rel="noopener">官网</a>
+      <a href="https://slate-ai.site/guide.html" target="_blank" rel="noopener">使用教程</a>
+      <a href="https://github.com/CaryWang1234/SLATE" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+
+    <button class="icon-btn theme-btn" type="button" data-theme-toggle aria-label="切换明暗主题">
+      <svg class="ico-moon" viewBox="0 0 20 20" aria-hidden="true"><path d="M16 12.3A6.6 6.6 0 0 1 7.7 4a6.8 6.8 0 1 0 8.3 8.3Z"/></svg>
+      <svg class="ico-sun" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="3.6"/><path d="M10 2v2.2M10 15.8V18M2 10h2.2M15.8 10H18M4.3 4.3l1.6 1.6M14.1 14.1l1.6 1.6M15.7 4.3l-1.6 1.6M5.9 14.1l-1.6 1.6"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="shell">
+  <div class="scrim" data-scrim hidden></div>
+
+  <aside class="sidebar" data-sidebar aria-label="文档导航">
+    <nav class="sidebar-nav"><div class="nav-group"><div class="nav-group-title">开始使用</div><ul class="nav-list"><li><a class="nav-link" href="./01-what-is-slate.html">认识 SLATE</a></li><li><a class="nav-link" href="./02-install.html">安装与启动</a></li><li><a class="nav-link" href="./03-interface.html">界面总览：页签与三栏工作区</a></li><li><a class="nav-link" href="./04-models.html">模型接入与 API Key</a></li></ul></div><div class="nav-group"><div class="nav-group-title">对话与自动化</div><ul class="nav-list"><li><a class="nav-link" href="./05-chat.html">对话与消息</a></li><li><a class="nav-link" href="./06-autopilot.html">Agent Autopilot 与目标模式</a></li><li><a class="nav-link" href="./07-grind.html">磨墨模式</a></li><li><a class="nav-link" href="./08-tools-skills.html">内置工具与技能</a></li><li><a class="nav-link" href="./09-actions.html">Actions 流程说明书</a></li><li><a class="nav-link" href="./10-experts.html">专家包</a></li></ul></div><div class="nav-group"><div class="nav-group-title">协作与推演</div><ul class="nav-list"><li><a class="nav-link" href="./11-team.html">AI 团队与工作流</a></li><li><a class="nav-link active" href="./12-whiteboard.html">白板式逻辑链</a></li><li><a class="nav-link" href="./13-memory-knowledge.html">记忆、画像与知识库</a></li></ul></div><div class="nav-group"><div class="nav-group-title">项目与数据</div><ul class="nav-list"><li><a class="nav-link" href="./14-projects.html">项目、工作区与分项目配置</a></li><li><a class="nav-link" href="./15-prompt-factory.html">提示词工厂</a></li><li><a class="nav-link" href="./16-schedule.html">任务清单与定时任务</a></li><li><a class="nav-link" href="./17-data.html">数据、备份与存储</a></li></ul></div><div class="nav-group"><div class="nav-group-title">移动与安全</div><ul class="nav-list"><li><a class="nav-link" href="./18-mobile.html">移动端遥控与局域网访问</a></li><li><a class="nav-link" href="./19-settings.html">设置与安全审批</a></li></ul></div><div class="nav-group"><div class="nav-group-title">常见问题</div><ul class="nav-list"><li><a class="nav-link" href="./20-faq.html">常见问题</a></li></ul></div></nav>
+  </aside>
+
+  <main class="main" id="main">
+    <div class="main-inner">
+      <nav class="breadcrumbs" aria-label="面包屑"><a href="./index.html">文档</a><span class="sep">/</span><span>协作与推演</span><span class="sep">/</span><span class="current">白板式逻辑链</span></nav>
+      <article class="prose"><h1 class="doc-title" id="top">白板式逻辑链</h1>
+<p>想不清楚的时候，把东西摆出来看。白板让你把灵感、功能与待办写成卡片，用连线标出依赖与数据流；它同时还是这场对话的仪表盘——工具跑到哪一步、这一场怎么控制，都能在同一屏看到。</p>
+<h2 id="白板用来干什么"><a class="anchor" href="#白板用来干什么" aria-hidden="true">#</a>白板用来干什么</h2>
+<p>三件事：</p>
+<ul><li><strong>把想法外化</strong>：想到什么先落成一张卡，不必先排序，之后再连线整理。</li><li><strong>看清依赖</strong>：连线表示「谁依赖谁」「数据从哪流到哪」，箭头方向就是顺序。</li><li><strong>当运行现场</strong>：工具执行会自动留下步骤卡，工作流视图还能就地控制这一场对话怎么跑。</li></ul>
+<p>白板与当前对话是联动的：团队辩论可以读到板上的卡片当背景，你也可以把墨稿投到白板上推演。</p>
+<h2 id="基本操作"><a class="anchor" href="#基本操作" aria-hidden="true">#</a>基本操作</h2>
+<p>顶栏「黑板」进入，默认就是自由画布。</p>
+<ul><li><strong>新建卡片</strong>：顶栏「＋」按钮，或在流程视图里点「根卡」新建一个流程起点。</li><li><strong>移动布局</strong>：直接拖动卡片。顶栏的「自动整理布局」会按连线关系分层排布（快捷键 <code>Ctrl + L</code>）。</li><li><strong>编辑卡片</strong>：双击卡片打开编辑弹窗，可改标题、正文、颜色与连线关系。</li><li><strong>多选</strong>：按住 <code>Shift</code>（或 <code>Ctrl</code> / <code>Cmd</code>）点击可加选与减选，多选后可用 <code>Ctrl + D</code> 复制、<code>Delete</code> 删除。</li><li><strong>连线</strong>：把工具切到「连线」，先点起点卡片再点终点卡片。连线就是依赖与数据流。</li><li><strong>画笔与文字笔记</strong>：工具栏可切到画笔随手画，「文字」模式下在空白处点一下即可写一条笔记。</li><li><strong>收起画笔痕迹</strong>：「撤销笔画」撤销最后一笔，「清除所有笔」一次清空。</li><li><strong>导出与清空</strong>：顶栏可导出整块黑板（卡片、关联、颜色、Mermaid 源码与 JSON）；「清空黑板」会清掉所有卡片，按提示确认后再动手。</li></ul>
+<p>按 <code>Esc</code> 可随时取消选择并切回「选择 / 移动」工具。</p>
+<h2 id="卡片颜色就是它的分类"><a class="anchor" href="#卡片颜色就是它的分类" aria-hidden="true">#</a>卡片颜色就是它的分类</h2>
+<p>颜色不只影响观感，看板视图与 AI 整理都按它分类：</p>
+<div class="table-wrap"><table><thead><tr><th>颜色</th><th>含义</th></tr></thead><tbody><tr><td>默认</td><td>未分类</td></tr><tr><td>红色</td><td>风险</td></tr><tr><td>橙色</td><td>待处理</td></tr><tr><td>黄色</td><td>想法</td></tr><tr><td>绿色</td><td>完成</td></tr><tr><td>蓝色</td><td>信息</td></tr><tr><td>紫色</td><td>创意</td></tr></tbody></table></div>
+<p>拿不准就先放默认，整理的时候再统一染一遍色——看板视图里换列就是换颜色。</p>
+<h2 id="跟对话团队墨稿的联动"><a class="anchor" href="#跟对话团队墨稿的联动" aria-hidden="true">#</a>跟对话、团队、墨稿的联动</h2>
+<p>白板不是一张孤立的图，它和几处能力是通的：</p>
+<ul><li><strong>模型可以直接读写白板</strong>：读取现有卡片、新增卡片、更新标题与正文、改依赖、改颜色，还有批量操作与清空。所以你可以直接说「把这几个想法整理成卡片并连上线」，它会动手摆。</li><li><strong>AI 整理成流程图</strong>：顶栏的整理按钮会把卡片标题、正文、依赖与颜色整体重构一遍，原有卡片 ID 保持不变。它属于「设置 → AI 辅助功能」里的「黑板 AI 整理」，可以单独关掉或指定模型。</li><li><strong>团队辩论会读白板</strong>：发起团队讨论时，当前板上的卡片会作为背景资料交给各成员，让它们围绕你已经写下来的东西讨论，而不是重新猜。</li><li><strong>墨稿可以投过来</strong>：磨墨模式收墨后，点「投到白板推演」就能把任务书铺成卡片继续推演，见 <a href="./07-grind.html">磨墨模式</a>。</li></ul>
+<h2 id="mermaid-实时渲染"><a class="anchor" href="#mermaid-实时渲染" aria-hidden="true">#</a>Mermaid 实时渲染</h2>
+<p>卡片与连线会自动生成一段 Mermaid 图（方向从左到右），并由 Mermaid.js 实时渲染成流程图。顶栏的图表按钮可以显示或隐藏这块渲染区；图随卡片改动即时重画。</p>
+<p>如果渲染失败（例如卡片标题里有特殊字符），面板会就地提示失败原因，不会影响白板本身。</p>
+<h2 id="六种显示模式"><a class="anchor" href="#六种显示模式" aria-hidden="true">#</a>六种显示模式</h2>
+<p>顶栏有五个视图按钮，再加上默认的自由画布，一共六种看法。再点一次当前选中的按钮就回到自由画布。</p>
+<div class="table-wrap"><table><thead><tr><th>模式</th><th>看什么</th><th>什么时候用</th></tr></thead><tbody><tr><td>主黑板（自由画布）</td><td>卡片、连线、画笔、文字笔记</td><td>发散整理，随手摆</td></tr><tr><td>流程</td><td>按依赖层级分阶段列出卡片，每张标出输入与输出条数</td><td>看清先后顺序与合流点</td></tr><tr><td>看板</td><td>按卡片颜色分列，拖进另一列即改分类</td><td>按状态推进一件事</td></tr><tr><td>纲要</td><td>以连线为层级展开的树，可逐层折叠</td><td>长清单、层级结构</td></tr><tr><td>Git 树</td><td>当前打开项目的仓库结构</td><td>摸清分支、提交与工作区状态</td></tr><tr><td>工作流</td><td>控制条 + 流程卡片墙 + 当前运行 + 团队星图</td><td>边跑边看</td></tr></tbody></table></div>
+<p>流程视图与看板视图里都带「排布」按钮，能把当前视图的层级或列顺序同步回画布。纲要视图会把没有连线的卡片单独列在「未连接卡片」下，提醒你还有孤立的想法。</p>
+<h2 id="git-树视图"><a class="anchor" href="#git-树视图" aria-hidden="true">#</a>Git 树视图</h2>
+<p>需要先打开一个项目，Git 树读的就是这个项目仓库的状态。它会识别并画出来：</p>
+<ul><li>仓库本身、HEAD、当前分支、本地分支、远程分支、标签与 remote。</li><li>worktree 列表，以及 stash。</li><li>工作区的三组计数：已暂存、已修改、未跟踪（各带文件数量，没有变更就写「无变更」）。</li><li>未推送的提交，以及最近的提交记录。</li></ul>
+<p>节点位置和整个视野都可以拖动，摆好的位置会记在本机，下次进来还是你摆的样子。没有打开项目时它会直说，而不是画一张空图。</p>
+<h2 id="工具步骤卡自动记录"><a class="anchor" href="#工具步骤卡自动记录" aria-hidden="true">#</a>工具步骤卡自动记录</h2>
+<p>每次工具执行都会自动在画布上生成一张步骤卡，你不必手动记。</p>
+<ul><li>卡片标题形如「步骤 N：&lt;这一步在做什么&gt;」，正文写这一步的参数摘要，跑完后换成结果摘录。</li><li>颜色标状态：<strong>黄色 = 执行中，绿色 = 完成，红色 = 错误</strong>，已取消是默认灰色。</li><li>卡片之间会按调用顺序自动连成一条链。</li><li>状态变化只回写卡片正文与颜色，编号与位置不动，所以正在跑的时候整块板不会乱跳。</li><li>新一轮运行开始时，上一批步骤卡整批清掉，板上只留这一轮的。</li></ul>
+<p>在流程、看板、纲要这三种视图里，步骤卡默认是隐藏的，右上角的「显示工具步骤」可以把它们切出来看。</p>
+<div class="callout callout-note"><div class="callout-head"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.2"/><path d="M10 9v4.6M10 6.6v.1"/></svg><span>步骤卡是被动产生的</span></div><div class="callout-body"><p>它记录的是「这一场实际调用了什么」，不吃 Token，也不占提示词预算。想看工具到底干了什么，看这里最可靠。</p></div></div>
+<h2 id="工作流视图一屏四块"><a class="anchor" href="#工作流视图一屏四块" aria-hidden="true">#</a>工作流视图：一屏四块</h2>
+<p>切到「工作流」模式，这一屏同时是控制台和现场。</p>
+<p><strong>控制条</strong>：停止、继续跑完、自动推进（目标模式开关）、回复模式（内置四档 + 自定义，可选任意一档）、思考强度（自动 / 关 / 低 / 中 / 高）。可选档位按当前模型的能力给出，上游不认的档位不会出现。这些控件不另存一份状态——它们写的就是聊天框顶部那套状态，两处永远不会不一致。旁边还有「去团队」按钮，直接跳到团队模式。</p>
+<p><strong>流程卡片墙</strong>：每一份 Action 流程说明书一张卡，卡面写着共几步、几项输入、谁写的（你写的 / 模型写的）、产出落到哪，以及标签。「跑这条」以 @提及 的方式把它发进当前对话，「看步骤」就地展开步骤清单，「置顶」把常用的排在前面（配合「只看置顶」把卡片墙收窄）。说明书解析失败时，这里会给出提示。写说明书的方法见 <a href="./09-actions.html">Actions 流程说明书</a>。</p>
+<p><strong>当前运行</strong>：直接从运行记录投影出来——哪一步在跑、跑了多久、成没成。没有记录时它会说明白：本场还没有运行记录、或者本轮还在思考尚未调用工具。</p>
+<p><strong>团队星图</strong>：按角色摆出这场对话最近一次团队讨论，谁回应了谁、各自动过哪些工具、派生了哪些子代理，全部取自真实记录。点一位成员可以看它最近的发言序列。这场对话没有团队记录时，它会直说，不会画一张装饰性的图。</p>
+<h2 id="思考过程显示"><a class="anchor" href="#思考过程显示" aria-hidden="true">#</a>思考过程显示</h2>
+<p>模型在动手前的推理与思考过程会实时显示在一个可折叠面板里，思考完成后自动折叠，点标题栏可以再展开回看。它单独成一块，不会混进正式回答里。</p>
+<div class="callout callout-tip"><div class="callout-head"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.2"/><path d="M10 13.4V9M10 6.6v.6"/><path d="M7.6 12.4h4.8"/></svg><span>白板内容会留在本机</span></div><div class="callout-body"><p>卡片、文字笔记、画笔笔画、Git 节点位置以及工作流视图的置顶偏好，都保存在你这台机器上，刷新与重启之后还在。它们不随对话走，也不会被别的项目覆盖。</p></div></div></article>
+      <nav class="pager" aria-label="翻页"><a class="prev" href="./11-team.html"><span class="dir">上一篇</span><span class="ttl">AI 团队与工作流</span></a><a class="next" href="./13-memory-knowledge.html"><span class="dir">下一篇</span><span class="ttl">记忆、画像与知识库</span></a></nav>
+      <footer class="site-footer">
+        <span>SLATE（砚）· 本地 AI 协作调度台</span>
+        <span>
+          <a href="https://slate-ai.site/" target="_blank" rel="noopener">官网</a> ·
+          <a href="https://slate-ai.site/guide.html" target="_blank" rel="noopener">使用教程</a> ·
+          <a href="https://github.com/CaryWang1234/SLATE" target="_blank" rel="noopener">GitHub</a>
+        </span>
+        <span>MIT License · 文档随产品演进</span>
+      </footer>
+    </div>
+  </main>
+
+  <aside class="toc" data-toc aria-label="本页目录"><div class="toc-title">本页目录</div><ul class="toc-list"><li class="lv2"><a href="#白板用来干什么">白板用来干什么</a></li><li class="lv2"><a href="#基本操作">基本操作</a></li><li class="lv2"><a href="#卡片颜色就是它的分类">卡片颜色就是它的分类</a></li><li class="lv2"><a href="#跟对话团队墨稿的联动">跟对话、团队、墨稿的联动</a></li><li class="lv2"><a href="#mermaid-实时渲染">Mermaid 实时渲染</a></li><li class="lv2"><a href="#六种显示模式">六种显示模式</a></li><li class="lv2"><a href="#git-树视图">Git 树视图</a></li><li class="lv2"><a href="#工具步骤卡自动记录">工具步骤卡自动记录</a></li><li class="lv2"><a href="#工作流视图一屏四块">工作流视图：一屏四块</a></li><li class="lv2"><a href="#思考过程显示">思考过程显示</a></li></ul></aside>
+</div>
+
+<div class="search-overlay" data-search-overlay hidden>
+  <div class="search-panel" role="dialog" aria-modal="true" aria-label="搜索文档">
+    <div class="search-field">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="5.5"/><path d="M13.2 13.2 17 17"/></svg>
+      <input type="search" placeholder="搜索文档…" data-search-input autocomplete="off" spellcheck="false">
+      <kbd>Esc</kbd>
+    </div>
+    <div class="search-results" data-search-results></div>
+    <div class="search-hint"><span>↑ ↓ 选择</span><span>Enter 打开</span><span>Esc 关闭</span></div>
+  </div>
+</div>
+
+<script src="./assets/search-index.js"></script>
+<script src="./assets/docs.js"></script>
+</body>
+</html>

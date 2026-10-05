@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Actions 流程说明书 · SLATE 文档</title>
+<meta name="description" content="把重复流程写成说明书，让模型照着推进">
+<link rel="icon" href="./assets/icon.png">
+<script>
+  try {
+    var saved = localStorage.getItem('slate-docs-theme');
+    if (saved) document.documentElement.setAttribute('data-theme', saved);
+  } catch (e) {}
+</script>
+<link rel="stylesheet" href="./assets/docs.css">
+</head>
+<body data-page="09-actions">
+
+<a class="skip-link" href="#main">跳到正文</a>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <button class="icon-btn menu-btn" type="button" data-menu aria-label="打开导航" aria-expanded="false">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 5h14M3 10h14M3 15h14"/></svg>
+    </button>
+
+    <a class="brand" href="./index.html">
+      <img class="brand-logo" src="./assets/icon.png" alt="">
+      <span class="brand-name">SLATE</span>
+      <span class="brand-sub">文档</span>
+    </a>
+
+    <button class="search-trigger" type="button" data-search-open>
+      <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="5.5"/><path d="M13.2 13.2 17 17"/></svg>
+      <span>搜索文档</span>
+      <kbd>Ctrl K</kbd>
+    </button>
+
+    <nav class="topbar-links">
+      <a href="https://slate-ai.site/" target="_blank" rel="noopener">官网</a>
+      <a href="https://slate-ai.site/guide.html" target="_blank" rel="noopener">使用教程</a>
+      <a href="https://github.com/CaryWang1234/SLATE" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+
+    <button class="icon-btn theme-btn" type="button" data-theme-toggle aria-label="切换明暗主题">
+      <svg class="ico-moon" viewBox="0 0 20 20" aria-hidden="true"><path d="M16 12.3A6.6 6.6 0 0 1 7.7 4a6.8 6.8 0 1 0 8.3 8.3Z"/></svg>
+      <svg class="ico-sun" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="3.6"/><path d="M10 2v2.2M10 15.8V18M2 10h2.2M15.8 10H18M4.3 4.3l1.6 1.6M14.1 14.1l1.6 1.6M15.7 4.3l-1.6 1.6M5.9 14.1l-1.6 1.6"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="shell">
+  <div class="scrim" data-scrim hidden></div>
+
+  <aside class="sidebar" data-sidebar aria-label="文档导航">
+    <nav class="sidebar-nav"><div class="nav-group"><div class="nav-group-title">开始使用</div><ul class="nav-list"><li><a class="nav-link" href="./01-what-is-slate.html">认识 SLATE</a></li><li><a class="nav-link" href="./02-install.html">安装与启动</a></li><li><a class="nav-link" href="./03-interface.html">界面总览：页签与三栏工作区</a></li><li><a class="nav-link" href="./04-models.html">模型接入与 API Key</a></li></ul></div><div class="nav-group"><div class="nav-group-title">对话与自动化</div><ul class="nav-list"><li><a class="nav-link" href="./05-chat.html">对话与消息</a></li><li><a class="nav-link" href="./06-autopilot.html">Agent Autopilot 与目标模式</a></li><li><a class="nav-link" href="./07-grind.html">磨墨模式</a></li><li><a class="nav-link" href="./08-tools-skills.html">内置工具与技能</a></li><li><a class="nav-link active" href="./09-actions.html">Actions 流程说明书</a></li><li><a class="nav-link" href="./10-experts.html">专家包</a></li></ul></div><div class="nav-group"><div class="nav-group-title">协作与推演</div><ul class="nav-list"><li><a class="nav-link" href="./11-team.html">AI 团队与工作流</a></li><li><a class="nav-link" href="./12-whiteboard.html">白板式逻辑链</a></li><li><a class="nav-link" href="./13-memory-knowledge.html">记忆、画像与知识库</a></li></ul></div><div class="nav-group"><div class="nav-group-title">项目与数据</div><ul class="nav-list"><li><a class="nav-link" href="./14-projects.html">项目、工作区与分项目配置</a></li><li><a class="nav-link" href="./15-prompt-factory.html">提示词工厂</a></li><li><a class="nav-link" href="./16-schedule.html">任务清单与定时任务</a></li><li><a class="nav-link" href="./17-data.html">数据、备份与存储</a></li></ul></div><div class="nav-group"><div class="nav-group-title">移动与安全</div><ul class="nav-list"><li><a class="nav-link" href="./18-mobile.html">移动端遥控与局域网访问</a></li><li><a class="nav-link" href="./19-settings.html">设置与安全审批</a></li></ul></div><div class="nav-group"><div class="nav-group-title">常见问题</div><ul class="nav-list"><li><a class="nav-link" href="./20-faq.html">常见问题</a></li></ul></div></nav>
+  </aside>
+
+  <main class="main" id="main">
+    <div class="main-inner">
+      <nav class="breadcrumbs" aria-label="面包屑"><a href="./index.html">文档</a><span class="sep">/</span><span>对话与自动化</span><span class="sep">/</span><span class="current">Actions 流程说明书</span></nav>
+      <article class="prose"><h1 class="doc-title" id="top">Actions 流程说明书</h1>
+<p>同一件事干到第二遍，你又要重申顺序、口径和踩过的坑。Actions 就是治这个的：把「干某件事的必要流程」提前写成一份说明书，模型在需要时自己去读、照着推进，你不必每次都交代一遍。</p>
+<h2 id="actions-是什么"><a class="anchor" href="#actions-是什么" aria-hidden="true">#</a>Actions 是什么</h2>
+<p>一份 Action 就是一份流程说明书。它写清三件事：这件事什么时候该做、要按什么顺序做、做成什么样算过关。</p>
+<p>写好之后，模型在智能体态下会先看到一份 Action 目录（每条只有 id、名称、一句话描述与适用时机），判断这次任务跟某份说明书吻合时，再读全文、按步骤实际执行。流程由你定义，模型只负责照做。</p>
+<h2 id="跟-skill-的区别"><a class="anchor" href="#跟-skill-的区别" aria-hidden="true">#</a>跟 Skill 的区别</h2>
+<p>两者都放在本机数据目录里、都在同一处管理，但回答的是不同的问题。</p>
+<div class="table-wrap"><table><thead><tr><th>对比项</th><th>Action 流程说明书</th><th>Skill 技能</th></tr></thead><tbody><tr><td>本质</td><td>可执行的步骤约定</td><td>知识与角色</td></tr><tr><td>回答的问题</td><td>这件事该按什么顺序做</td><td>这类事该怎么做、以什么身份做</td></tr><tr><td>内容形态</td><td>有序步骤，每步可注明建议工具与验收点</td><td>一篇说明文档 <code>SKILL.md</code></td></tr><tr><td>怎么用</td><td>模型检索目录 → 读全文 → 按步骤实际执行</td><td>写进 Skill 后，聊天中 <code>@</code> 提及即注入上下文</td></tr><tr><td>上限</td><td>遵循严格的书写格式，写坏会报出行号</td><td>文档形式，写法自由</td></tr></tbody></table></div>
+<p>一句话：Skill 让模型「懂」，Action 让模型「按你的顺序动手」。两者可以同时用。内置工具与技能的完整清单见 <a href="./08-tools-skills.html">内置工具与技能</a>。</p>
+<h2 id="文件放在哪"><a class="anchor" href="#文件放在哪" aria-hidden="true">#</a>文件放在哪</h2>
+<p>一份流程一个文件，文件名去掉 <code>.yml</code> 就是它的 id（例如 <code>weekly_report.yml</code> 的 id 是 <code>weekly_report</code>）。id 只允许小写字母开头的 <code>a-z0-9_-</code>，最长 48 个字符，不必在文件里再写一遍。</p>
+<ul><li>全局那份：本机所有项目共用。</li><li>项目那份：放进当前项目的 <code>.slate/actions/</code> 里，同名时顶掉全局那份。</li></ul>
+<p>不确定放哪就先放全局，需要时再在项目里覆盖一份。</p>
+<h2 id="字段怎么写"><a class="anchor" href="#字段怎么写" aria-hidden="true">#</a>字段怎么写</h2>
+<p>一份说明书由下面几个字段组成，都是给人写、给模型读的：</p>
+<div class="table-wrap"><table><thead><tr><th>字段</th><th>写什么</th><th>模型靠它判断什么</th></tr></thead><tbody><tr><td><code>name</code></td><td>流程名，不超过 40 字</td><td>目录里认人</td></tr><tr><td><code>description</code></td><td>一句话说明，不超过 120 字</td><td>这份说明书值不值得点开读全文</td></tr><tr><td><code>when</code></td><td>什么时候该套用，不超过 200 字</td><td>这次请求要不要按这份流程走</td></tr><tr><td><code>inputs</code></td><td>开工前要向你拿的输入项，最多 8 项</td><td>先问你什么，再往下做</td></tr><tr><td><code>steps</code></td><td>步骤清单，1 到 24 步</td><td>按什么顺序做、该调哪个工具、怎么算过关</td></tr><tr><td><code>output</code></td><td>产出要求：格式与落点</td><td>最终交付成什么、放到哪</td></tr><tr><td><code>tags</code></td><td>标签，最多 8 个，单个不超过 24 字</td><td>检索时匹配关键词</td></tr></tbody></table></div>
+<p><code>inputs</code> 每一项可以写：</p>
+<div class="table-wrap"><table><thead><tr><th>键</th><th>说明</th></tr></thead><tbody><tr><td><code>key</code></td><td>输入项的名字，小写字母开头，只能用 <code>a-z0-9_</code></td></tr><tr><td><code>label</code></td><td>展示给人看的名称，不写就用 <code>key</code></td></tr><tr><td><code>type</code></td><td><code>text</code> / <code>number</code> / <code>textarea</code> / <code>select</code> 之一，不写按 <code>text</code></td></tr><tr><td><code>required</code></td><td>只能写 <code>true</code> 或 <code>false</code></td></tr><tr><td><code>options</code></td><td>仅 <code>select</code> 需要，最多 20 项</td></tr></tbody></table></div>
+<p><code>steps</code> 每一步可以写：</p>
+<div class="table-wrap"><table><thead><tr><th>键</th><th>说明</th><th></th></tr></thead><tbody><tr><td><code>title</code></td><td>这一步做什么，必填，不超过 60 字</td><td></td></tr><tr><td><code>tool</code></td><td>建议使用的工具名，例如 <code>git_tool</code>、<code>doc_write</code></td><td></td></tr><tr><td><code>detail</code></td><td>这一步的具体要求，多行正文用 `</td><td>` 字面量块</td></tr><tr><td><code>check</code></td><td>这一步的验收点，不超过 200 字</td><td></td></tr></tbody></table></div>
+<p><code>output</code> 里，<code>format</code> 写产出的文件或正文格式；<code>destination</code> 只能写 <code>message</code>（留在对话里）、<code>file</code>（写文件）或 <code>board</code>（回白板）；写 <code>file</code> 时必须同时给 <code>path</code>。</p>
+<h2 id="一份最小的可抄示例"><a class="anchor" href="#一份最小的可抄示例" aria-hidden="true">#</a>一份最小的可抄示例</h2>
+<div class="code-block"><div class="code-head"><span class="code-lang">yaml</span><button class="code-copy" type="button" data-copy>复制</button></div><pre><code class="language-yaml">name: 周报整理
+description: 把这一周的提交与进展整理成一份周报
+when: 用户要求写周报、整理本周进展时
+inputs:
+  - key: scope
+    label: 统计范围
+    type: text
+    required: true
+steps:
+  - title: 收集素材
+    tool: git_tool
+    detail: |
+      读取本周的提交记录与变更统计，按模块归类。
+    check: 每个模块都有对应的提交出处
+  - title: 起草周报
+    detail: 按「本周进展 / 风险 / 下周计划」三段起草，每段不超过五条。
+  - title: 落盘
+    detail: 写入 docs/weekly/ 目录，文件名带本周日期。
+output:
+  format: markdown
+  destination: file
+  path: docs/weekly/weekly.md
+tags:
+  - 周报</code></pre></div>
+<p>把这份文件存成 <code>weekly_report.yml</code>，它就会出现在 Action 目录里。</p>
+<h2 id="书写格式的硬约束"><a class="anchor" href="#书写格式的硬约束" aria-hidden="true">#</a>书写格式的硬约束</h2>
+<p>Action 用的是一套精简的 YAML 子集，只支持你真正需要的写法。超出范围的写法不会被「猜着解释」，而是直接拒收并告诉你出在第几行。</p>
+<ul><li>缩进固定 2 个空格，最多嵌套两层。禁止 Tab 缩进。</li><li>数组用块式写法：每行一个 <code>- </code>，同一层的 <code>-</code> 必须对齐。</li><li>多行正文用 <code>|</code> 或 <code>|-</code> 字面量块，块内缩进要一致。</li><li>布尔值只认 <code>true</code> / <code>false</code>。</li><li>不接受锚点与别名（<code>&amp;</code>、<code>*</code>）、多文档分隔符（<code>---</code>）、折叠标量（<code>&gt;</code>）、流式写法（<code>[]</code>、<code>{}</code>）与未闭合的引号。</li><li>单份文件上限 64 KB；所有 <code>detail</code> 正文合计不超过 20000 字。</li></ul>
+<p>校验报错的形式是「第 N 行：原因」，改了再存即可。</p>
+<div class="callout callout-warning"><div class="callout-head"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 3.4 17.4 16.6H2.6Z"/><path d="M10 8.2v3.4M10 14v.1"/></svg><span>别把密钥写进说明书</span></div><div class="callout-body"><p>Action 的内容会长期进入模型的系统提示，等于把 Key 直接摆给模型看。需要凭据时，写「引用某个环境变量或文件位置」，不要写明文。面板会对疑似凭证给出提醒，但不会替你拦下。</p></div></div>
+<h2 id="模型怎么用它"><a class="anchor" href="#模型怎么用它" aria-hidden="true">#</a>模型怎么用它</h2>
+<p>在智能体态下，模型会先拿到一份 Action 目录，最多列 20 条；超出的部分只报数量，并告诉它用 Action 检索去看全部。它的典型动作是三步：检索 → 读全文 → 按步骤执行。在对话态下没有工具可用，整份目录都不会注入。</p>
+<p>需要强调的一点：<strong>读到流程不等于做过流程</strong>。步骤里标了建议工具的，模型仍要真的调用工具完成；它不会因为「读过这份文件」就宣称已经做完了。</p>
+<h2 id="手动把流程发进对话"><a class="anchor" href="#手动把流程发进对话" aria-hidden="true">#</a>手动把流程发进对话</h2>
+<p>不想等模型自己检索，你也可以直接点名：</p>
+<ul><li>在输入框输入 <code>@</code>，从候选里选一份 Action，整份流程会注入这条消息。</li><li>注入有 6000 字上限，超出的部分会被截断，并提示模型用读取工具取全。</li><li>提及用的是 id（文件名），中文名与标签只作为搜索别名。</li></ul>
+<p>适合的场景是：你已经知道该用哪份流程，只想让它这一次严格照做。</p>
+<h2 id="在白板上跑这条"><a class="anchor" href="#在白板上跑这条" aria-hidden="true">#</a>在白板上跑这条</h2>
+<p>打开黑板 →「工作流」显示模式，每一份 Action 都会成为卡片墙上的一张卡，卡面写着共几步、几项输入、谁写的、产出落到哪。卡上的「跑这条」会以 @提及 的方式把它发进当前对话，「看步骤」可就地展开步骤清单，「置顶」把常用的排在前面。</p>
+<p>工作流视图同时还能看到这次运行走到了哪一步，细节见 <a href="./12-whiteboard.html">白板式逻辑链</a>。</p>
+<h2 id="在设置页编辑"><a class="anchor" href="#在设置页编辑" aria-hidden="true">#</a>在设置页编辑</h2>
+<p>顶栏「扩展」→「Actions」栏，点「＋ 新建 Action」，或点已有条目进编辑器。</p>
+<p>编辑器边写边校验，报错会指出第几行、什么原因；校验没过就保存不了。编辑器顶部会写明你正在改的是哪一份：全局那份，还是某个项目的覆盖版。</p>
+<h2 id="让模型代写"><a class="anchor" href="#让模型代写" aria-hidden="true">#</a>让模型代写</h2>
+<p>你也可以直接让模型把流程写下来——前提是它必须按要求声明 <code>author: model</code>，面板据此给这份文件打上「模型代写」的标记。</p>
+<p>在「询问」权限模式下，写入前会弹窗把原文给你看，你点允许才落盘；切到「自动」或「越权」则不再弹窗。无论哪一档，格式校验都在写入前执行，不合格的内容进不来。</p>
+<div class="callout callout-tip"><div class="callout-head"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.2"/><path d="M10 13.4V9M10 6.6v.6"/><path d="M7.6 12.4h4.8"/></svg><span>最划算的一份 Action</span></div><div class="callout-body"><p>挑「你已经跟模型重复交代过两遍以上」的流程写。写一次，之后每次它自己读、自己照做，省下的是往后每一次的复述。</p></div></div>
+<h2 id="留底与回滚"><a class="anchor" href="#留底与回滚" aria-hidden="true">#</a>留底与回滚</h2>
+<p>每次覆盖或删除之前，SLATE 会先把原文留底，每份最多保留 5 个版本。编辑器里的「历史版本」可以查看任意一版并一键回滚；回滚本身也是一次写入，会先校验再落盘。</p>
+<p>留底跟着落点走：项目那份的历史留在项目自己的目录里，不会与全局那份混在一起。</p>
+<h2 id="分项目覆盖"><a class="anchor" href="#分项目覆盖" aria-hidden="true">#</a>分项目覆盖</h2>
+<p>在打开的某个项目里放一份同 id 的说明书（<code>项目目录/.slate/actions/&lt;id&gt;.yml</code>），它会顶掉全局那份，其他流程照旧可见，不会「一进项目流程就消失」。</p>
+<p>列表里会标出哪一条是「本项目」那份，编辑器也会写明现在改的是哪一份。删掉项目那份，同名流程自动回落到全局那份——这不是把流程整个删了。项目与全局的关系详见 <a href="./14-projects.html">项目、工作区与分项目配置</a>。</p>
+<h2 id="写坏的文件不会凭空消失"><a class="anchor" href="#写坏的文件不会凭空消失" aria-hidden="true">#</a>写坏的文件不会凭空消失</h2>
+<p>改坏一份文件，它不会被静默忽略：设置页的 Actions 列表里会连它一起列出，并附上「第 N 行：原因」；模型那边拿到的工具返回也会告诉它哪几份暂时不可用；工作流视图的卡片墙上则会提示有几份说明书解析失败。看到这类提示，照着行号改回去即可。</p></article>
+      <nav class="pager" aria-label="翻页"><a class="prev" href="./08-tools-skills.html"><span class="dir">上一篇</span><span class="ttl">内置工具与技能</span></a><a class="next" href="./10-experts.html"><span class="dir">下一篇</span><span class="ttl">专家包</span></a></nav>
+      <footer class="site-footer">
+        <span>SLATE（砚）· 本地 AI 协作调度台</span>
+        <span>
+          <a href="https://slate-ai.site/" target="_blank" rel="noopener">官网</a> ·
+          <a href="https://slate-ai.site/guide.html" target="_blank" rel="noopener">使用教程</a> ·
+          <a href="https://github.com/CaryWang1234/SLATE" target="_blank" rel="noopener">GitHub</a>
+        </span>
+        <span>MIT License · 文档随产品演进</span>
+      </footer>
+    </div>
+  </main>
+
+  <aside class="toc" data-toc aria-label="本页目录"><div class="toc-title">本页目录</div><ul class="toc-list"><li class="lv2"><a href="#actions-是什么">Actions 是什么</a></li><li class="lv2"><a href="#跟-skill-的区别">跟 Skill 的区别</a></li><li class="lv2"><a href="#文件放在哪">文件放在哪</a></li><li class="lv2"><a href="#字段怎么写">字段怎么写</a></li><li class="lv2"><a href="#一份最小的可抄示例">一份最小的可抄示例</a></li><li class="lv2"><a href="#书写格式的硬约束">书写格式的硬约束</a></li><li class="lv2"><a href="#模型怎么用它">模型怎么用它</a></li><li class="lv2"><a href="#手动把流程发进对话">手动把流程发进对话</a></li><li class="lv2"><a href="#在白板上跑这条">在白板上跑这条</a></li><li class="lv2"><a href="#在设置页编辑">在设置页编辑</a></li><li class="lv2"><a href="#让模型代写">让模型代写</a></li><li class="lv2"><a href="#留底与回滚">留底与回滚</a></li><li class="lv2"><a href="#分项目覆盖">分项目覆盖</a></li><li class="lv2"><a href="#写坏的文件不会凭空消失">写坏的文件不会凭空消失</a></li></ul></aside>
+</div>
+
+<div class="search-overlay" data-search-overlay hidden>
+  <div class="search-panel" role="dialog" aria-modal="true" aria-label="搜索文档">
+    <div class="search-field">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="5.5"/><path d="M13.2 13.2 17 17"/></svg>
+      <input type="search" placeholder="搜索文档…" data-search-input autocomplete="off" spellcheck="false">
+      <kbd>Esc</kbd>
+    </div>
+    <div class="search-results" data-search-results></div>
+    <div class="search-hint"><span>↑ ↓ 选择</span><span>Enter 打开</span><span>Esc 关闭</span></div>
+  </div>
+</div>
+
+<script src="./assets/search-index.js"></script>
+<script src="./assets/docs.js"></script>
+</body>
+</html>
